@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, Info, Settings, User } from "lucide-react";
+import { Menu, X, Info, Rss, Monitor } from "lucide-react";
 
 interface MobileNavProps {
   className?: string;
@@ -19,27 +19,24 @@ export function MobileNav({ className }: MobileNavProps) {
     <nav className={`bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 ${className}`}>
       <div className="max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Home className="h-5 w-5 text-white" />
+          {/* Logo and Brand */}
+          <div className="flex items-center space-x-3">
+            <div className="h-8 w-8 bg-black rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">OH</span>
             </div>
-            <span className="text-lg font-bold text-slate-900 dark:text-white">OHP</span>
+            <span className="text-lg font-bold text-slate-900 dark:text-white">OnlyHockey!</span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Utility Icons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              <Info className="h-4 w-4 mr-2" />
-              About
+            <Button variant="ghost" size="sm" className="p-2">
+              <Info className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm">
-              <Settings className="h-4 w-4 mr-2" />
-              Settings
+            <Button variant="ghost" size="sm" className="p-2">
+              <Rss className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm">
-              <User className="h-4 w-4 mr-2" />
-              Profile
+            <Button variant="ghost" size="sm" className="p-2">
+              <Monitor className="h-5 w-5" />
             </Button>
           </div>
 
@@ -71,23 +68,23 @@ export function MobileNav({ className }: MobileNavProps) {
                 onClick={() => setIsOpen(false)}
               >
                 <Info className="h-5 w-5 mr-3" />
-                About
+                Information
               </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-start h-12 text-base"
                 onClick={() => setIsOpen(false)}
               >
-                <Settings className="h-5 w-5 mr-3" />
-                Settings
+                <Rss className="h-5 w-5 mr-3" />
+                RSS Feed
               </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-start h-12 text-base"
                 onClick={() => setIsOpen(false)}
               >
-                <User className="h-5 w-5 mr-3" />
-                Profile
+                <Monitor className="h-5 w-5 mr-3" />
+                Desktop View
               </Button>
             </div>
           </div>
