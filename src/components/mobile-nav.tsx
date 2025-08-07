@@ -27,8 +27,8 @@ export function MobileNav({ className }: MobileNavProps) {
             <span className="text-lg font-bold text-slate-900 dark:text-white">OnlyHockey!</span>
           </div>
 
-          {/* Desktop Navigation - Utility Icons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Utility Icons - Visible on all viewports */}
+          <div className="flex items-center space-x-2 md:space-x-4">
             <Button variant="ghost" size="sm" className="p-2">
               <Info className="h-5 w-5" />
             </Button>
@@ -38,54 +38,34 @@ export function MobileNav({ className }: MobileNavProps) {
             <Button variant="ghost" size="sm" className="p-2">
               <Monitor className="h-5 w-5" />
             </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleMenu}
-              className="p-2"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
+            
+            {/* Mobile Menu Button - Only for additional navigation items */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleMenu}
+                className="p-2"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - For additional navigation items if needed */}
         {isOpen && (
           <div className="md:hidden border-t border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-12 text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                <Info className="h-5 w-5 mr-3" />
-                Information
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-12 text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                <Rss className="h-5 w-5 mr-3" />
-                RSS Feed
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start h-12 text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                <Monitor className="h-5 w-5 mr-3" />
-                Desktop View
-              </Button>
+              {/* Additional navigation items can be added here */}
+              <div className="text-sm text-slate-500 dark:text-slate-400 px-3 py-2">
+                Additional menu items can be added here
+              </div>
             </div>
           </div>
         )}
