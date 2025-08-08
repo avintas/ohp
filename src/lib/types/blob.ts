@@ -14,7 +14,7 @@ export interface BlobListResponse {
   hasMore: boolean;
 }
 
-export interface BlobApiResponse<T = unknown> {
+export interface BlobApiResponse<T = any> {
   success: boolean;
   data?: T;
   error?: string;

@@ -20,14 +20,6 @@ interface HeroSectionProps {
 export function HeroSection({ className }: HeroSectionProps) {
   const [imageLoadState, setImageLoadState] = React.useState<'loading' | 'loaded' | 'error'>('loading')
 
-  const handleImageLoad = () => {
-    setImageLoadState('loaded')
-  }
-
-  const handleImageError = () => {
-    setImageLoadState('error')
-  }
-
   return (
     <div className={cn("w-full", className)}>
       {/* Hero Section */}
@@ -84,13 +76,26 @@ export function HeroSectionWithBlob({ className }: HeroSectionProps) {
   const [blobUrl, setBlobUrl] = React.useState<string>("")
   const [imageLoadState, setImageLoadState] = React.useState<'loading' | 'loaded' | 'error'>('loading')
 
-  // Load blob URL - this would be replaced with your actual blob loading logic
+  // Load blob URL using Vercel Blob API
   React.useEffect(() => {
     const loadBlobUrl = async () => {
-      // In a real implementation, you would load the actual blob URL here
-      // For now, we'll use a placeholder URL that matches your blob pattern
-      const url = "https://your-blob-store.public.blob.vercel-storage.com/n8b6u.jpg"
-      setBlobUrl(url)
+      try {
+        // Using the Vercel Blob API to get the image URL
+        // This assumes you have uploaded the image to your blob store
+        const response = await fetch('/api/blob?action=info&url=https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg')
+        const data = await response.json()
+        
+        if (data.success && data.data) {
+          setBlobUrl(data.data.url)
+        } else {
+          // Fallback to direct URL if API fails
+          setBlobUrl("https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg")
+        }
+      } catch (error) {
+        console.error('Failed to load blob URL:', error)
+        // Fallback to direct URL
+        setBlobUrl("https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg")
+      }
     }
 
     loadBlobUrl()
