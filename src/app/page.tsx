@@ -1,4 +1,5 @@
 import { MobileNav } from "@/components/mobile-nav";
+import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
   return (
@@ -8,9 +9,15 @@ export default function Home() {
       
       {/* Mobile-first container - 50% width on desktop, full width on mobile */}
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-        {/* Main Content Area - Completely Blank */}
+        {/* Main Content Area */}
         <main className="px-4 py-8">
-          {/* Empty content area */}
+          {/* Hero Section */}
+          <HeroSection className="mb-8" />
+          
+          {/* Additional content area */}
+          <div className="text-center text-gray-600 dark:text-gray-400">
+            Additional content area
+          </div>
         </main>
       </div>
     </div>
