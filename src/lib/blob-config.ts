@@ -16,7 +16,7 @@ export const BLOB_CONFIG = {
     'application/pdf',
     'text/plain',
     'application/json'
-  ],
+  ] as const,
   
   // File size limits (in bytes)
   MAX_FILE_SIZE: 10 * 1024 * 1024, // 10MB
@@ -40,7 +40,7 @@ export const blobValidation = {
   },
   
   isAllowedFileType(contentType: string): boolean {
-    return BLOB_CONFIG.ALLOWED_FILE_TYPES.includes(contentType);
+    return (BLOB_CONFIG.ALLOWED_FILE_TYPES as readonly string[]).includes(contentType);
   },
   
   isFileSizeValid(size: number): boolean {

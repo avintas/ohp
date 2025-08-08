@@ -21,9 +21,9 @@ export const blobUtils = {
   },
 
   // List blobs in a store
-  async listBlobs(storeId?: string) {
+  async listBlobs() {
     try {
-      const { blobs } = await list({ storeId });
+      const { blobs } = await list();
       return blobs;
     } catch (error) {
       console.error('Error listing blobs:', error);
