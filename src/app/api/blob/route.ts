@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { blobUtils } from '@/lib/blob';
 import { BLOB_CONFIG, blobValidation } from '@/lib/blob-config';
 
-// GET - List blobs or get blob info
+// GET - List blobs or get blob info for display
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -59,45 +59,6 @@ export async function GET(request: NextRequest) {
     }
   } catch (error) {
     console.error('Blob API error:', error);
-    return NextResponse.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500 }
-    );
-  }
-}
-
-// DELETE - Delete a blob
-export async function DELETE(request: NextRequest) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const url = searchParams.get('url');
-
-    if (!url) {
-      return NextResponse.json(
-        { success: false, error: 'URL parameter is required' },
-        { status: 400 }
-      );
-    }
-
-    if (!blobValidation.isValidBlobUrl(url)) {
-      return NextResponse.json(
-        { success: false, error: BLOB_CONFIG.ERRORS.INVALID_URL },
-        { status: 400 }
-      );
-    }
-
-    const deleted = await blobUtils.deleteBlob(url);
-    
-    if (deleted) {
-      return NextResponse.json({ success: true, message: 'Blob deleted successfully' });
-    } else {
-      return NextResponse.json(
-        { success: false, error: 'Failed to delete blob' },
-        { status: 500 }
-      );
-    }
-  } catch (error) {
-    console.error('Blob delete error:', error);
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }

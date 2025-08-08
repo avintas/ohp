@@ -1,6 +1,5 @@
 import { MobileNav } from "@/components/mobile-nav";
-import { HeroSectionWithBlob } from "@/components/hero-section";
-import { BlobUpload } from "@/components/blob-upload";
+import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
   return (
@@ -10,20 +9,12 @@ export default function Home() {
       
       {/* Mobile-first container - 50% width on desktop, full width on mobile */}
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        {/* Hero Section */}
+        <HeroSection />
+        
         {/* Main Content Area */}
         <main className="px-4 py-8">
-          {/* Hero Section */}
-          <HeroSectionWithBlob className="mb-8" />
-          
-          {/* Upload Component for Testing */}
-          <div className="mb-8">
-            <BlobUpload />
-          </div>
-          
-          {/* Additional content area */}
-          <div className="text-center text-gray-600 dark:text-gray-400">
-            Additional content area
-          </div>
+          {/* Additional content can be added here */}
         </main>
       </div>
     </div>

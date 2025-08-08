@@ -1,4 +1,4 @@
-import { put, del, head, list } from '@vercel/blob';
+import { head, list } from '@vercel/blob';
 
 // Vercel Blob configuration
 export const BLOB_READ_WRITE_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
@@ -7,9 +7,9 @@ if (!BLOB_READ_WRITE_TOKEN) {
   throw new Error('BLOB_READ_WRITE_TOKEN environment variable is required');
 }
 
-// Basic Blob utility functions (infrastructure only - no upload implementation)
+// Blob utility functions for display operations only
 export const blobUtils = {
-  // Get blob info by URL
+  // Get blob info by URL for display
   async getBlobInfo(url: string) {
     try {
       const blob = await head(url);
@@ -20,7 +20,7 @@ export const blobUtils = {
     }
   },
 
-  // List blobs in a store
+  // List blobs in a store for display
   async listBlobs(storeId?: string) {
     try {
       const { blobs } = await list({ storeId });
@@ -31,29 +31,18 @@ export const blobUtils = {
     }
   },
 
-  // Delete a blob by URL
-  async deleteBlob(url: string) {
-    try {
-      await del(url);
-      return true;
-    } catch (error) {
-      console.error('Error deleting blob:', error);
-      return false;
-    }
-  },
-
-  // Check if blob exists
+  // Check if blob exists for display
   async blobExists(url: string) {
     try {
       await head(url);
       return true;
-    } catch (error) {
+    } catch {
       return false;
     }
   }
 };
 
-// Type definitions for Blob operations
+// Type definitions for Blob display operations
 export interface BlobInfo {
   url: string;
   pathname: string;

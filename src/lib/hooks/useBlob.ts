@@ -14,10 +14,9 @@ interface UseBlobReturn {
   loading: boolean;
   error: string | null;
   
-  // Actions
+  // Actions for display only
   getBlobInfo: (url: string) => Promise<BlobInfo | null>;
   listBlobs: (storeId?: string) => Promise<BlobInfo[]>;
-  deleteBlob: (url: string) => Promise<boolean>;
   checkBlobExists: (url: string) => Promise<boolean>;
   clearError: () => void;
 }
@@ -86,36 +85,6 @@ export function useBlob(): UseBlobReturn {
     }
   }, []);
 
-  const deleteBlob = useCallback(async (url: string): Promise<boolean> => {
-    if (!blobValidation.isValidBlobUrl(url)) {
-      setError('Invalid blob URL format');
-      return false;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(`/api/blob?url=${encodeURIComponent(url)}`, {
-        method: 'DELETE',
-      });
-      const data = await response.json();
-
-      if (!data.success) {
-        setError(data.error || 'Failed to delete blob');
-        return false;
-      }
-
-      return true;
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to delete blob';
-      setError(errorMessage);
-      return false;
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   const checkBlobExists = useCallback(async (url: string): Promise<boolean> => {
     if (!blobValidation.isValidBlobUrl(url)) {
       setError('Invalid blob URL format');
@@ -149,7 +118,6 @@ export function useBlob(): UseBlobReturn {
     error,
     getBlobInfo,
     listBlobs,
-    deleteBlob,
     checkBlobExists,
     clearError,
   };

@@ -1,185 +1,53 @@
 "use client"
 
-import * as React from "react"
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Button } from '@/components/ui/button';
 
-// Hero data - single hero section
-const HERO_DATA = {
-  id: "n8b6u",
-  blobUrl: "n8b6u.jpg",
-  title: "SPREAD",
-  description: "Share the joy of hockey with everyone around you",
-  fallbackColor: "from-yellow-400 to-orange-500",
-}
-
-interface HeroSectionProps {
-  className?: string
-}
-
-export function HeroSection({ className }: HeroSectionProps) {
-  const [imageLoadState, setImageLoadState] = React.useState<'loading' | 'loaded' | 'error'>('loading')
-
+export function HeroSection() {
   return (
-    <div className={cn("w-full", className)}>
-      {/* Hero Section */}
-      <Card className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 border-0 shadow-lg">
-        {/* Hero Content Container */}
-        <div className="relative h-64 md:h-80 lg:h-96">
-          {/* Background with fallback */}
-          <div className={cn(
-            "absolute inset-0 bg-gradient-to-br",
-            HERO_DATA.fallbackColor
-          )}>
-            {/* This is where your blob image would be displayed */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                {/* Placeholder illustration - replace with actual blob image */}
-                <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-2xl font-bold">
-                    {HERO_DATA.id.toUpperCase()}
-                  </span>
-                </div>
-                
-                {/* Hero Text */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-2">
-                  {HERO_DATA.title}
-                </h2>
-                <p className="text-white/90 text-sm md:text-base max-w-xs mx-auto">
-                  {HERO_DATA.description}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Loading state */}
-          {imageLoadState === 'loading' && (
-            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-            </div>
-          )}
-
-          {/* Error state */}
-          {imageLoadState === 'error' && (
-            <div className="absolute inset-0 bg-red-500/20 flex items-center justify-center">
-              <p className="text-red-600 text-sm">Failed to load image</p>
-            </div>
-          )}
+    <section 
+      className="relative h-[70vh] min-h-[500px] flex flex-col items-center justify-center px-4 py-12 text-center"
+      style={{
+        backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="hockey-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230f172a;stop-opacity:1" /><stop offset="50%" style="stop-color:%231e293b;stop-opacity:1" /><stop offset="100%" style="stop-color:%230f172a;stop-opacity:1" /></linearGradient><pattern id="hockey-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23ffffff" opacity="0.08"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.06"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hockey-bg)"/><rect width="100%" height="100%" fill="url(%23hockey-pattern)"/></svg>')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-sm mx-auto space-y-6">
+        <div className="space-y-3">
+          <h1 className="text-white drop-shadow-lg text-3xl md:text-4xl font-bold">
+            OnlyHockey!
+          </h1>
+          <p className="text-white/90 drop-shadow-md text-base md:text-lg">
+            Your ultimate destination for hockey content, community, and everything puck-related. Join the hockey family today.
+          </p>
         </div>
-      </Card>
-    </div>
-  )
-}
-
-// Enhanced version with actual blob integration
-export function HeroSectionWithBlob({ className }: HeroSectionProps) {
-  const [blobUrl, setBlobUrl] = React.useState<string>("")
-  const [imageLoadState, setImageLoadState] = React.useState<'loading' | 'loaded' | 'error'>('loading')
-
-  // Load blob URL using Vercel Blob API
-  React.useEffect(() => {
-    const loadBlobUrl = async () => {
-      try {
-        // Using the Vercel Blob API to get the image URL
-        // This assumes you have uploaded the image to your blob store
-        const response = await fetch('/api/blob?action=info&url=https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg')
-        const data = await response.json()
         
-        if (data.success && data.data) {
-          setBlobUrl(data.data.url)
-        } else {
-          // Fallback to direct URL if API fails
-          setBlobUrl("https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg")
-        }
-      } catch (error) {
-        console.error('Failed to load blob URL:', error)
-        // Fallback to direct URL
-        setBlobUrl("https://oh-site.public.blob.vercel-storage.com/n8b6u.jpg")
-      }
-    }
-
-    loadBlobUrl()
-  }, [])
-
-  const handleImageLoad = () => {
-    setImageLoadState('loaded')
-  }
-
-  const handleImageError = () => {
-    setImageLoadState('error')
-  }
-
-  return (
-    <div className={cn("w-full", className)}>
-      <Card className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 border-0 shadow-lg">
-        <div className="relative h-64 md:h-80 lg:h-96">
-          {/* Actual blob image */}
-          {blobUrl && (
-            <img
-              src={blobUrl}
-              alt={HERO_DATA.title}
-              className="absolute inset-0 w-full h-full object-cover"
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-              style={{ 
-                opacity: imageLoadState === 'loaded' ? 1 : 0,
-                transition: 'opacity 0.3s ease-in-out'
-              }}
-            />
-          )}
-
-          {/* Fallback background */}
-          <div className={cn(
-            "absolute inset-0 bg-gradient-to-br",
-            HERO_DATA.fallbackColor,
-            imageLoadState === 'loaded' ? 'opacity-0' : 'opacity-100',
-            "transition-opacity duration-300"
-          )}>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-white text-2xl font-bold">
-                    {HERO_DATA.id.toUpperCase()}
-                  </span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-2">
-                  {HERO_DATA.title}
-                </h2>
-                <p className="text-white/90 text-sm md:text-base max-w-xs mx-auto">
-                  {HERO_DATA.description}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Overlay with text */}
-          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-2">
-                {HERO_DATA.title}
-              </h2>
-              <p className="text-white/90 text-sm md:text-base max-w-xs mx-auto">
-                {HERO_DATA.description}
-              </p>
-            </div>
-          </div>
-
-          {/* Loading state */}
-          {imageLoadState === 'loading' && (
-            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-            </div>
-          )}
-
-          {/* Error state */}
-          {imageLoadState === 'error' && (
-            <div className="absolute inset-0 bg-red-500/20 flex items-center justify-center">
-              <p className="text-red-600 text-sm">Failed to load image</p>
-            </div>
-          )}
+        <div className="space-y-3">
+          <Button 
+            size="lg" 
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg font-semibold"
+          >
+            Explore Content
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="w-full bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+          >
+            Join Community
+          </Button>
         </div>
-      </Card>
-    </div>
-  )
+      </div>
+      
+      {/* Bottom indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-1 h-8 bg-white/50 rounded-full animate-bounce"></div>
+      </div>
+    </section>
+  );
 }

@@ -1,4 +1,4 @@
-// Vercel Blob Type Definitions
+// Vercel Blob Type Definitions for Display Operations
 
 export interface BlobInfo {
   url: string;
@@ -14,7 +14,7 @@ export interface BlobListResponse {
   hasMore: boolean;
 }
 
-export interface BlobApiResponse<T = any> {
+export interface BlobApiResponse<T = BlobInfo | BlobInfo[]> {
   success: boolean;
   data?: T;
   error?: string;
@@ -27,13 +27,7 @@ export interface BlobExistsResponse {
   error?: string;
 }
 
-export interface BlobDeleteResponse {
-  success: boolean;
-  message?: string;
-  error?: string;
-}
-
-// API Request Types
+// API Request Types for Display
 export interface GetBlobInfoRequest {
   url: string;
 }
@@ -42,10 +36,6 @@ export interface ListBlobsRequest {
   storeId?: string;
   cursor?: string;
   limit?: number;
-}
-
-export interface DeleteBlobRequest {
-  url: string;
 }
 
 export interface CheckBlobExistsRequest {
@@ -80,13 +70,12 @@ export interface BlobConfig {
   };
 }
 
-// Hook Return Types
+// Hook Return Types for Display
 export interface UseBlobReturn {
   loading: boolean;
   error: string | null;
   getBlobInfo: (url: string) => Promise<BlobInfo | null>;
   listBlobs: (storeId?: string) => Promise<BlobInfo[]>;
-  deleteBlob: (url: string) => Promise<boolean>;
   checkBlobExists: (url: string) => Promise<boolean>;
   clearError: () => void;
 }

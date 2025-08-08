@@ -1,32 +1,31 @@
-# Vercel Blob Integration
+# Vercel Blob Integration for Display
 
-This document describes the Vercel Blob integration infrastructure set up in this project.
+This document describes the Vercel Blob integration infrastructure set up in this project for displaying content.
 
 ## Overview
 
-The Blob integration provides infrastructure for interacting with Vercel Blob storage without implementing file upload or content management features. This setup allows you to:
+The Blob integration provides infrastructure for displaying content from Vercel Blob storage. This setup allows you to:
 
-- Get information about existing blobs
-- List blobs in a store
-- Delete blobs
-- Check if blobs exist
-- Validate blob URLs and file types
+- Get information about existing blobs for display
+- List blobs in a store to show available content
+- Check if blobs exist before displaying them
+- Validate blob URLs and file types for display
 
 ## Files Structure
 
 ```
 src/
 ├── lib/
-│   ├── blob.ts              # Core Blob utility functions
+│   ├── blob.ts              # Core Blob utility functions for display
 │   ├── blob-config.ts       # Configuration and validation
 │   ├── hooks/
-│   │   └── useBlob.ts      # React hook for Blob operations
+│   │   └── useBlob.ts      # React hook for Blob display operations
 │   └── types/
-│       └── blob.ts          # TypeScript type definitions
+│       └── blob.ts          # TypeScript type definitions for display
 └── app/
     └── api/
         └── blob/
-            └── route.ts     # API routes for Blob operations
+            └── route.ts     # API routes for Blob display operations
 ```
 
 ## Environment Variables
@@ -49,27 +48,17 @@ Query parameters:
 
 Examples:
 ```bash
-# List all blobs
+# List all blobs for display
 GET /api/blob?action=list
 
-# List blobs in specific store
+# List blobs in specific store for display
 GET /api/blob?action=list&storeId=my-store
 
-# Get blob info
+# Get blob info for display
 GET /api/blob?action=info&url=https://...
 
-# Check if blob exists
+# Check if blob exists before displaying
 GET /api/blob?action=exists&url=https://...
-```
-
-### DELETE /api/blob
-
-Query parameters:
-- `url`: Required. URL of the blob to delete
-
-Example:
-```bash
-DELETE /api/blob?url=https://...
 ```
 
 ## React Hook Usage
@@ -83,7 +72,6 @@ function MyComponent() {
     error, 
     getBlobInfo, 
     listBlobs, 
-    deleteBlob, 
     checkBlobExists,
     clearError 
   } = useBlob();
@@ -98,13 +86,6 @@ function MyComponent() {
   const handleListBlobs = async () => {
     const blobs = await listBlobs();
     console.log('Blobs:', blobs);
-  };
-
-  const handleDeleteBlob = async (url: string) => {
-    const success = await deleteBlob(url);
-    if (success) {
-      console.log('Blob deleted successfully');
-    }
   };
 
   const handleCheckExists = async (url: string) => {
@@ -126,27 +107,24 @@ function MyComponent() {
 
 ### blobUtils
 
-Direct utility functions for server-side operations:
+Direct utility functions for server-side display operations:
 
 ```typescript
 import { blobUtils } from '@/lib/blob';
 
-// Get blob info
+// Get blob info for display
 const info = await blobUtils.getBlobInfo(url);
 
-// List blobs
+// List blobs for display
 const blobs = await blobUtils.listBlobs(storeId);
 
-// Delete blob
-const success = await blobUtils.deleteBlob(url);
-
-// Check if blob exists
+// Check if blob exists before displaying
 const exists = await blobUtils.blobExists(url);
 ```
 
 ### blobValidation
 
-Validation utilities:
+Validation utilities for display:
 
 ```typescript
 import { blobValidation } from '@/lib/blob-config';
@@ -154,10 +132,10 @@ import { blobValidation } from '@/lib/blob-config';
 // Validate blob URL
 const isValid = blobValidation.isValidBlobUrl(url);
 
-// Check if file type is allowed
+// Check if file type is allowed for display
 const isAllowed = blobValidation.isAllowedFileType(contentType);
 
-// Check if file size is valid
+// Check if file size is valid for display
 const isValidSize = blobValidation.isFileSizeValid(size);
 ```
 
@@ -174,29 +152,29 @@ The configuration is defined in `src/lib/blob-config.ts`:
 
 All TypeScript types are defined in `src/lib/types/blob.ts`:
 
-- `BlobInfo`: Information about a blob
+- `BlobInfo`: Information about a blob for display
 - `BlobApiResponse`: API response wrapper
-- `UseBlobReturn`: React hook return type
+- `UseBlobReturn`: React hook return type for display
 - `BlobConfig`: Configuration interface
 
 ## Security Notes
 
 - All blob URLs are validated against the Vercel Blob URL pattern
-- File types and sizes are validated before operations
+- File types and sizes are validated before display operations
 - Environment variables are required for operation
 - Error handling is implemented throughout the system
 
-## Next Steps
+## Display Operations
 
-This infrastructure is ready for you to implement your own file upload and content management features. The foundation provides:
+This infrastructure is ready for displaying content from Vercel Blob. The foundation provides:
 
-1. ✅ Blob information retrieval
-2. ✅ Blob listing and management
-3. ✅ Blob deletion
-4. ✅ URL validation
-5. ✅ Type safety
-6. ✅ Error handling
-7. ✅ React hooks for client-side operations
-8. ✅ API routes for server-side operations
+1. ✅ Blob information retrieval for display
+2. ✅ Blob listing for content galleries
+3. ✅ Blob existence checking before display
+4. ✅ URL validation for secure display
+5. ✅ Type safety for display operations
+6. ✅ Error handling for display failures
+7. ✅ React hooks for client-side display operations
+8. ✅ API routes for server-side display operations
 
-You can now build your upload functionality on top of this infrastructure.
+You can now display blob content on your pages using the blob URLs directly in `<img>`, `<video>`, or other media elements.
