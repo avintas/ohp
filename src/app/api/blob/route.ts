@@ -2,19 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { blobUtils } from '@/lib/blob';
 import { BLOB_CONFIG, blobValidation } from '@/lib/blob-config';
 
-// GET - List blobs or get blob info for display
+// GET - Get blob info or check existence for display only
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const action = searchParams.get('action');
     const url = searchParams.get('url');
-    const storeId = searchParams.get('storeId') || BLOB_CONFIG.DEFAULT_STORE_ID;
 
     switch (action) {
-      case 'list':
-        const blobs = await blobUtils.listBlobs(storeId);
-        return NextResponse.json({ success: true, data: blobs });
-
       case 'info':
         if (!url) {
           return NextResponse.json(
@@ -53,7 +48,7 @@ export async function GET(request: NextRequest) {
 
       default:
         return NextResponse.json(
-          { success: false, error: 'Invalid action. Use: list, info, or exists' },
+          { success: false, error: 'Invalid action. Use: info or exists' },
           { status: 400 }
         );
     }

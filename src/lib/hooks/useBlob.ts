@@ -16,7 +16,6 @@ interface UseBlobReturn {
   
   // Actions for display only
   getBlobInfo: (url: string) => Promise<BlobInfo | null>;
-  listBlobs: (storeId?: string) => Promise<BlobInfo[]>;
   checkBlobExists: (url: string) => Promise<boolean>;
   clearError: () => void;
 }
@@ -57,33 +56,7 @@ export function useBlob(): UseBlobReturn {
     }
   }, []);
 
-  const listBlobs = useCallback(async (storeId?: string): Promise<BlobInfo[]> => {
-    setLoading(true);
-    setError(null);
 
-    try {
-      const params = new URLSearchParams({ action: 'list' });
-      if (storeId) {
-        params.append('storeId', storeId);
-      }
-
-      const response = await fetch(`/api/blob?${params.toString()}`);
-      const data = await response.json();
-
-      if (!data.success) {
-        setError(data.error || 'Failed to list blobs');
-        return [];
-      }
-
-      return data.data || [];
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to list blobs';
-      setError(errorMessage);
-      return [];
-    } finally {
-      setLoading(false);
-    }
-  }, []);
 
   const checkBlobExists = useCallback(async (url: string): Promise<boolean> => {
     if (!blobValidation.isValidBlobUrl(url)) {
@@ -117,7 +90,6 @@ export function useBlob(): UseBlobReturn {
     loading,
     error,
     getBlobInfo,
-    listBlobs,
     checkBlobExists,
     clearError,
   };

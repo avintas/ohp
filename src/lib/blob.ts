@@ -1,4 +1,4 @@
-import { head, list } from '@vercel/blob';
+import { head } from '@vercel/blob';
 
 // Vercel Blob configuration
 export const BLOB_READ_WRITE_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
@@ -17,17 +17,6 @@ export const blobUtils = {
     } catch (error) {
       console.error('Error getting blob info:', error);
       return null;
-    }
-  },
-
-  // List blobs in a store for display
-  async listBlobs(storeId?: string) {
-    try {
-      const { blobs } = await list({ storeId });
-      return blobs;
-    } catch (error) {
-      console.error('Error listing blobs:', error);
-      return [];
     }
   },
 

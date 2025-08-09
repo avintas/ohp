@@ -40,7 +40,7 @@ export const blobValidation = {
   },
   
   isAllowedFileType(contentType: string): boolean {
-    return (BLOB_CONFIG.ALLOWED_FILE_TYPES as string[]).includes(contentType);
+    return BLOB_CONFIG.ALLOWED_FILE_TYPES.includes(contentType);
   },
   
   isFileSizeValid(size: number): boolean {
