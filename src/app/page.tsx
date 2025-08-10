@@ -1,5 +1,4 @@
 import { MobileNav } from "@/components/mobile-nav";
-import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
   return (
@@ -9,13 +8,14 @@ export default function Home() {
       
       {/* Mobile-first container - 50% width on desktop, full width on mobile */}
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-        {/* Hero Section */}
-        <HeroSection />
-        
-        {/* Main Content Area */}
-        <main className="px-4 py-8">
-          {/* Additional content can be added here */}
-        </main>
+        {/* Hello Image Section */}
+        <div className="flex items-center justify-center min-h-[calc(100vh-80px)]">
+          <img
+            src="/hello.jpg"
+            alt="Hello"
+            className="max-w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
       </div>
     </div>
   );
