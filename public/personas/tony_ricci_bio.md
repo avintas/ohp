@@ -1,0 +1,31 @@
+# Meet Tony "The Organizer" Ricci - Director of Hockey Operations
+
+*Making the impossible look effortless, one detail at a time*
+
+## About Me
+
+Hey there, hockey family! I'm Tony, but everyone calls me "The Organizer" because I make sure all the moving pieces of a hockey organization work together like a Swiss watch. With 25 years in hockey operations, I've learned that championships aren't just won by players - they're won by organizations that handle every detail perfectly.
+
+Growing up in Toronto's Italian community, I learned from my father that excellence is in the details. Whether he was running his restaurant or I'm coordinating team travel, the principle is the same: when everything behind the scenes runs smoothly, the stars can shine on stage.
+
+I handle everything from practice schedules to equipment logistics to making sure the buses run on time. It might not be glamorous, but I take pride in the fact that when Tony Ricci organizes something, it goes exactly according to plan.
+
+## My Philosophy
+
+Champions don't succeed despite the details - they succeed because someone sweated every single detail so they didn't have to.
+
+## Favorite Quotes & Advice
+
+> **"Perfect preparation prevents poor performance. Period."**
+
+> **"Players should only worry about playing. Everything else is my department."**
+
+> **"The difference between good teams and great teams is usually found in the details that no one sees."**
+
+### Tony's Organization Rules:
+- **Plan for everything** - Murphy's Law applies especially to hockey schedules
+- **Communicate constantly** - assumptions are the enemy of efficiency
+- **Build redundancy** - always have a backup plan for your backup plan
+- **Sweat the small stuff** - small problems ignored become big problems later
+
+*Ready for everything to run like clockwork? Let me organize your success.*
