@@ -41,13 +41,13 @@ export default function DataWizPage() {
                 About Me
               </h2>
               <p className="text-gray-700 mb-6">
-                안녕하세요, hockey innovators! I'm Data Wiz, and everyone calls me that because I have the ability to find meaningful patterns in the chaos of hockey statistics. From engineering to analytics departments, I've learned that data doesn't lie - but it also doesn't speak until someone who understands both hockey and mathematics translates it into actionable insights.
+                안녕하세요, hockey innovators! I&apos;m Data Wiz, and everyone calls me that because I have the ability to find meaningful patterns in the chaos of hockey statistics. From engineering to analytics departments, I&apos;ve learned that data doesn&apos;t lie - but it also doesn&apos;t speak until someone who understands both hockey and mathematics translates it into actionable insights.
               </p>
               <p className="text-gray-700 mb-6">
                 Growing up in a tech-savvy family, I learned to love both programming and hockey. When I discovered I could combine my data science skills with my passion for the game, I found my calling: helping teams make smarter decisions through better analysis of player performance, game situations, and strategic opportunities.
               </p>
               <p className="text-gray-700 mb-8">
-                I don't just crunch numbers - I tell stories with data. Every statistic represents a human moment, a strategic decision, or a performance opportunity. My job is finding the numbers that matter and presenting them in ways that coaches, players, and managers can use to win games.
+                I don&apos;t just crunch numbers - I tell stories with data. Every statistic represents a human moment, a strategic decision, or a performance opportunity. My job is finding the numbers that matter and presenting them in ways that coaches, players, and managers can use to win games.
               </p>
 
               <Separator className="my-8" />
@@ -56,7 +56,7 @@ export default function DataWizPage() {
                 My Philosophy
               </h3>
               <p className="text-gray-700 mb-8 italic text-lg">
-                Data is only as valuable as the decisions it enables. The best analysis doesn't just describe what happened - it predicts what could happen and prescribes what should happen.
+                Data is only as valuable as the decisions it enables. The best analysis doesn&apos;t just describe what happened - it predicts what could happen and prescribes what should happen.
               </p>
 
               <Separator className="my-8" />
@@ -66,20 +66,20 @@ export default function DataWizPage() {
               </h3>
               <div className="space-y-4 mb-8">
                 <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-700">
-                  <strong>"Traditional stats tell you what happened. Advanced analytics tell you why it happened and how to make it happen again."</strong>
+                  <strong>&quot;Traditional stats tell you what happened. Advanced analytics tell you why it happened and how to make it happen again.&quot;</strong>
                 </blockquote>
                 <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-700">
-                  <strong>"The most important number isn't always the biggest one. Sometimes the smallest edge creates the biggest advantage."</strong>
+                  <strong>&quot;The most important number isn&apos;t always the biggest one. Sometimes the smallest edge creates the biggest advantage.&quot;</strong>
                 </blockquote>
                 <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-700">
-                  <strong>"Players play, coaches coach, but data never lies about what actually works."</strong>
+                  <strong>&quot;Players play, coaches coach, but data never lies about what actually works.&quot;</strong>
                 </blockquote>
               </div>
 
               <Separator className="my-8" />
 
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Data Wiz's Analytics Approach:
+                Data Wiz&apos;s Analytics Approach:
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="flex items-start space-x-3">
@@ -100,7 +100,7 @@ export default function DataWizPage() {
                   <Badge variant="secondary" className="mt-1">3</Badge>
                   <div>
                     <strong className="text-gray-900">Actionable insights</strong>
-                    <p className="text-gray-600 text-sm">Analysis that doesn't lead to better decisions is just trivia</p>
+                    <p className="text-gray-600 text-sm">Analysis that doesn&apos;t lead to better decisions is just trivia</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -114,7 +114,7 @@ export default function DataWizPage() {
 
               <div className="mt-12 text-center">
                 <p className="text-lg text-gray-600 italic">
-                  <em>Ready to let data drive your decisions? Let's find the numbers that unlock your competitive advantage.</em>
+                  <em>Ready to let data drive your decisions? Let&apos;s find the numbers that unlock your competitive advantage.</em>
                 </p>
               </div>
             </div>

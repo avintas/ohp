@@ -39,10 +39,10 @@ async function getPersonas(): Promise<PersonaInfo[]> {
   const files = fs.readdirSync(personasDir);
   
   const personas = files
-    .filter(file => file.endsWith('_bio.md'))
+    .filter(file => file.endsWith('.md') && !file.startsWith('persona_'))
     .map(file => {
       const content = fs.readFileSync(path.join(personasDir, file), 'utf-8');
-      const slug = file.replace('_bio.md', '').replace(/_/g, '-');
+      const slug = file.replace('.md', '').replace(/_/g, '-');
       return extractPersonaInfo(content, slug);
     })
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -60,7 +60,7 @@ export default async function PersonasPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="mb-4 text-3xl md:text-4xl font-bold">Meet Our Hockey Personas</h1>
           <p className="text-muted-foreground text-lg">
-            Discover the characters behind OnlyHockey's content. Each persona brings their unique perspective, 
+            Discover the characters behind OnlyHockey&apos;s content. Each persona brings their unique perspective, 
             expertise, and personality to help you improve your game.
           </p>
         </div>

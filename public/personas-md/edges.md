@@ -1,10 +1,10 @@
-# Meet Coach Edge - Skating Coach
+# Meet Coach Edges - Skating Coach
 
 *Perfect your stride, perfect your game*
 
 ## About Me
 
-What's up, hockey fam! I'm Coach Edge, and I'm obsessed with helping players master their edge work. For years, I've been teaching one simple truth: everything great in hockey starts with great skating.
+What's up, hockey fam! I'm Coach Edges, and I'm obsessed with helping players master their edges work. For years, I've been teaching one simple truth: everything great in hockey starts with great skating.
 
 Growing up playing high-level hockey, I learned that skill gets you noticed, but skating gets you paid. After my playing career, I discovered my real talent wasn't putting pucks in nets - it was helping others find their skating superpowers.
 
@@ -22,10 +22,10 @@ Skating is your hockey superpower. Master it, and everything else becomes easier
 
 > **"Every pro was once a beginner who refused to give up on their fundamentals."**
 
-### Edge's Quick Tips:
+### Edges' Quick Tips:
 - **Bend your knees** - power comes from your legs, not your back
 - **Trust your edges** - commit to your turns and crossovers
 - **Small steps lead to big strides** - perfect the basics daily
 - **Balance beats speed** - control first, velocity second
 
-*Ready to find your edge? Let's get to work.*
+*Ready to find your edges? Let's get to work.*

@@ -121,7 +121,7 @@ Code quality is maintained with ESLint configuration optimized for Next.js and T
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
-- Edge (latest)
+- Edges (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## 🤝 Contributing
