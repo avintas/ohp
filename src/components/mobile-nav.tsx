@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Info, Rss, Monitor } from "lucide-react";
+import { Menu, X, Info, Rss, Monitor, Users } from "lucide-react";
+import Link from "next/link";
 
 interface MobileNavProps {
   className?: string;
@@ -29,6 +30,11 @@ export function MobileNav({ className }: MobileNavProps) {
 
           {/* Utility Icons - Visible on all viewports */}
           <div className="flex items-center space-x-2 md:space-x-4">
+            <Link href="/personas">
+              <Button variant="ghost" size="sm" className="p-2" title="Meet Our Personas">
+                <Users className="h-5 w-5" />
+              </Button>
+            </Link>
             <Button variant="ghost" size="sm" className="p-2">
               <Info className="h-5 w-5" />
             </Button>
