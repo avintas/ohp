@@ -1,20 +1,85 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Info, Rss, Monitor, Users } from "lucide-react";
-import Link from "next/link";
+import { Menu, X, Info, Rss, Monitor, Sun, Moon, Monitor as MonitorIcon } from "lucide-react";
 
 interface MobileNavProps {
   className?: string;
 }
 
+type Theme = "light" | "dark" | "system";
+
 export function MobileNav({ className }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>("system");
+  const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Theme management
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem("theme") as Theme;
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const root = window.document.documentElement;
+    root.classList.remove("light", "dark");
+
+    if (theme === "system") {
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.classList.add(systemTheme);
+    } else {
+      root.classList.add(theme);
+    }
+
+    localStorage.setItem("theme", theme);
+  }, [theme, mounted]);
+
+  const toggleTheme = () => {
+    const themes: Theme[] = ["light", "dark", "system"];
+    const currentIndex = themes.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    setTheme(themes[nextIndex]);
+  };
+
+  const getThemeIcon = () => {
+    switch (theme) {
+      case "light":
+        return <Sun className="h-5 w-5" />;
+      case "dark":
+        return <Moon className="h-5 w-5" />;
+      case "system":
+        return <MonitorIcon className="h-5 w-5" />;
+      default:
+        return <MonitorIcon className="h-5 w-5" />;
+    }
+  };
+
+  const getThemeLabel = () => {
+    switch (theme) {
+      case "light":
+        return "Light Mode";
+      case "dark":
+        return "Dark Mode";
+      case "system":
+        return "System Mode";
+      default:
+        return "System Mode";
+    }
+  };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <nav className={`bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 ${className}`}>
@@ -30,19 +95,20 @@ export function MobileNav({ className }: MobileNavProps) {
 
           {/* Utility Icons - Visible on all viewports */}
           <div className="flex items-center space-x-2 md:space-x-4">
-            <Link href="/personas">
-              <Button variant="ghost" size="sm" className="p-2" title="Meet Our Personas">
-                <Users className="h-5 w-5" />
-              </Button>
-            </Link>
             <Button variant="ghost" size="sm" className="p-2">
               <Info className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="sm" className="p-2">
               <Rss className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-2">
-              <Monitor className="h-5 w-5" />
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="p-2"
+              onClick={toggleTheme}
+              title={getThemeLabel()}
+            >
+              {getThemeIcon()}
             </Button>
             
             {/* Mobile Menu Button - Only for additional navigation items */}
