@@ -8,8 +8,8 @@ export default function Home() {
   // Hero images for carousel
   const heroImages = [
     {
-      src: "/superboy.webp",
-      alt: "Superboy - OnlyHockey!"
+      src: "/supercheer.webp",
+      alt: "Supercheer - OnlyHockey!"
     },
     {
       src: "/superschool.webp", 
@@ -121,7 +121,7 @@ export default function Home() {
           {/* Carousel Container */}
           <div 
             ref={carouselRef}
-            className="relative overflow-hidden rounded-lg shadow-lg touch-pan-y"
+            className="relative overflow-hidden rounded-lg shadow-2xl touch-pan-y ring-1 ring-slate-200/50 dark:ring-slate-700/50"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -148,34 +148,34 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button
               onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 z-10"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-200 z-10 shadow-lg"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200 z-10"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-200 z-10 shadow-lg"
               aria-label="Next image"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
+          </div>
 
-            {/* Dots Indicator */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-              {heroImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToImage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentImageIndex 
-                      ? 'bg-white scale-110' 
-                      : 'bg-white/50 hover:bg-white/75'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
-            </div>
+          {/* Dots Indicator - Below the carousel */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToImage(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                  index === currentImageIndex 
+                    ? 'bg-slate-600 dark:bg-slate-400 scale-110' 
+                    : 'bg-slate-400 dark:bg-slate-600 hover:bg-slate-500 dark:hover:bg-slate-500'
+                }`}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
         
