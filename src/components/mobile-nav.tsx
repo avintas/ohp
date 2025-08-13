@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Info, Rss, Monitor, Sun, Moon, Monitor as MonitorIcon } from "lucide-react";
+import { Menu, X, Info, Rss, Sun, Moon } from "lucide-react";
 
 interface MobileNavProps {
   className?: string;
 }
 
-type Theme = "light" | "dark" | "system";
+type Theme = "light" | "dark";
 
 export function MobileNav({ className }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => {
@@ -23,7 +23,7 @@ export function MobileNav({ className }: MobileNavProps) {
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
+    if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
       setTheme(savedTheme);
     }
   }, []);
@@ -33,48 +33,20 @@ export function MobileNav({ className }: MobileNavProps) {
 
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      root.classList.add(systemTheme);
-    } else {
-      root.classList.add(theme);
-    }
-
+    root.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    const themes: Theme[] = ["light", "dark", "system"];
-    const currentIndex = themes.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   const getThemeIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun className="h-5 w-5" />;
-      case "dark":
-        return <Moon className="h-5 w-5" />;
-      case "system":
-        return <MonitorIcon className="h-5 w-5" />;
-      default:
-        return <MonitorIcon className="h-5 w-5" />;
-    }
+    return theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />;
   };
 
   const getThemeLabel = () => {
-    switch (theme) {
-      case "light":
-        return "Light Mode";
-      case "dark":
-        return "Dark Mode";
-      case "system":
-        return "System Mode";
-      default:
-        return "System Mode";
-    }
+    return theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode";
   };
 
   if (!mounted) {

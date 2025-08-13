@@ -1,211 +1,138 @@
-"use client";
-
 import { MobileNav } from "@/components/mobile-nav";
-import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
-  // Hero images for carousel
-  const heroImages = [
-    {
-      src: "/supercheer.webp",
-      alt: "Supercheer - OnlyHockey!"
-    },
-    {
-      src: "/superschool.webp", 
-      alt: "Superschool - OnlyHockey!"
-    },
-    {
-      src: "/superyou.webp",
-      alt: "Superyou - OnlyHockey!"
-    }
-  ];
-
-  // Select 12 random persona avatars for the grid
+  // Select 11 persona avatars for the grid
   const personaAvatars = [
-    "/personas-im/a-architect.webp",
-    "/personas-im/a-bull.webp",
-    "/personas-im/a-edges.webp",
-    "/personas-im/a-strategist.webp",
-    "/personas-im/a-ironmike.webp",
-    "/personas-im/a-voice.webp",
-    "/personas-im/a-eagleeye.webp",
-    "/personas-im/a-numbers.webp",
-    "/personas-im/a-gearguy.webp",
-    "/personas-im/a-silky.webp",
-    "/personas-im/a-healer.webp",
-    "/personas-im/a-recovery.webp"
+    "/pims/a-architect.webp",
+    "/pims/a-bull.webp",
+    "/pims/a-edges.webp",
+    "/pims/a-strategist.webp",
+    "/pims/a-ironmike.webp",
+    "/pims/a-eagleeye.webp",
+    "/pims/a-numbers.webp",
+    "/pims/a-gearguy.webp",
+    "/pims/a-silky.webp",
+    "/pims/a-healer.webp",
+    "/pims/a-recovery.webp"
   ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const minSwipeDistance = 50; // Minimum distance for a swipe to be considered intentional
-
-  // Auto-rotate images every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isTransitioning) {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-        );
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [heroImages.length, isTransitioning]);
-
-  const goToNext = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-    );
-    setTimeout(() => setIsTransitioning(false), 500);
-  };
-
-  const goToPrevious = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
-    );
-    setTimeout(() => setIsTransitioning(false), 500);
-  };
-
-  const goToImage = (index: number) => {
-    if (isTransitioning || index === currentImageIndex) return;
-    setIsTransitioning(true);
-    setCurrentImageIndex(index);
-    setTimeout(() => setIsTransitioning(false), 500);
-  };
-
-  // Touch event handlers for swipe functionality
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    
-    const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      goToNext();
-    } else if (isRightSwipe) {
-      goToPrevious();
-    }
-
-    // Reset touch values
-    touchStartX.current = 0;
-    touchEndX.current = 0;
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Mobile Navigation */}
       <MobileNav />
       
-      {/* Mobile-first container - 50% width on desktop, full width on mobile */}
+      {/* Mobile-first container */}
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-        {/* Hero Carousel Section */}
-        <div className="px-4 pt-8 pb-6 relative">
-          {/* Carousel Container */}
-          <div 
-            ref={carouselRef}
-            className="relative overflow-hidden rounded-lg shadow-2xl touch-pan-y ring-1 ring-slate-200/50 dark:ring-slate-700/50"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Images */}
-            <div className="relative">
-              {heroImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`transition-opacity duration-500 ease-in-out ${
-                    index === currentImageIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
-                  }`}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-auto select-none pointer-events-none"
-                    draggable={false}
-                  />
+        {/* Top spacing */}
+        <div className="px-4 pt-8 pb-6">
+        </div>
+
+        {/* Mascots Video Card */}
+        <div className="px-4 py-6">
+          <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border-2 border-slate-300 dark:border-slate-600">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 text-center">
+              Mascots
+            </h3>
+            <div className="w-full rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-700">
+              <video 
+                className="w-full h-auto"
+                controls
+                preload="metadata"
+              >
+                <source src="/Mascots.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive Cards Grid - 2x2 */}
+        <div className="px-4 py-6">
+          <div className="grid grid-cols-2 gap-4">
+            {/* Top-Left Card - Blue */}
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 shadow-lg">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-2xl font-bold text-white">89.4</span>
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-white text-sm font-medium">Goals by Quarter</p>
+            </div>
+
+            {/* Top-Right Card - Purple */}
+            <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 shadow-lg">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-2xl font-bold text-white">Trivia</span>
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.111.89l2.444-.611a1 1 0 00.445-1.56l-1.445-1.561z" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-white text-sm font-medium">Experience</p>
+            </div>
+
+            {/* Bottom-Left Card - Orange */}
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 shadow-lg">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-2xl font-bold text-white">Hot Take</span>
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-white text-sm font-medium">Hockey Trivia #47</p>
+            </div>
+
+            {/* Bottom-Right Card - Green */}
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 shadow-lg">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-2xl font-bold text-white">Connor McDavid</span>
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-white text-sm font-medium">Fanning Three Stars</p>
+            </div>
+          </div>
+        </div>
+          
+        {/* Personas Grid - Bottom Section */}
+        <div className="px-4 pb-8">
+            <h2 className="text-2xl font-bold text-center mb-6 text-slate-900 dark:text-white">
+              Meet Our Hockey Personas
+            </h2>
+            
+            {/* 2x6 Grid of Persona Avatars */}
+            <div className="grid grid-cols-2 gap-4">
+              {personaAvatars.map((avatar, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg bg-slate-200 dark:bg-slate-700">
+                    <Image
+                      src={avatar}
+                      alt={`Hockey Persona ${index + 1}`}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-200 z-10 shadow-lg"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-200 z-10 shadow-lg"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Dots Indicator - Below the carousel */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {heroImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToImage(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentImageIndex 
-                    ? 'bg-slate-600 dark:bg-slate-400 scale-110' 
-                    : 'bg-slate-400 dark:bg-slate-600 hover:bg-slate-500 dark:hover:bg-slate-500'
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-        
-        {/* Personas Grid - Bottom Section */}
-        <div className="px-4 pb-8">
-          <h2 className="text-2xl font-bold text-center mb-6 text-slate-900 dark:text-white">
-            Meet Our Hockey Personas
-          </h2>
-          
-          {/* 4x3 Grid of Persona Avatars */}
-          <div className="grid grid-cols-3 gap-4">
-            {personaAvatars.map((avatar, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg bg-slate-200 dark:bg-slate-700">
-                  <img
-                    src={avatar}
-                    alt={`Hockey Persona ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Scroll indicator arrows */}
-          <div className="flex justify-center mt-8 space-x-2">
-            <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-          </div>
+            
+            {/* Scroll indicator arrows */}
+            <div className="flex justify-center mt-8 space-x-2">
+              <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+            </div>
         </div>
       </div>
     </div>
