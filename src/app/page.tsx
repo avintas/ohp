@@ -6,8 +6,25 @@ import { DisplayCard } from '../components/DisplayCard';
 export default function Home() {
   const cards = [
     {
-      id: 'home',
-      title: "Title Goes Here",
+      id: 'greetings',
+      title: "Greetings",
+      subtitle: "Subtitle Goes Here",
+      description: [
+        "Welcome to the Hockey Family!",
+        "Where passion meets the ice",
+        "Join our community of champions",
+        "Every player has a story",
+        "Let's make hockey history together",
+        "The puck stops here - with you!"
+      ],
+      image: "/gims/gim-00010.webp", // MascotGroup image
+      buttonText: "Say Hello",
+      delay: 0,
+      isFirst: true
+    },
+    {
+      id: 'heart',
+      title: "Heart",
       subtitle: "Subtitle Goes Here",
       description: [
         "SHARE the HOCKEY LOVE",
@@ -19,48 +36,39 @@ export default function Home() {
       ],
       image: "/gims/gim-00006.webp", // HeartGroup image
       buttonText: "Share the Love",
-      delay: 0,
-      isFirst: true
-    },
-    {
-      id: 'greetings',
-      title: "Title Goes Here",
-      subtitle: "Subtitle Goes Here",
-      image: "/gims/gim-00010.webp", // MascotGroup image
-      buttonText: "Say Hello",
-      delay: 0.2
+      delay: 0.1
     },
     {
       id: 'challenge',
-      title: "Title Goes Here",
+      title: "Challenge",
       subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
-      delay: 0.4
+      delay: 0.2
     },
     {
       id: 'share',
-      title: "Title Goes Here",
+      title: "Share",
       subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00008.webp", // ShareGroup image
       buttonText: "Share Now",
-      delay: 0.6
+      delay: 0.3
     },
     {
       id: 'motivate',
-      title: "Title Goes Here",
+      title: "Motivate",
       subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Motivated",
-      delay: 0.8
+      delay: 0.4
     },
     {
       id: 'persona',
-      title: "Title Goes Here",
+      title: "Persona",
       subtitle: "Subtitle Goes Here",
       image: "/pims/hs1.webp", // PersonaGroup image
       buttonText: "Battle Now",
-      delay: 1.0
+      delay: 0.5
     }
   ];
 

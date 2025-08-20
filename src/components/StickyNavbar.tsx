@@ -22,8 +22,8 @@ export function StickyNavbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
-              Home
+            <a href="#heart" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+              Heart
             </a>
             <a href="#challenge" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
               Challenge
