@@ -41,8 +41,16 @@ export default function Home() {
     },
     {
       id: 'challenge',
-      title: "Challenge",
-      subtitle: "Subtitle Goes Here",
+      title: "Test Your Hockey IQ",
+      subtitle: "Learn & Challenge Yourself",
+      description: [
+        "🧠 Take hockey knowledge quizzes",
+        "📚 Learn from expert content & insights",
+        "🎯 Challenge yourself with different topics",
+        "🏆 Track your progress & achievements",
+        "📱 Share results with friends & family",
+        "🤝 Compete with fellow hockey fans"
+      ],
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
       delay: 0.2
