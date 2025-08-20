@@ -77,11 +77,11 @@ export function DisplayCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: delay + 0.6 }}
-              className="mb-8 text-center"
+              className="mb-8"
             >
               <div className="max-w-2xl mx-auto">
                 {description.map((line, index) => (
-                  <p key={index} className="text-black text-lg sm:text-xl leading-relaxed mb-2">
+                  <p key={index} className="text-black text-lg sm:text-xl leading-relaxed mb-2 text-left">
                     {line}
                   </p>
                 ))}
@@ -102,28 +102,7 @@ export function DisplayCard({
             </FunButton>
           </motion.div>
 
-          {/* Scroll indicator for first card */}
-          {isFirst && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 1 }}
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-black/50 text-sm flex flex-col items-center"
-              >
-                <span className="mb-2">Scroll down</span>
-                <motion.div
-                  className="w-1 h-6 bg-black/30 rounded-full"
-                  animate={{ scaleY: [1, 0.5, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </motion.div>
-            </motion.div>
-          )}
+
         </div>
       </InteractiveCard>
     </section>

@@ -7,18 +7,19 @@ export default function Home() {
   const cards = [
     {
       id: 'greetings',
-      title: "Greetings",
-      subtitle: "Subtitle Goes Here",
+      title: "Welcome to the Hockey Family!",
+      subtitle: "Where passion meets the ice",
       description: [
-        "Welcome to the Hockey Family!",
-        "Where passion meets the ice",
-        "Join our community of champions",
-        "Every player has a story",
-        "Let's make hockey history together",
-        "The puck stops here - with you!"
+        "📰 Share hockey news & stories",
+        "🏆 Discover legendary moments", 
+        "📚 Learn skills & strategies",
+        "🎯 Enjoy fun tidbits & facts",
+        "🧠 Challenge yourself & friends",
+        "💪 Get motivated by pros",
+        "🤝 Connect with hockey fans"
       ],
       image: "/gims/gim-00010.webp", // MascotGroup image
-      buttonText: "Say Hello",
+      buttonText: "See What's Inside",
       delay: 0,
       isFirst: true
     },
