@@ -78,7 +78,7 @@ export default function Home() {
       <StickyNavbar />
       
       {/* Main Content */}
-      <main className="pt-16">
+      <main className="pt-0">
         {cards.map((card, index) => (
           <DisplayCard
             key={index}
