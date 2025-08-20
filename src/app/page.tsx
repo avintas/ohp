@@ -25,17 +25,17 @@ export default function Home() {
     },
     {
       id: 'heart',
-      title: "Get in the Game",
-      subtitle: "Share the Love of Hockey",
+      title: "Heart & Share",
+      subtitle: "Join the Team & Contribute Your Love",
       description: [
+        "🏆 Join 500+ hockey enthusiasts",
         "💝 Share love through greeting cards & messages",
         "💪 Motivate fellow players with encouragement",
+        "📚 Create helpful content for fellow fans",
         "🤝 Support your hockey family with kindness",
-        "🏆 Join 500+ hockey enthusiasts spreading love",
-        "🎯 Be part of the hockey love movement",
         "💖 Help grow the greatest sport with heart"
       ],
-      image: "/gims/gim-00006.webp", // HeartGroup image
+      image: "/gims/gim-00013.webp", // HeartGroup image
       buttonText: "Get in the Game",
       delay: 0.1
     },
@@ -56,20 +56,12 @@ export default function Home() {
       delay: 0.2
     },
     {
-      id: 'share',
-      title: "Share",
-      subtitle: "Subtitle Goes Here",
-      image: "/gims/gim-00008.webp", // ShareGroup image
-      buttonText: "Share Now",
-      delay: 0.3
-    },
-    {
       id: 'motivate',
       title: "Motivate",
       subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Motivated",
-      delay: 0.4
+      delay: 0.3
     },
     {
       id: 'persona',
@@ -77,7 +69,7 @@ export default function Home() {
       subtitle: "Subtitle Goes Here",
       image: "/pims/hs1.webp", // PersonaGroup image
       buttonText: "Battle Now",
-      delay: 0.5
+      delay: 0.4
     }
   ];
 

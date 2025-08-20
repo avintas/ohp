@@ -67,21 +67,7 @@ export function DisplayCard({
                 priority={isFirst}
                 quality={85}
               />
-              {/* Heartbeat animation for Heart Card */}
-              {id === 'heart' && (
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.05, 1],
-                    opacity: [0.8, 1, 0.8]
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute inset-0 bg-red-500/20 rounded-2xl pointer-events-none"
-                />
-              )}
+              
             </div>
             
             {/* Dynamic message counter for Heart Card */}
