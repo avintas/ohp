@@ -26,7 +26,7 @@ export default function Home() {
       id: 'greetings',
       title: "Title Goes Here",
       subtitle: "Subtitle Goes Here",
-      image: "/gims/gim-00005.webp", // MascotGroup image
+      image: "/gims/gim-00010.webp", // MascotGroup image
       buttonText: "Say Hello",
       delay: 0.2
     },
@@ -42,7 +42,7 @@ export default function Home() {
       id: 'share',
       title: "Title Goes Here",
       subtitle: "Subtitle Goes Here",
-      image: "/gims/gim-share.webp", // ShareGroup image
+      image: "/gims/gim-00008.webp", // ShareGroup image
       buttonText: "Share Now",
       delay: 0.6
     },
@@ -50,7 +50,7 @@ export default function Home() {
       id: 'motivate',
       title: "Title Goes Here",
       subtitle: "Subtitle Goes Here",
-      image: "/gims/gim-motivate.webp", // MotivateGroup image
+      image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Motivated",
       delay: 0.8
     },

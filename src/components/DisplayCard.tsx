@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { InteractiveCard } from './InteractiveCard';
 import { FunButton } from './FunButton';
 
@@ -56,11 +57,15 @@ export function DisplayCard({
             whileHover={{ scale: 1.02 }}
             className="relative w-full mb-8 overflow-hidden rounded-2xl"
           >
-            <div className="aspect-square sm:aspect-video lg:aspect-[4/3] w-full">
-              <img
+            <div className="aspect-square sm:aspect-video lg:aspect-[4/3] w-full relative">
+              <Image
                 src={image}
                 alt={title}
-                className="w-full h-full object-cover object-center"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                priority={isFirst}
+                quality={85}
               />
             </div>
           </motion.div>
