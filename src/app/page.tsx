@@ -1,15 +1,16 @@
 'use client';
 
 import { StickyNavbar } from '../components/StickyNavbar';
-import { HockeyCard } from '../components/HockeyCard';
+import { DisplayCard } from '../components/DisplayCard';
 
 export default function Home() {
   const cards = [
     {
       id: 'home',
-      title: "ONLYHOCKEY",
-      subtitle: "Love Hockey? Join the team, start sharing today!",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       description: [
+        "SHARE the HOCKEY LOVE",
         "500+ expert tidbits",
         "Elevate your hockey IQ", 
         "Penalty Box Philosophy",
@@ -23,36 +24,40 @@ export default function Home() {
     },
     {
       id: 'greetings',
-      title: "Greetings!",
-      subtitle: "Meet our hockey mascot",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00005.webp", // MascotGroup image
       buttonText: "Say Hello",
       delay: 0.2
     },
     {
       id: 'challenge',
-      title: "Challenge your friends to the Battle of Wits",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
       delay: 0.4
     },
     {
       id: 'share',
-      title: "Share the joy of hockey!",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       image: "/gims/gim-share.webp", // ShareGroup image
       buttonText: "Share Now",
       delay: 0.6
     },
     {
       id: 'motivate',
-      title: "Motivate!",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       image: "/gims/gim-motivate.webp", // MotivateGroup image
       buttonText: "Get Motivated",
       delay: 0.8
     },
     {
       id: 'persona',
-      title: "Challenge your friends to the Battle of the Wits",
+      title: "Title Goes Here",
+      subtitle: "Subtitle Goes Here",
       image: "/pims/hs1.webp", // PersonaGroup image
       buttonText: "Battle Now",
       delay: 1.0
@@ -66,7 +71,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="pt-16">
         {cards.map((card, index) => (
-          <HockeyCard
+          <DisplayCard
             key={index}
             id={card.id}
             title={card.title}

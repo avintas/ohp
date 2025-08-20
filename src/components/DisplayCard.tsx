@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { InteractiveCard } from './InteractiveCard';
 import { FunButton } from './FunButton';
 
-interface HockeyCardProps {
+interface DisplayCardProps {
   title: string;
   subtitle?: string;
   description?: string[];
@@ -14,7 +14,7 @@ interface HockeyCardProps {
   id?: string;
 }
 
-export function HockeyCard({ 
+export function DisplayCard({ 
   title, 
   subtitle, 
   description, 
@@ -24,46 +24,28 @@ export function HockeyCard({
   delay = 0,
   isFirst = false,
   id
-}: HockeyCardProps) {
+}: DisplayCardProps) {
   return (
     <section id={id} className="min-h-screen flex items-center justify-center py-16 px-4">
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
         <div className={`${bgColor} rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl overflow-hidden relative`}>
-          {/* Special Header for first card */}
-          {isFirst && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-8"
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-red-500 tracking-wide mb-4">
-                ONLYHOCKEY
-              </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-black max-w-2xl mx-auto leading-relaxed">
-                Love Hockey? Join the team, start sharing today! SHARE the HOCKEY LOVE
-              </p>
-            </motion.div>
-          )}
-
           {/* Title Section */}
-          {!isFirst && (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: delay + 0.2 }}
-              className="text-center mb-8"
-            >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
-                {title}
-              </h2>
-              {subtitle && (
-                <p className="text-xl sm:text-2xl text-black leading-relaxed max-w-2xl mx-auto">
-                  {subtitle}
-                </p>
-              )}
-            </motion.div>
-          )}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: delay + 0.2 }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="text-xl sm:text-2xl text-black leading-relaxed max-w-2xl mx-auto">
+                {subtitle}
+              </p>
+            )}
+          </motion.div>
 
           {/* Image Section */}
           <motion.div
@@ -83,7 +65,7 @@ export function HockeyCard({
             </div>
           </motion.div>
 
-          {/* Description Section */}
+          {/* Description Section - Now always shows if description exists */}
           {description && (
             <motion.div
               initial={{ opacity: 0 }}
