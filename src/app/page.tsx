@@ -25,18 +25,18 @@ export default function Home() {
     },
     {
       id: 'heart',
-      title: "Heart",
-      subtitle: "Subtitle Goes Here",
+      title: "Get in the Game",
+      subtitle: "Share the Love of Hockey",
       description: [
-        "SHARE the HOCKEY LOVE",
-        "500+ expert tidbits",
-        "Elevate your hockey IQ", 
-        "Penalty Box Philosophy",
-        "Get smarter in just minutes",
-        "Battles of Wits"
+        "💝 Share love through greeting cards & messages",
+        "💪 Motivate fellow players with encouragement",
+        "🤝 Support your hockey family with kindness",
+        "🏆 Join 500+ hockey enthusiasts spreading love",
+        "🎯 Be part of the hockey love movement",
+        "💖 Help grow the greatest sport with heart"
       ],
       image: "/gims/gim-00006.webp", // HeartGroup image
-      buttonText: "Share the Love",
+      buttonText: "Get in the Game",
       delay: 0.1
     },
     {

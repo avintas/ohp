@@ -67,7 +67,42 @@ export function DisplayCard({
                 priority={isFirst}
                 quality={85}
               />
+              {/* Heartbeat animation for Heart Card */}
+              {id === 'heart' && (
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.05, 1],
+                    opacity: [0.8, 1, 0.8]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute inset-0 bg-red-500/20 rounded-2xl pointer-events-none"
+                />
+              )}
             </div>
+            
+            {/* Dynamic message counter for Heart Card */}
+            {id === 'heart' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: delay + 0.6 }}
+                className="text-center mt-4"
+              >
+                                 <div className="bg-red-50 border border-red-200 rounded-lg px-6 py-3 inline-block">
+                   <p className="text-sm text-red-700 font-medium mb-1">
+                     Messages Shared Today
+                   </p>
+                   <p className="text-2xl font-bold text-red-600">
+                     2,847
+                   </p>
+                 </div>
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Description Section - Now always shows if description exists */}
