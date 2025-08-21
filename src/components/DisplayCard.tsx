@@ -57,7 +57,11 @@ export function DisplayCard({
             whileHover={{ scale: 1.02 }}
             className="relative w-full mb-8 overflow-hidden rounded-2xl"
           >
-            <div className="aspect-square sm:aspect-video lg:aspect-[4/3] w-full relative">
+            <div className={`${
+              id === 'experts' 
+                ? 'aspect-[2/1] w-full' 
+                : 'aspect-square sm:aspect-video lg:aspect-[4/3] w-full'
+            } relative`}>
               <Image
                 src={image}
                 alt={title}

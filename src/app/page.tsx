@@ -57,18 +57,34 @@ export default function Home() {
     },
     {
       id: 'motivate',
-      title: "Motivate",
-      subtitle: "Subtitle Goes Here",
+      title: "Hockey Wisdom & Motivation",
+      subtitle: "Shareable Motivational Tidbits",
+      description: [
+        "💨 'Skate Like Wind' & other inspiring messages",
+        "💪 Access legendary hockey wisdom & quotes",
+        "📚 Read motivational stories from hockey greats",
+        "🎯 Find the perfect message for any situation",
+        "🤝 Share motivation with your hockey family",
+        "💖 Keep the hockey love alive & strong"
+      ],
       image: "/gims/gim-00012.webp", // MotivateGroup image
-      buttonText: "Get Motivated",
+      buttonText: "Get Wisdom",
       delay: 0.3
     },
     {
-      id: 'persona',
-      title: "Persona",
-      subtitle: "Subtitle Goes Here",
-      image: "/pims/hs1.webp", // PersonaGroup image
-      buttonText: "Battle Now",
+      id: 'experts',
+      title: "Meet the Experts",
+      subtitle: "Coach, Broadcaster, Equipment Manager, Fan, Mom",
+      description: [
+        "👨‍🏫 Choose from expert hockey personas",
+        "🎙️ Become a coach, broadcaster, or equipment manager",
+        "👩‍👧‍👦 Join as a passionate fan or supportive mom",
+        "🎯 Each expert has unique knowledge & insights",
+        "🤝 Connect with others who share your expertise",
+        "💖 Express your hockey love through your role"
+      ],
+      image: "/gims/gim-00024.webp", // Experts image
+      buttonText: "Meet the Experts",
       delay: 0.4
     }
   ];
