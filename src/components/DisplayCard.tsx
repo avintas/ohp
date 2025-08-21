@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { InteractiveCard } from './InteractiveCard';
 import { FunButton } from './FunButton';
+import { SectionStructuredData } from './SectionMetadata';
 
 interface DisplayCardProps {
   title: string;
@@ -28,6 +29,16 @@ export function DisplayCard({
 }: DisplayCardProps) {
   return (
     <section id={id} className="min-h-screen flex items-center justify-center py-16 px-4">
+      {/* Section-specific structured data for SEO */}
+      {id && description && (
+        <SectionStructuredData
+          section={id as 'greetings' | 'heart' | 'challenge' | 'motivate' | 'experts'}
+          title={title}
+          description={description}
+          image={image}
+        />
+      )}
+      
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
         <div className={`${bgColor} rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl overflow-hidden relative`}>
           {/* Title Section */}

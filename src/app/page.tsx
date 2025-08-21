@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '../components/StickyNavbar';
 import { DisplayCard } from '../components/DisplayCard';
+import Script from 'next/script';
 
 export default function Home() {
   const cards = [
@@ -74,14 +75,15 @@ export default function Home() {
     {
       id: 'experts',
       title: "Meet the Experts",
-      subtitle: "Coach, Broadcaster, Equipment Manager, Fan, Mom",
+      subtitle: "No Awkward Dinners, Just Hockey Talk",
       description: [
-        "👨‍🏫 Choose from expert hockey personas",
-        "🎙️ Become a coach, broadcaster, or equipment manager",
-        "👩‍👧‍👦 Join as a passionate fan or supportive mom",
+        "👨‍🏫 Get insights from hockey coaches & players",
+        "🎙️ Discover tips from broadcasters",
+        "🔬 & scientists, therapists, nutritionists, gearheads",
+        "👩‍👧‍👦 Learn from passionate fans & hockey moms",
         "🎯 Each expert has unique knowledge & insights",
-        "🤝 Connect with others who share your expertise",
-        "💖 Express your hockey love through your role"
+        "🤝 Share their wisdom with your hockey family",
+        "💖 Spread the love of hockey through expert content"
       ],
       image: "/gims/gim-00024.webp", // Experts image
       buttonText: "Meet the Experts",
@@ -89,8 +91,66 @@ export default function Home() {
     }
   ];
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "ONLYHOCKEY",
+    "description": "Join the hockey community! Share the love, challenge friends, get motivated, and elevate your hockey IQ with expert tidbits and battles of wits.",
+    "url": "https://onlyhockey.com",
+    "logo": "https://onlyhockey.com/gims/gim-00010.webp",
+    "sport": "Ice Hockey",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://twitter.com/onlyhockey",
+      "https://facebook.com/onlyhockey",
+      "https://instagram.com/onlyhockey"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Hockey Community Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hockey Knowledge Quizzes",
+            "description": "Test your hockey IQ with interactive quizzes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hockey Motivation",
+            "description": "Get inspired with hockey wisdom and quotes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hockey Community",
+            "description": "Connect with 500+ hockey enthusiasts"
+          }
+        }
+      ]
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Global Hockey Community"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Structured Data for SEO */}
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
       <StickyNavbar />
       
       {/* Main Content */}
