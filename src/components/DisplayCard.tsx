@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { InteractiveCard } from './InteractiveCard';
 import { FunButton } from './FunButton';
 import { SectionStructuredData } from './SectionMetadata';
+import { useRouter } from 'next/navigation';
 
 interface DisplayCardProps {
   title: string;
@@ -27,6 +28,24 @@ export function DisplayCard({
   isFirst = false,
   id
 }: DisplayCardProps) {
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+    if (id === 'greetings') {
+      router.push('/greetings');
+    } else if (id === 'heart') {
+      router.push('/heart');
+    } else if (id === 'challenge') {
+      router.push('/challenge');
+    } else if (id === 'motivate') {
+      router.push('/motivate');
+    } else if (id === 'experts') {
+      router.push('/experts');
+    } else {
+      console.log(`${title} clicked!`);
+    }
+  };
+
   return (
     <section id={id} className="min-h-screen flex items-center justify-center py-16 px-4">
       {/* Section-specific structured data for SEO */}
@@ -133,7 +152,7 @@ export function DisplayCard({
             transition={{ delay: delay + 0.8 }}
             className="text-center"
           >
-            <FunButton onClick={() => console.log(`${title} clicked!`)}>
+            <FunButton onClick={handleButtonClick}>
               {buttonText}
             </FunButton>
           </motion.div>

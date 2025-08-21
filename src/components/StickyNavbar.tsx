@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export function StickyNavbar() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -31,30 +32,35 @@ export function StickyNavbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
-          >
-            <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">OH</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">ONLYHOCKEY</span>
-          </motion.div>
+          <Link href="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-2 cursor-pointer"
+            >
+              <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">OH</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">ONLYHOCKEY</span>
+            </motion.div>
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#heart" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+            <Link href="/greetings" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+              Greetings
+            </Link>
+            <Link href="/heart" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
               Heart
-            </a>
-            <a href="#challenge" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+            </Link>
+            <Link href="/challenge" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
               Challenge
-            </a>
-            <a href="#share" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
-              Share
-            </a>
-            <a href="#motivate" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+            </Link>
+            <Link href="/motivate" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
               Motivate
-            </a>
+            </Link>
+            <Link href="/experts" className="text-gray-700 hover:text-red-500 transition-colors duration-200">
+              Experts
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
