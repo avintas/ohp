@@ -11,7 +11,7 @@ export default function Home() {
       title: "Welcome to OnlyHockey!",
       subtitle: "Where your love for the game is all you need. Dive in to share stories, relive epic moments, and connect with fellow fans!",
       description: "📰 Share hockey news & stories with passionate fans, 🏆 discover legendary moments that shaped the game, 📚 learn new skills & strategies from the pros, 🎯 enjoy fun tidbits & fascinating facts, 🧠 challenge yourself & friends in exciting competitions, 💪 get motivated by professional players, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
-      image: "/gims/gim-00025.webp", // Updated image for better standout design
+      image: "/gims/gim-00011.webp", // Updated image for better standout design
       buttonText: "See What's Inside",
       delay: 0,
       isFirst: true
@@ -28,7 +28,7 @@ export default function Home() {
     {
       id: 'challenge',
       title: "Test Your Hockey IQ",
-      subtitle: "Learn & Challenge Yourself",
+      subtitle: "Learn, challenge yourself and your friends",
       description: "🧠 Take hockey knowledge quizzes, 📚 learn from expert content & insights, 🎯 challenge yourself with different topics, 🏆 track your progress & achievements, 📱 share results with friends & family, and 🤝 compete with fellow hockey fans.",
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
@@ -37,7 +37,7 @@ export default function Home() {
     {
       id: 'motivate',
       title: "Hockey Wisdom & Motivation",
-      subtitle: "Shareable Motivational Tidbits",
+      subtitle: "Share motivational tidbits and messages with your friends and family",
       description: "💨 'Skate Like Wind' & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
       image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Wisdom",

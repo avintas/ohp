@@ -66,7 +66,7 @@ export function DisplayCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: delay + 0.2 }}
-            className="text-center mb-6"
+            className="text-center mb-4"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
               {title}
