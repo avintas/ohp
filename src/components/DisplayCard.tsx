@@ -59,10 +59,36 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div 
+        <motion.div 
           onClick={handleButtonClick}
-          className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:border-gray-300`}
+          initial={{ scale: 0.95, y: 20 }}
+          animate={{ scale: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6,
+            delay: delay + 0.1,
+            ease: "easeOut"
+          }}
+          whileHover={{ 
+            scale: 1.02,
+            y: -5,
+            transition: { duration: 0.2 }
+          }}
+          className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-gray-300`}
         >
+          {/* Click me indicator */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0, 1, 0], y: [10, 0, 10] }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 3,
+              ease: "easeInOut"
+            }}
+            className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium z-10 shadow-lg"
+          >
+            Tap here! 👆
+          </motion.div>
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -172,7 +198,7 @@ export function DisplayCard({
           </motion.div>
 
 
-        </div>
+        </motion.div>
       </InteractiveCard>
     </section>
   );
