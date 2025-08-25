@@ -59,36 +59,8 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <motion.div 
-          onClick={handleButtonClick}
-          initial={{ scale: 0.95, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ 
-            duration: 0.6,
-            delay: delay + 0.1,
-            ease: "easeOut"
-          }}
-          whileHover={{ 
-            scale: 1.02,
-            y: -5,
-            transition: { duration: 0.2 }
-          }}
-          className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-gray-300`}
-        >
-          {/* Click me indicator */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: [0, 1, 0], y: [10, 0, 10] }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 3,
-              ease: "easeInOut"
-            }}
-            className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium z-10 shadow-lg"
-          >
-            Tap here! 👆
-          </motion.div>
+        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}>
+
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -113,7 +85,6 @@ export function DisplayCard({
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: delay + 0.4, duration: 0.5 }}
-            whileHover={{ scale: 1.02 }}
             className="relative w-full mb-6 overflow-hidden rounded-2xl"
           >
             <div className={`${
@@ -121,15 +92,32 @@ export function DisplayCard({
                 ? 'aspect-[2/1] w-full' 
                 : 'aspect-square sm:aspect-video lg:aspect-[4/3] w-full'
             } relative`}>
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-                priority={isFirst}
-                quality={85}
-              />
+              {id === 'greetings' ? (
+                <div 
+                  onClick={() => router.push('/greetings')}
+                  className="cursor-pointer"
+                >
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-contain object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                    priority={isFirst}
+                    quality={85}
+                  />
+                </div>
+              ) : (
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                  priority={isFirst}
+                  quality={85}
+                />
+              )}
               
             </div>
             
@@ -198,7 +186,7 @@ export function DisplayCard({
           </motion.div>
 
 
-        </motion.div>
+        </div>
       </InteractiveCard>
     </section>
   );

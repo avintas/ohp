@@ -10,6 +10,20 @@ export function FunButton({ children, onClick, className = '' }: FunButtonProps)
   return (
     <motion.button
       onClick={onClick}
+      initial={{ scale: 1 }}
+      animate={{ 
+        scale: [1, 1.05, 1],
+        boxShadow: [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ]
+      }}
+      transition={{ 
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`
