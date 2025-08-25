@@ -11,7 +11,7 @@ export default function Home() {
       title: "Welcome to the Hockey Family!",
       subtitle: "Where passion meets the ice",
       description: "📰 Share hockey news & stories with passionate fans, 🏆 discover legendary moments that shaped the game, 📚 learn new skills & strategies from the pros, 🎯 enjoy fun tidbits & fascinating facts, 🧠 challenge yourself & friends in exciting competitions, 💪 get motivated by professional players, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
-      image: "/gims/gim-00010.webp", // MascotGroup image
+      image: "/gims/gim-00029.png", // Updated image for better standout design
       buttonText: "See What's Inside",
       delay: 0,
       isFirst: true

@@ -47,7 +47,7 @@ export function DisplayCard({
   };
 
   return (
-    <section id={id} className="min-h-[80vh] flex items-center justify-center py-16 px-4">
+    <section id={id} className="min-h-[80vh] flex items-center justify-center pt-8 pb-16 px-4">
       {/* Section-specific structured data for SEO */}
       {id && description && (
         <SectionStructuredData
