@@ -93,9 +93,18 @@ export function DisplayCard({
                 : 'aspect-square sm:aspect-video lg:aspect-[4/3] w-full'
             } relative`}>
               {id === 'greetings' ? (
-                <div 
+                <motion.div 
                   onClick={() => router.push('/greetings')}
-                  className="cursor-pointer"
+                  className="cursor-pointer relative w-full h-full"
+                  animate={{ 
+                    y: [0, -8, 0],
+                    scale: [1, 1.02, 1]
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                 >
                   <Image
                     src={image}
@@ -106,7 +115,7 @@ export function DisplayCard({
                     priority={isFirst}
                     quality={85}
                   />
-                </div>
+                </motion.div>
               ) : (
                 <Image
                   src={image}
