@@ -59,7 +59,7 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-100 overflow-hidden relative`}>
+        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm overflow-hidden relative`}>
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

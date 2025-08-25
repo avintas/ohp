@@ -85,12 +85,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#dc2626" />
+        <meta name="theme-color" content="#1F2937" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="ONLYHOCKEY" />
         <link rel="apple-touch-icon" href="/gims/gim-00010.webp" />
-        <meta name="msapplication-TileColor" content="#dc2626" />
+        <meta name="msapplication-TileColor" content="#1F2937" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
