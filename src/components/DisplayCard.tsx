@@ -47,7 +47,7 @@ export function DisplayCard({
   };
 
   return (
-    <section id={id} className="min-h-[80vh] flex items-center justify-center pt-8 pb-16 px-4">
+    <section id={id} className="min-h-[75vh] flex items-center justify-center pt-8 pb-16 px-4">
       {/* Section-specific structured data for SEO */}
       {id && description && (
         <SectionStructuredData
@@ -59,14 +59,14 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm overflow-hidden relative`}>
+        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}>
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: delay + 0.2 }}
-            className="text-center mb-8"
+            className="text-center mb-6"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
               {title}
@@ -85,7 +85,7 @@ export function DisplayCard({
             viewport={{ once: true }}
             transition={{ delay: delay + 0.4, duration: 0.5 }}
             whileHover={{ scale: 1.02 }}
-            className="relative w-full mb-8 overflow-hidden rounded-2xl"
+            className="relative w-full mb-6 overflow-hidden rounded-2xl"
           >
             <div className={`${
               id === 'experts' 
@@ -132,7 +132,7 @@ export function DisplayCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: delay + 0.6 }}
-              className="mb-8"
+              className="mb-6"
             >
               <div className="max-w-2xl mx-auto">
                 {Array.isArray(description) ? (
