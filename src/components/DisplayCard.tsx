@@ -59,7 +59,10 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}>
+        <div 
+          onClick={handleButtonClick}
+          className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:border-gray-300`}
+        >
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
