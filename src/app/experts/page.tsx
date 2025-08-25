@@ -7,7 +7,7 @@ export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-red-600 text-white py-4 px-6 shadow-lg">
+      <header className="bg-blue-800 text-white py-4 px-6 shadow-lg">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold hover:text-red-100 transition-colors">
             ONLYHOCKEY

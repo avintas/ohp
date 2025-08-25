@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 interface DisplayCardProps {
   title: string;
   subtitle?: string;
-  description?: string[];
+  description?: string[] | string;
   image: string;
   buttonText?: string;
   bgColor?: string;
@@ -47,7 +47,7 @@ export function DisplayCard({
   };
 
   return (
-    <section id={id} className="min-h-screen flex items-center justify-center py-16 px-4">
+    <section id={id} className="min-h-[80vh] flex items-center justify-center py-16 px-4">
       {/* Section-specific structured data for SEO */}
       {id && description && (
         <SectionStructuredData
@@ -59,7 +59,7 @@ export function DisplayCard({
       )}
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div className={`${bgColor} rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl overflow-hidden relative`}>
+        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-100 overflow-hidden relative`}>
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ export function DisplayCard({
                 src={image}
                 alt={title}
                 fill
-                className="object-cover object-center"
+                className="object-contain object-center"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
                 priority={isFirst}
                 quality={85}
@@ -135,11 +135,22 @@ export function DisplayCard({
               className="mb-8"
             >
               <div className="max-w-2xl mx-auto">
-                {description.map((line, index) => (
-                  <p key={index} className="text-black text-lg sm:text-xl leading-relaxed mb-2 text-left">
-                    {line}
+                {Array.isArray(description) ? (
+                  // Render as bullet points if it's an array
+                  <ul className="space-y-3">
+                    {description.map((line, index) => (
+                      <li key={index} className="text-black text-lg sm:text-xl leading-relaxed text-left flex items-start">
+                        <span className="text-blue-600 mr-3 mt-1">•</span>
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  // Render as flowing paragraph if it's a string
+                  <p className="text-black text-lg sm:text-xl leading-relaxed text-center">
+                    {description}
                   </p>
-                ))}
+                )}
               </div>
             </motion.div>
           )}

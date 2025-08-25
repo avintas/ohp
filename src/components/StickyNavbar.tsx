@@ -7,7 +7,7 @@ export function StickyNavbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowNavbar(window.scrollY > 120);
+      setShowNavbar(window.scrollY > 60);
     };
     
     window.addEventListener('scroll', handleScroll);

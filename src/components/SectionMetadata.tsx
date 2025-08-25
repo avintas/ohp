@@ -78,7 +78,7 @@ export function generateSectionMetadata(section: SectionMetadataProps['section']
 interface SectionStructuredDataProps {
   section: 'greetings' | 'heart' | 'challenge' | 'motivate' | 'experts';
   title: string;
-  description: string[];
+  description: string[] | string;
   image: string;
 }
 
@@ -87,7 +87,7 @@ export function SectionStructuredData({ section, title, description, image }: Se
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "description": description.join(" "),
+    "description": Array.isArray(description) ? description.join(" ") : description,
     "image": `https://onlyhockey.com${image}`,
     "author": {
       "@type": "Organization",

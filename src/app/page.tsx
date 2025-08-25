@@ -10,15 +10,7 @@ export default function Home() {
       id: 'greetings',
       title: "Welcome to the Hockey Family!",
       subtitle: "Where passion meets the ice",
-      description: [
-        "📰 Share hockey news & stories",
-        "🏆 Discover legendary moments", 
-        "📚 Learn skills & strategies",
-        "🎯 Enjoy fun tidbits & facts",
-        "🧠 Challenge yourself & friends",
-        "💪 Get motivated by pros",
-        "🤝 Connect with hockey fans"
-      ],
+      description: "📰 Share hockey news & stories with passionate fans, 🏆 discover legendary moments that shaped the game, 📚 learn new skills & strategies from the pros, 🎯 enjoy fun tidbits & fascinating facts, 🧠 challenge yourself & friends in exciting competitions, 💪 get motivated by professional players, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
       image: "/gims/gim-00010.webp", // MascotGroup image
       buttonText: "See What's Inside",
       delay: 0,
@@ -28,14 +20,7 @@ export default function Home() {
       id: 'heart',
       title: "Heart & Share",
       subtitle: "Join the Team & Contribute Your Love",
-      description: [
-        "🏆 Join 500+ hockey enthusiasts",
-        "💝 Share love through greeting cards & messages",
-        "💪 Motivate fellow players with encouragement",
-        "📚 Create helpful content for fellow fans",
-        "🤝 Support your hockey family with kindness",
-        "💖 Help grow the greatest sport with heart"
-      ],
+      description: "🏆 Join 500+ hockey enthusiasts, 💝 share love through greeting cards & messages, 💪 motivate fellow players with encouragement, 📚 create helpful content for fellow fans, 🤝 support your hockey family with kindness, and 💖 help grow the greatest sport with heart.",
       image: "/gims/gim-00013.webp", // HeartGroup image
       buttonText: "Get in the Game",
       delay: 0.1
@@ -44,14 +29,7 @@ export default function Home() {
       id: 'challenge',
       title: "Test Your Hockey IQ",
       subtitle: "Learn & Challenge Yourself",
-      description: [
-        "🧠 Take hockey knowledge quizzes",
-        "📚 Learn from expert content & insights",
-        "🎯 Challenge yourself with different topics",
-        "🏆 Track your progress & achievements",
-        "📱 Share results with friends & family",
-        "🤝 Compete with fellow hockey fans"
-      ],
+      description: "🧠 Take hockey knowledge quizzes, 📚 learn from expert content & insights, 🎯 challenge yourself with different topics, 🏆 track your progress & achievements, 📱 share results with friends & family, and 🤝 compete with fellow hockey fans.",
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
       delay: 0.2
@@ -60,14 +38,7 @@ export default function Home() {
       id: 'motivate',
       title: "Hockey Wisdom & Motivation",
       subtitle: "Shareable Motivational Tidbits",
-      description: [
-        "💨 'Skate Like Wind' & other inspiring messages",
-        "💪 Access legendary hockey wisdom & quotes",
-        "📚 Read motivational stories from hockey greats",
-        "🎯 Find the perfect message for any situation",
-        "🤝 Share motivation with your hockey family",
-        "💖 Keep the hockey love alive & strong"
-      ],
+      description: "💨 'Skate Like Wind' & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
       image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Wisdom",
       delay: 0.3
@@ -76,15 +47,7 @@ export default function Home() {
       id: 'experts',
       title: "Meet the Experts",
       subtitle: "No Awkward Dinners, Just Hockey Talk",
-      description: [
-        "👨‍🏫 Get insights from hockey coaches & players",
-        "🎙️ Discover tips from broadcasters",
-        "🔬 & scientists, therapists, nutritionists, gearheads",
-        "👩‍👧‍👦 Learn from passionate fans & hockey moms",
-        "🎯 Each expert has unique knowledge & insights",
-        "🤝 Share their wisdom with your hockey family",
-        "💖 Spread the love of hockey through expert content"
-      ],
+      description: "👨‍🏫 Get insights from hockey coaches & players, 🎙️ discover tips from broadcasters, 🔬 & scientists, therapists, nutritionists, gearheads, 👩‍👧‍👦 learn from passionate fans & hockey moms, 🎯 each expert has unique knowledge & insights, 🤝 share their wisdom with your hockey family, and 💖 spread the love of hockey through expert content.",
       image: "/gims/gim-00024.webp", // Experts image
       buttonText: "Meet the Experts",
       delay: 0.4
