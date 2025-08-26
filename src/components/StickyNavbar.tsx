@@ -1,33 +1,13 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export function StickyNavbar() {
-  const [showNavbar, setShowNavbar] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowNavbar(window.scrollY > 60);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ 
-        y: showNavbar ? 0 : -100,
-        opacity: showNavbar ? 1 : 0
-      }}
-      transition={{ 
-        duration: 0.3,
-        ease: "easeOut"
-      }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 transition-all duration-300 ${
-        showNavbar ? 'shadow-lg' : 'shadow-none'
-      }`}
+      initial={{ y: 0, opacity: 1 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">

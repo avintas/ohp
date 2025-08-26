@@ -2,21 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { StickyNavbar } from '../../components/StickyNavbar';
 
 export default function MotivatePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-[#023047] text-white py-4 px-6 shadow-lg">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold hover:text-white/80 transition-colors">
-            ONLYHOCKEY
-          </Link>
-          <Link href="/" className="text-white hover:text-white/80 transition-colors">
-            ← Back to Home
-          </Link>
-        </div>
-      </header>
+      {/* Sticky Navbar */}
+      <StickyNavbar />
 
       {/* Main Content */}
       <main className="flex items-center justify-center min-h-[calc(100vh-80px)]">

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-    <msapplication>
-        <tile>
-            <square150x150logo src="/gims/gim-00010.webp"/>
-            <TileColor>#dc2626</TileColor>
-        </tile>
-    </msapplication>
-</browserconfig>
