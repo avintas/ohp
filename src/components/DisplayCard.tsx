@@ -50,14 +50,24 @@ export function DisplayCard({
 
       
       <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div className={`bg-white rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}>
+        <div 
+          className={`rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}
+          style={
+            id === 'greetings' ? { backgroundColor: '#8ecae6' } :
+            id === 'heart' ? { backgroundColor: '#219EBC' } :
+            id === 'challenge' ? { backgroundColor: '#FB8500' } :
+            id === 'motivate' ? { backgroundColor: '#FFB703' } :
+            id === 'experts' ? { backgroundColor: '#ffffff' } :
+            {}
+          }
+        >
 
           {/* Title Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: delay + 0.2 }}
+            transition={{ delay: 0 }}
             className="text-center mb-4"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
@@ -75,7 +85,7 @@ export function DisplayCard({
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: delay + 0.4, duration: 0.5 }}
+            transition={{ delay: 0, duration: 0.5 }}
             className="relative w-full mb-6 overflow-hidden rounded-2xl"
           >
             <div className={`${
@@ -127,7 +137,7 @@ export function DisplayCard({
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: delay + 0.6 }}
+                transition={{ delay: 0 }}
                 className="text-center mt-4"
               >
                                  <div className="bg-red-50 border border-red-200 rounded-lg px-6 py-3 inline-block">
@@ -148,7 +158,7 @@ export function DisplayCard({
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: delay + 0.6 }}
+              transition={{ delay: 0 }}
               className="mb-6"
             >
               <div className="max-w-2xl mx-auto">
@@ -177,7 +187,7 @@ export function DisplayCard({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: delay + 0.8 }}
+            transition={{ delay: 0 }}
             className="text-center"
           >
             <FunButton onClick={handleButtonClick}>

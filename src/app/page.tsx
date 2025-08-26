@@ -10,7 +10,7 @@ export default function Home() {
       id: 'greetings',
       title: "Welcome to OnlyHockey!",
       subtitle: "Where your love for the game is all you need. Dive in to share stories, relive epic moments, and connect with fellow fans!",
-      description: "📰 Share hockey news & stories with passionate fans, 🏆 discover legendary moments that shaped the game, 📚 learn new skills & strategies from the pros, 🎯 enjoy fun tidbits & fascinating facts, 🧠 challenge yourself & friends in exciting competitions, 💪 get motivated by professional players, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
+      description: "📰 Share hockey news & stories, 🏆 discover legendary moments that shaped the game, 📚 learn strategies, 🧠 enjoy fun tidbits & fascinating facts, 💪 get motivated, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
       image: "/gims/gim-00026.webp", // Updated image for better standout design
       buttonText: "See What's Inside",
       delay: 0,
@@ -20,7 +20,7 @@ export default function Home() {
       id: 'heart',
       title: "Heart & Share",
       subtitle: "Join the Team & Contribute Your Love",
-      description: "🏆 Join 500+ hockey enthusiasts, 💝 share love through greeting cards & messages, 💪 motivate fellow players with encouragement, 📚 create helpful content for fellow fans, 🤝 support your hockey family with kindness, and 💖 help grow the greatest sport with heart.",
+      description: "🏆 Join your fellow hockey enthusiasts, 💝 share love for the game through greeting cards & messages, 💪 encourage fellow players, and 💖 help grow the greatest sport with heart.",
       image: "/gims/gim-00013.webp", // HeartGroup image
       buttonText: "Get in the Game",
       delay: 0.1
@@ -29,7 +29,7 @@ export default function Home() {
       id: 'challenge',
       title: "Test Your Hockey IQ",
       subtitle: "Learn, challenge yourself and your friends",
-      description: "🧠 Take hockey knowledge quizzes, 📚 learn from expert content & insights, 🎯 challenge yourself with different topics, 🏆 track your progress & achievements, 📱 share results with friends & family, and 🤝 compete with fellow hockey fans.",
+      description: "🧠 Take hockey knowledge quizzes, 📚 learn from expert insights, 🎯 challenge yourself with different topics, 🏆 track your progress & achievements, 📱 share results with friends & family, and 🤝 compete with fellow hockey fans.",
       image: "/gims/gim-00004.webp", // ChallengeGroup image
       buttonText: "Start Challenge",
       delay: 0.2
