@@ -1,32 +1,22 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { InteractiveCard } from './InteractiveCard';
+import { useState } from 'react';
 import { FunButton } from './FunButton';
 import { useRouter } from 'next/navigation';
 
 interface DisplayCardProps {
+  id: string;
   title: string;
   subtitle?: string;
-  description?: string[] | string;
+  description: string | string[];
   image: string;
-  buttonText?: string;
-  bgColor?: string;
-  delay?: number;
+  buttonText: string;
+  delay: number;
   isFirst?: boolean;
-  id?: string;
 }
 
-export function DisplayCard({ 
-  title, 
-  subtitle, 
-  description, 
-  image, 
-  buttonText = "Join Now",
-  bgColor = "bg-neutral-100",
-  delay = 0,
-  isFirst = false,
-  id
-}: DisplayCardProps) {
+export function DisplayCard({ id, title, subtitle, description, image, buttonText, delay, isFirst }: DisplayCardProps) {
+  const [isFront, setIsFront] = useState(false);
   const router = useRouter();
 
   const handleButtonClick = () => {
@@ -45,79 +35,87 @@ export function DisplayCard({
     }
   };
 
+  const handleCardClick = () => {
+    setIsFront(!isFront);
+  };
+
+  const handleOutsideClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setIsFront(false);
+    }
+  };
+
   return (
-    <section id={id} className="min-h-[75vh] flex items-center justify-center pt-8 pb-16 px-4">
-
+    <>
+      {/* Backdrop overlay when card is in front */}
+      {isFront && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          onClick={handleOutsideClick}
+        />
+      )}
       
-      <InteractiveCard delay={delay} className="w-full max-w-4xl mx-auto">
-        <div 
-          className={`rounded-xl p-6 sm:p-8 lg:p-12 shadow-sm border border-gray-200 overflow-hidden relative`}
-          style={
-            id === 'greetings' ? { backgroundColor: '#8ecae6' } :
-            id === 'heart' ? { backgroundColor: '#219EBC' } :
-            id === 'challenge' ? { backgroundColor: '#FB8500' } :
-            id === 'motivate' ? { backgroundColor: '#FFB703' } :
-            id === 'experts' ? { backgroundColor: '#ffffff' } :
-            {}
-          }
+      <motion.div 
+                 className={`w-full md:w-80 lg:w-96 rounded-xl p-4 sm:p-5 lg:p-6 shadow-sm border border-gray-200 overflow-hidden relative h-[60vh] flex flex-col cursor-pointer transition-all duration-300 ${
+          isFront ? 'z-50' : 'z-10'
+        }`}
+        style={{
+          backgroundColor: id === 'greetings' ? '#8ecae6' :
+                         id === 'heart' ? '#219EBC' :
+                         id === 'challenge' ? '#FB8500' :
+                         id === 'motivate' ? '#FFB703' :
+                         id === 'experts' ? '#ffffff' : 'transparent',
+          transform: isFront ? 'scale(1.05)' : 'scale(1)',
+          zIndex: isFront ? 50 : 10
+        }}
+        onClick={handleCardClick}
+        whileHover={{ scale: isFront ? 1.05 : 1.02 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        {/* Title Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0 }}
+          className="text-center mb-3"
         >
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#023047] tracking-tight mb-2">
+            {title}
+          </h2>
+          {subtitle && (
+                         <p className="text-xs sm:text-sm lg:text-base text-[#023047] leading-relaxed max-w-full mx-auto">
+              {subtitle}
+            </p>
+          )}
+        </motion.div>
 
-          {/* Title Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0 }}
-            className="text-center mb-4"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">
-              {title}
-            </h2>
-            {subtitle && (
-              <p className="text-xl sm:text-2xl text-[#023047] leading-relaxed max-w-2xl mx-auto">
-                {subtitle}
-              </p>
-            )}
-          </motion.div>
-
-          {/* Image Section */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0, duration: 0.5 }}
-            className="relative w-full mb-6 overflow-hidden rounded-2xl"
-          >
-            <div className={`${
-              id === 'experts' 
-                ? 'aspect-[2/1] w-full' 
-                : 'aspect-square sm:aspect-video lg:aspect-[4/3] w-full'
-            } relative`}>
-              {id === 'greetings' ? (
-                <motion.div 
-                  onClick={() => router.push('/greetings')}
-                  className="cursor-pointer relative w-full h-full"
-                  animate={{ 
-                    y: [0, -8, 0],
-                    scale: [1, 1.02, 1]
-                  }}
-                  transition={{ 
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-contain object-center"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-                    priority={isFirst}
-                    quality={85}
-                  />
-                </motion.div>
-              ) : (
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0, duration: 0.5 }}
+          className="relative w-full mb-4 overflow-hidden rounded-xl flex-shrink-0"
+        >
+          <div className="aspect-square w-full relative">
+            {id === 'greetings' ? (
+              <motion.div 
+                onClick={() => router.push('/greetings')}
+                className="cursor-pointer relative w-full h-full"
+                animate={{ 
+                  y: [0, -8, 0],
+                  scale: [1, 1.02, 1]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 <Image
                   src={image}
                   alt={title}
@@ -127,77 +125,83 @@ export function DisplayCard({
                   priority={isFirst}
                   quality={85}
                 />
-              )}
-              
-            </div>
-            
-            {/* Dynamic message counter for Heart Card */}
-            {id === 'heart' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0 }}
-                className="text-center mt-4"
-              >
-                                 <div className="bg-red-50 border border-red-200 rounded-lg px-6 py-3 inline-block">
-                   <p className="text-sm text-red-700 font-medium mb-1">
-                     Messages Shared Today
-                   </p>
-                   <p className="text-2xl font-bold text-red-600">
-                     2,847
-                   </p>
-                 </div>
               </motion.div>
+            ) : (
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                priority={isFirst}
+                quality={85}
+              />
             )}
-          </motion.div>
-
-          {/* Description Section - Now always shows if description exists */}
-          {description && (
+            
+          </div>
+          
+          {/* Dynamic message counter for Heart Card */}
+          {id === 'heart' && (
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0 }}
-              className="mb-6"
+              className="text-center mt-3"
             >
-              <div className="max-w-2xl mx-auto">
-                {Array.isArray(description) ? (
-                  // Render as bullet points if it's an array
-                  <ul className="space-y-3">
-                    {description.map((line, index) => (
-                      <li key={index} className="text-[#023047] text-lg sm:text-xl leading-relaxed text-left flex items-start">
-                        <span className="text-blue-600 mr-3 mt-1">•</span>
-                        <span>{line}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  // Render as flowing paragraph if it's a string
-                  <p className="text-[#023047] text-lg sm:text-xl leading-relaxed text-center">
-                    {description}
-                  </p>
-                )}
+              <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-2 inline-block">
+                <p className="text-xs text-red-700 font-medium mb-1">
+                  Messages Shared Today
+                </p>
+                <p className="text-lg font-bold text-red-600">
+                  2,847
+                </p>
               </div>
             </motion.div>
           )}
+        </motion.div>
 
-          {/* Button Section */}
+        {/* Description Section */}
+        {description && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0 }}
-            className="text-center"
+            className="mb-4 flex-grow"
           >
-            <FunButton onClick={handleButtonClick}>
-              {buttonText}
-            </FunButton>
+            <div className="max-w-full mx-auto">
+              {Array.isArray(description) ? (
+                <ul className="space-y-2">
+                  {description.map((line, index) => (
+                    <li key={index} className="text-[#023047] text-xs sm:text-sm leading-relaxed text-left flex items-start">
+                      <span className="text-blue-600 mr-2 mt-1 text-xs">•</span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-[#023047] text-xs sm:text-sm leading-relaxed text-center">
+                  {description}
+                </p>
+              )}
+            </div>
           </motion.div>
+        )}
 
-
-        </div>
-      </InteractiveCard>
-    </section>
+        {/* Button Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0 }}
+          className="text-center mt-auto"
+        >
+          <FunButton onClick={handleButtonClick}>
+            {buttonText}
+          </FunButton>
+        </motion.div>
+      </motion.div>
+    </>
   );
 }

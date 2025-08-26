@@ -36,7 +36,7 @@ export default function Home() {
     },
     {
       id: 'motivate',
-      title: "Hockey Wisdom & Motivation",
+      title: "Motivate others",
       subtitle: "Share motivational tidbits and messages with your friends and family",
       description: "💨 'Skate Like Wind' & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
       image: "/gims/gim-00012.webp", // MotivateGroup image
@@ -118,19 +118,22 @@ export default function Home() {
       
       {/* Main Content */}
       <main className="pt-0">
-        {cards.map((card, index) => (
-          <DisplayCard
-            key={index}
-            id={card.id}
-            title={card.title}
-            subtitle={card.subtitle}
-            description={card.description}
-            image={card.image}
-            buttonText={card.buttonText}
-            delay={card.delay}
-            isFirst={card.isFirst}
-          />
-        ))}
+        {/* Responsive Grid Layout */}
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8 px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 max-w-7xl mx-auto">
+          {cards.map((card, index) => (
+            <DisplayCard
+              key={index}
+              id={card.id}
+              title={card.title}
+              subtitle={card.subtitle}
+              description={card.description}
+              image={card.image}
+              buttonText={card.buttonText}
+              delay={card.delay}
+              isFirst={card.isFirst}
+            />
+          ))}
+        </div>
       </main>
     </div>
   );
