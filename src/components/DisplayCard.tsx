@@ -70,11 +70,11 @@ export function DisplayCard({
             transition={{ delay: 0 }}
             className="text-center mb-4"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-xl sm:text-2xl text-black leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl sm:text-2xl text-[#023047] leading-relaxed max-w-2xl mx-auto">
                 {subtitle}
               </p>
             )}
@@ -166,7 +166,7 @@ export function DisplayCard({
                   // Render as bullet points if it's an array
                   <ul className="space-y-3">
                     {description.map((line, index) => (
-                      <li key={index} className="text-black text-lg sm:text-xl leading-relaxed text-left flex items-start">
+                      <li key={index} className="text-[#023047] text-lg sm:text-xl leading-relaxed text-left flex items-start">
                         <span className="text-blue-600 mr-3 mt-1">•</span>
                         <span>{line}</span>
                       </li>
@@ -174,7 +174,7 @@ export function DisplayCard({
                   </ul>
                 ) : (
                   // Render as flowing paragraph if it's a string
-                  <p className="text-black text-lg sm:text-xl leading-relaxed text-center">
+                  <p className="text-[#023047] text-lg sm:text-xl leading-relaxed text-center">
                     {description}
                   </p>
                 )}
