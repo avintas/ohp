@@ -10,17 +10,12 @@ interface OnlyHockeyGalleryProps {
 export function OnlyHockeyGallery({ selectedAvatars }: OnlyHockeyGalleryProps) {
   const [selectedAvatar, setSelectedAvatar] = useState<number | null>(null);
 
-  // Default 6 avatars if none provided
-  const defaultAvatars = [
-    '/pims/a-architect.webp',
-    '/pims/a-bull.webp', 
-    '/pims/a-bulldog.webp',
-    '/pims/a-eagleeye.webp',
-    '/pims/a-ironmike.webp',
-    '/pims/a-strategist.webp'
-  ];
+  // Don't show anything if no avatars are selected
+  if (!selectedAvatars || selectedAvatars.length === 0) {
+    return null;
+  }
 
-  const avatars = selectedAvatars || defaultAvatars;
+  const avatars = selectedAvatars;
 
   const handleAvatarClick = (index: number) => {
     setSelectedAvatar(selectedAvatar === index ? null : index);

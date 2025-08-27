@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '@/components/StickyNavbar';
 import { OnlyHockeyGallery } from '@/components/OnlyHockeyGallery';
+import { CrosswordPuzzle } from '@/components/CrosswordPuzzle';
 import { useState } from 'react';
 
 export default function ContentPage() {
@@ -85,39 +86,7 @@ export default function ContentPage() {
           RANDOM
         </button>
         
-        {/* 5 Square Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <button
-            onClick={() => console.log('Button 1 clicked!')}
-            className="bg-[#023047] hover:bg-[#023047]/90 text-white text-2xl sm:text-3xl font-bold w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          >
-            1
-          </button>
-          <button
-            onClick={() => console.log('Button 2 clicked!')}
-            className="bg-[#023047] hover:bg-[#023047]/90 text-white text-2xl sm:text-3xl font-bold w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          >
-            2
-          </button>
-          <button
-            onClick={() => console.log('Button 3 clicked!')}
-            className="bg-[#023047] hover:bg-[#023047]/90 text-white text-2xl sm:text-3xl font-bold w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          >
-            3
-          </button>
-          <button
-            onClick={() => console.log('Button 4 clicked!')}
-            className="bg-[#023047] hover:bg-[#023047]/90 text-white text-2xl sm:text-3xl font-bold w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          >
-            4
-          </button>
-          <button
-            onClick={() => console.log('Button 5 clicked!')}
-            className="bg-[#023047] hover:bg-[#023047]/90 text-white text-2xl sm:text-3xl font-bold w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
-          >
-            5
-          </button>
-        </div>
+
         
         {/* Random Number Display */}
         {randomNumber && (
@@ -126,6 +95,11 @@ export default function ContentPage() {
           </div>
         )}
         
+        {/* Crossword Puzzle */}
+        <div className="mb-12">
+          <CrosswordPuzzle />
+        </div>
+
         {/* OnlyHockey Gallery */}
         <OnlyHockeyGallery selectedAvatars={shuffledAvatars.length > 0 ? shuffledAvatars : undefined} />
       </div>
