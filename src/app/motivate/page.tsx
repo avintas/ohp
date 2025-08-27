@@ -39,7 +39,7 @@ export default function MotivatePage() {
               className="text-center mb-8"
             >
               <p className="text-lg md:text-xl text-blue-800 leading-relaxed max-w-4xl mx-auto">
-                Hockey teaches what matters most: resilience when you're down, teamwork when it counts, and the courage to get back up after every hit. From Wayne Gretzky's vision to Phil Esposito's grit, from penalty box patience to overtime pressure – the rink holds wisdom that works everywhere.
+                Hockey teaches what matters most: resilience when you&apos;re down, teamwork when it counts, and the courage to get back up after every hit. From Wayne Gretzky&apos;s vision to Phil Esposito&apos;s grit, from penalty box patience to overtime pressure – the rink holds wisdom that works everywhere.
               </p>
             </motion.div>
 
@@ -102,7 +102,7 @@ export default function MotivatePage() {
                 Your Daily Lineup of 19 Motivational Cards
               </h2>
               <p className="text-center text-orange-800 mb-6">
-                Hockey's most powerful insights from coaches, legends, and the game itself
+                Hockey&apos;s most powerful insights from coaches, legends, and the game itself
               </p>
               <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 border border-orange-200 text-center">
                 <p className="text-orange-600 text-lg">
