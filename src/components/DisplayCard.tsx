@@ -20,19 +20,11 @@ export function DisplayCard({ id, title, subtitle, description, image, buttonTex
   const router = useRouter();
 
   const handleButtonClick = () => {
-    if (id === 'greetings') {
-      router.push('/greetings');
-    } else if (id === 'heart') {
-      router.push('/heart');
-    } else if (id === 'challenge') {
-      router.push('/challenge');
-    } else if (id === 'motivate') {
-      router.push('/motivate');
-    } else if (id === 'experts') {
-      router.push('/experts');
-    } else {
-      console.log(`${title} clicked!`);
-    }
+    router.push('/content');
+  };
+
+  const handleImageClick = () => {
+    router.push('/content');
   };
 
   const handleCardClick = () => {
@@ -104,7 +96,7 @@ export function DisplayCard({ id, title, subtitle, description, image, buttonTex
           <div className="aspect-square w-full relative">
             {id === 'greetings' ? (
               <motion.div 
-                onClick={() => router.push('/greetings')}
+                onClick={handleImageClick}
                 className="cursor-pointer relative w-full h-full"
                 animate={{ 
                   y: [0, -8, 0],
@@ -127,15 +119,22 @@ export function DisplayCard({ id, title, subtitle, description, image, buttonTex
                 />
               </motion.div>
             ) : (
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-                priority={isFirst}
-                quality={85}
-              />
+              <motion.div 
+                onClick={handleImageClick}
+                className="cursor-pointer relative w-full h-full"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                  priority={isFirst}
+                  quality={85}
+                />
+              </motion.div>
             )}
             
           </div>
