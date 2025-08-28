@@ -8,6 +8,11 @@ interface CrosswordPuzzleProps {
   title?: string;
 }
 
+interface GridCell {
+  type: 'cell' | 'plus' | 'hockey-sticks' | 'avatar';
+  id: string;
+}
+
 export function CrosswordPuzzle({ title = "Spread the Cheer!" }: CrosswordPuzzleProps) {
   const [selectedCells, setSelectedCells] = useState<Set<string>>(new Set());
 
@@ -23,7 +28,7 @@ export function CrosswordPuzzle({ title = "Spread the Cheer!" }: CrosswordPuzzle
 
   // Define the grid structure based on your image
   // Using a 5x5 grid with specific cells active
-  const gridStructure = [
+  const gridStructure: (GridCell | null)[][] = [
     [null, { type: 'plus', id: '0-1' }, { type: 'cell', id: '0-2' }, { type: 'cell', id: '0-3' }, { type: 'plus', id: '0-4' }],
     [null, { type: 'cell', id: '1-1' }, { type: 'cell', id: '1-2' }, { type: 'cell', id: '1-3' }, { type: 'cell', id: '1-4' }],
     [{ type: 'hockey-sticks', id: '2-0' }, { type: 'cell', id: '2-1' }, null, null, null],
@@ -34,7 +39,7 @@ export function CrosswordPuzzle({ title = "Spread the Cheer!" }: CrosswordPuzzle
     [{ type: 'plus', id: '7-0' }, { type: 'cell', id: '7-1' }, { type: 'cell', id: '7-2' }, { type: 'cell', id: '7-3' }, null]
   ];
 
-  const renderCell = (cell: any, rowIndex: number, colIndex: number) => {
+  const renderCell = (cell: GridCell | null, rowIndex: number, colIndex: number) => {
     if (!cell) return <div key={`${rowIndex}-${colIndex}`} className="w-12 h-12" />;
 
     const { type, id } = cell;

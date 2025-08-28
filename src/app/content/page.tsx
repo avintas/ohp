@@ -1,13 +1,14 @@
 'use client';
 
 import { StickyNavbar } from '@/components/StickyNavbar';
-import { OnlyHockeyGallery } from '@/components/OnlyHockeyGallery';
-import { CrosswordPuzzle } from '@/components/CrosswordPuzzle';
+import { LineupCard } from '@/components/LineupCard';
+import { InfoCard } from '@/components/InfoCard';
 import { useState } from 'react';
 
 export default function ContentPage() {
   const [randomNumber, setRandomNumber] = useState<number | null>(null);
   const [shuffledAvatars, setShuffledAvatars] = useState<string[]>([]);
+  const [coachAvatar, setCoachAvatar] = useState<string>('');
 
   // All available avatars from pims directory
   const allAvatars = [
@@ -65,17 +66,21 @@ export default function ContentPage() {
     // Shuffle avatars and pick first 6
     const shuffled = shuffleArray(allAvatars);
     setShuffledAvatars(shuffled.slice(0, 6));
+    
+    // Select a random coach avatar
+    const coachNumber = Math.floor(Math.random() * 11) + 1;
+    setCoachAvatar(`/pims/x${coachNumber}.png`);
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#8ecae6' }}>
       <StickyNavbar />
       
       {/* Main Content */}
       <div className="pt-24 flex flex-col items-center justify-start px-4">
         {/* Main Title */}
         <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-[#023047] text-center mb-12">
-          Pick Your Lineup!
+          Build Your Lineup!
         </h1>
         
         {/* Random Button */}
@@ -83,25 +88,38 @@ export default function ContentPage() {
           onClick={generateRandomNumber}
           className="bg-[#023047] hover:bg-[#023047]/90 text-white text-4xl sm:text-5xl lg:text-6xl font-bold py-6 px-12 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mb-8"
         >
-          RANDOM
+          Go
         </button>
         
 
         
-        {/* Random Number Display */}
-        {randomNumber && (
-          <div className="text-8xl sm:text-9xl lg:text-[12rem] font-extrabold text-[#023047] animate-pulse mb-12">
-            {randomNumber}
-          </div>
+
+
+        {/* Lineup Card */}
+        {shuffledAvatars.length > 0 && (
+          <>
+            <LineupCard 
+              avatars={shuffledAvatars}
+              spacing="large"
+              background="gradient"
+              padding="spacious"
+            />
+            
+            {/* Info Card underneath */}
+            <div className="mt-8">
+              <InfoCard 
+                title="Meet Your Coach"
+                subtitle="Expert guidance for your team"
+                content="Your dedicated coach is here to help maximize your team's potential. With years of experience and proven strategies, they'll guide your lineup to victory."
+                image={coachAvatar}
+                background="gradient"
+                padding="spacious"
+              />
+            </div>
+          </>
         )}
         
-        {/* Crossword Puzzle */}
-        <div className="mb-12">
-          <CrosswordPuzzle />
-        </div>
 
-        {/* OnlyHockey Gallery */}
-        <OnlyHockeyGallery selectedAvatars={shuffledAvatars.length > 0 ? shuffledAvatars : undefined} />
       </div>
     </div>
   );
