@@ -121,36 +121,32 @@ export default function ContentPage() {
 
         {/* Quick Actions */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-[#023047] text-center mb-8">Quick Actions</h2>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex justify-center items-center gap-8 md:gap-12">
               {/* Send Hockey Hug */}
-              <div className="bg-[#EF476F] rounded-2xl p-6 text-center cursor-pointer hover:scale-105 transition-all duration-200 shadow-sm">
-                <div className="text-3xl mb-3">💝</div>
-                <h3 className="font-bold text-white mb-1">Send Hug</h3>
-                <p className="text-xs text-white/80">Spread hockey love</p>
+              <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Send hockey hug to fellow fans">
+                <div className="text-5xl mb-2">💝</div>
+                <div className="text-sm font-semibold text-[#023047]">Hug</div>
               </div>
               
               {/* Brain Challenge */}
-              <div className="bg-[#FB8500] rounded-2xl p-6 text-center cursor-pointer hover:scale-105 transition-all duration-200 shadow-sm">
-                <div className="text-3xl mb-3">🧠</div>
-                <h3 className="font-bold text-white mb-1">Take Quiz</h3>
-                <p className="text-xs text-white/80">Test your hockey IQ</p>
+              <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Test your hockey knowledge">
+                <div className="text-5xl mb-2">🧠</div>
+                <div className="text-sm font-semibold text-[#023047]">Quiz</div>
               </div>
               
               {/* Get Pumped */}
-              <div className="bg-[#FFB703] rounded-2xl p-6 text-center cursor-pointer hover:scale-105 transition-all duration-200 shadow-sm">
-                <div className="text-3xl mb-3">💪</div>
-                <h3 className="font-bold text-white mb-1">Get Pumped</h3>
-                <p className="text-xs text-white/80">Motivational boost</p>
+              <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Get motivational boost">
+                <div className="text-5xl mb-2">💪</div>
+                <div className="text-sm font-semibold text-[#023047]">Pump</div>
               </div>
               
               {/* Discover Stories */}
-              <div className="bg-[#219EBC] rounded-2xl p-6 text-center cursor-pointer hover:scale-105 transition-all duration-200 shadow-sm">
-                <div className="text-3xl mb-3">📰</div>
-                <h3 className="font-bold text-white mb-1">Stories</h3>
-                <p className="text-xs text-white/80">Discover hockey tales</p>
+              <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Discover hockey stories">
+                <div className="text-5xl mb-2">📰</div>
+                <div className="text-sm font-semibold text-[#023047]">Story</div>
               </div>
             </div>
           </div>
