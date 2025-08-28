@@ -115,9 +115,8 @@ export default function Home() {
             {/* Main Hero Content */}
             <div className="mb-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#023047] mb-6 leading-tight">
-                Welcome to the
                 <span className="block bg-gradient-to-r from-[#219EBC] to-[#FB8500] bg-clip-text text-transparent">
-                  Hockey Family
+                  There&apos;s Only Hockey!
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-[#023047]/70 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -127,24 +126,101 @@ export default function Home() {
             </div>
 
             {/* Community Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <div className="flex flex-wrap justify-center gap-8 mb-8">
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">2,847+</div>
-                <div className="text-sm text-[#023047]/60">Hockey Fans</div>
+                <div className="text-2xl font-bold text-[#023047]">84</div>
+                <div className="text-sm text-[#023047]/60">Hockey Federations (IIHF) Worldwide</div>
               </div>
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">15,000+</div>
-                <div className="text-sm text-[#023047]/60">Factoids Shared</div>
+                <div className="text-2xl font-bold text-[#023047]">1.8M+</div>
+                <div className="text-sm text-[#023047]/60">Registered Players in North America</div>
               </div>
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">Level 1</div>
-                <div className="text-sm text-[#023047]/60">Community Stage</div>
+                <div className="text-2xl font-bold text-[#023047]">2,500+</div>
+                <div className="text-sm text-[#023047]/60">NCAA Division 1 Players</div>
+              </div>
+            </div>
+
+            {/* Share These Stats */}
+            <div className="mb-8 text-center">
+              {/* Row of small sharing icons */}
+              <div className="flex justify-center gap-4 mb-3">
+                {/* Twitter/X */}
+                <button 
+                  onClick={() => {
+                    const text = "🏒 Did you know? 84 Hockey Federations worldwide, 1.8M+ registered players in North America! There's Only Hockey! ⚡";
+                    const url = window.location.href;
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                  }}
+                  className="w-8 h-8 bg-black/80 hover:bg-black text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                  title="Share on X/Twitter"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </button>
+
+                {/* Facebook */}
+                <button 
+                  onClick={() => {
+                    const url = window.location.href;
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                  }}
+                  className="w-8 h-8 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                  title="Share on Facebook"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </button>
+
+                {/* Email */}
+                <button 
+                  onClick={() => {
+                    const subject = "Check out these Hockey Stats!";
+                    const body = "🏒 Did you know? 84 Hockey Federations worldwide, 1.8M+ registered players in North America! There's Only Hockey! ⚡\n\nCheck it out: " + window.location.href;
+                    window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+                  }}
+                  className="w-8 h-8 bg-[#EA4335] hover:bg-[#D93025] text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                  title="Share via Email"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </button>
+
+                {/* Copy Link */}
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    // Could add a toast notification here
+                  }}
+                  className="w-8 h-8 bg-[#6B7280] hover:bg-[#4B5563] text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                  title="Copy Link"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Finger pointing up to the icons */}
+              <div className="text-2xl text-[#023047]/60">
+                👆
+              </div>
+              <div className="text-sm text-[#023047]/60 -mt-1">
+                Share These Stats
               </div>
             </div>
 
             {/* Call to Action */}
-            <div className="text-lg text-[#023047]/60">
-              👇 Choose your starting point below
+            <div className="text-center">
+              <div className="text-sm text-[#023047]/60 mb-1">
+                Choose your starting point below
+              </div>
+              <div className="text-2xl text-[#023047]/60">
+                👇
+              </div>
             </div>
           </div>
         </section>
