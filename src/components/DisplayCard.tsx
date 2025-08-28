@@ -62,7 +62,7 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
         `}
         style={{
           backgroundColor: id === 'greetings' ? '#8ecae6' :
-                         id === 'heart' ? '#219EBC' :
+                         id === 'heart' ? '#EF476F' :
                          id === 'challenge' ? '#FB8500' :
                          id === 'motivate' ? '#FFB703' :
                          id === 'experts' ? '#ffffff' : 'transparent',

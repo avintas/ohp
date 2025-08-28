@@ -8,18 +8,18 @@ export default function Home() {
   const cards = [
     {
       id: 'greetings',
-      title: "Welcome to OnlyHockey!",
-      subtitle: "Where your love for the game is all you need. Dive in to share stories, relive epic moments, and connect with fellow fans!",
+      title: "Ready to Have Some Fun?",
+      subtitle: "Press play on your hockey journey - share stories and connect with fans!",
 
-      image: "/gims/gim-00026.webp", // Updated image for better standout design
+      image: "/gims/gim-00026.webp", // FUN button - arcade game energy!
 
       delay: 0,
       isFirst: true
     },
     {
       id: 'heart',
-      title: "Heart & Share",
-      subtitle: "Join the Team & Contribute Your Love",
+      title: "Send Hockey Hugs",
+      subtitle: "Share greeting cards and spread joy to fellow fans",
 
       image: "/gims/gim-00013.webp", // HeartGroup image
 
@@ -27,8 +27,8 @@ export default function Home() {
     },
     {
       id: 'challenge',
-      title: "Test Your Hockey IQ",
-      subtitle: "Learn, challenge yourself and your friends",
+      title: "Hockey Brain Challenge",
+      subtitle: "Test your knowledge and climb the leaderboard",
 
       image: "/gims/gim-00004.webp", // ChallengeGroup image
 
@@ -36,8 +36,8 @@ export default function Home() {
     },
     {
       id: 'motivate',
-      title: "Motivate others",
-      subtitle: "Share motivational tidbits and messages with your friends and family",
+      title: "Pump Up Your Team!",
+      subtitle: "Share fierce motivation and get everyone fired up",
 
       image: "/gims/gim-00012.webp", // MotivateGroup image
 
