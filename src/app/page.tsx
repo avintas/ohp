@@ -12,7 +12,7 @@ export default function Home() {
       subtitle: "Where your love for the game is all you need. Dive in to share stories, relive epic moments, and connect with fellow fans!",
       description: "📰 Share hockey news & stories, 🏆 discover legendary moments that shaped the game, 📚 learn strategies, 🧠 enjoy fun tidbits & fascinating facts, 💪 get motivated, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
       image: "/gims/gim-00026.webp", // Updated image for better standout design
-      buttonText: "See What's Inside",
+      buttonText: "See What&apos;s Inside",
       delay: 0,
       isFirst: true
     },
@@ -38,7 +38,7 @@ export default function Home() {
       id: 'motivate',
       title: "Motivate others",
       subtitle: "Share motivational tidbits and messages with your friends and family",
-      description: "💨 'Skate Like Wind' & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
+      description: "💨 &apos;Skate Like Wind&apos; & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
       image: "/gims/gim-00012.webp", // MotivateGroup image
       buttonText: "Get Wisdom",
       delay: 0.3
