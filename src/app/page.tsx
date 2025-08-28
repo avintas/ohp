@@ -10,9 +10,9 @@ export default function Home() {
       id: 'greetings',
       title: "Welcome to OnlyHockey!",
       subtitle: "Where your love for the game is all you need. Dive in to share stories, relive epic moments, and connect with fellow fans!",
-      description: "📰 Share hockey news & stories, 🏆 discover legendary moments that shaped the game, 📚 learn strategies, 🧠 enjoy fun tidbits & fascinating facts, 💪 get motivated, and 🤝 connect with fellow hockey enthusiasts who share your love for the sport. ❤️",
+
       image: "/gims/gim-00026.webp", // Updated image for better standout design
-      buttonText: "See What&apos;s Inside",
+
       delay: 0,
       isFirst: true
     },
@@ -20,37 +20,28 @@ export default function Home() {
       id: 'heart',
       title: "Heart & Share",
       subtitle: "Join the Team & Contribute Your Love",
-      description: "🏆 Join your fellow hockey enthusiasts, 💝 share love for the game through greeting cards & messages, 💪 encourage fellow players, and 💖 help grow the greatest sport with heart.",
+
       image: "/gims/gim-00013.webp", // HeartGroup image
-      buttonText: "Get in the Game",
+
       delay: 0.1
     },
     {
       id: 'challenge',
       title: "Test Your Hockey IQ",
       subtitle: "Learn, challenge yourself and your friends",
-      description: "🧠 Take hockey knowledge quizzes, 📚 learn from expert insights, 🎯 challenge yourself with different topics, 🏆 track your progress & achievements, 📱 share results with friends & family, and 🤝 compete with fellow hockey fans.",
+
       image: "/gims/gim-00004.webp", // ChallengeGroup image
-      buttonText: "Start Challenge",
+
       delay: 0.2
     },
     {
       id: 'motivate',
       title: "Motivate others",
       subtitle: "Share motivational tidbits and messages with your friends and family",
-      description: "💨 &apos;Skate Like Wind&apos; & other inspiring messages, 💪 access legendary hockey wisdom & quotes, 📚 read motivational stories from hockey greats, 🎯 find the perfect message for any situation, 🤝 share motivation with your hockey family, and 💖 keep the hockey love alive & strong.",
+
       image: "/gims/gim-00012.webp", // MotivateGroup image
-      buttonText: "Get Wisdom",
+
       delay: 0.3
-    },
-    {
-      id: 'experts',
-      title: "Meet the Experts",
-      subtitle: "No Awkward Dinners, Just Hockey Talk",
-      description: "👨‍🏫 Get insights from hockey coaches & players, 🎙️ discover tips from broadcasters, 🔬 & scientists, therapists, nutritionists, gearheads, 👩‍👧‍👦 learn from passionate fans & hockey moms, 🎯 each expert has unique knowledge & insights, 🤝 share their wisdom with your hockey family, and 💖 spread the love of hockey through expert content.",
-      image: "/gims/gim-00024.webp", // Experts image
-      buttonText: "Meet the Experts",
-      delay: 0.4
     }
   ];
 
@@ -118,22 +109,99 @@ export default function Home() {
       
       {/* Main Content */}
       <main className="pt-0">
-        {/* Responsive Grid Layout */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8 px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 max-w-7xl mx-auto">
+        {/* Hero Section - Sets the Stage */}
+        <section className="mt-20 py-16 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Main Hero Content */}
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#023047] mb-6 leading-tight">
+                Welcome to the
+                <span className="block bg-gradient-to-r from-[#219EBC] to-[#FB8500] bg-clip-text text-transparent">
+                  Hockey Family
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-[#023047]/70 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Where your love for the game is all you need. Start by sharing hockey factoids, 
+                connect with fellow fans, and discover what makes this community special.
+              </p>
+            </div>
+
+            {/* Community Stats */}
+            <div className="flex flex-wrap justify-center gap-8 mb-12">
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
+                <div className="text-2xl font-bold text-[#023047]">2,847+</div>
+                <div className="text-sm text-[#023047]/60">Hockey Fans</div>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
+                <div className="text-2xl font-bold text-[#023047]">15,000+</div>
+                <div className="text-sm text-[#023047]/60">Factoids Shared</div>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
+                <div className="text-2xl font-bold text-[#023047]">Level 1</div>
+                <div className="text-sm text-[#023047]/60">Community Stage</div>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-lg text-[#023047]/60">
+              👇 Choose your starting point below
+            </div>
+          </div>
+        </section>
+
+        {/* Cinematic Card Layout - Smart Responsive: 4-in-row or mobile stack */}
+        <div className="flex flex-col items-center 2xl:flex-row 2xl:justify-center gap-6 2xl:gap-8 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
+          {/* Auto-switch: if 4×320px cards don't fit → mobile view */}
           {cards.map((card, index) => (
             <DisplayCard
               key={index}
               id={card.id}
               title={card.title}
               subtitle={card.subtitle}
-              description={card.description}
               image={card.image}
-              buttonText={card.buttonText}
               delay={card.delay}
               isFirst={card.isFirst}
             />
           ))}
         </div>
+
+        {/* Below Cards Section - Easily Replaceable */}
+        <section className="py-16 px-4 md:px-6 2xl:px-8 max-w-6xl mx-auto">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-[#023047] mb-4">
+              The Journey Continues...
+            </h2>
+            <p className="text-lg text-[#023047]/70 mb-12 max-w-2xl mx-auto">
+              Share factoids, connect with fellow fans, and unlock new ways to celebrate hockey.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Coming Soon Card 1 */}
+              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
+                <div className="text-4xl mb-4">🏆</div>
+                <h3 className="text-xl font-bold text-[#023047] mb-2">Expert Challenges</h3>
+                <p className="text-sm text-[#023047]/60">Advanced hockey knowledge awaits</p>
+                <div className="mt-4 text-xs text-[#023047]/50">Coming Soon</div>
+              </div>
+
+              {/* Coming Soon Card 2 */}
+              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
+                <div className="text-4xl mb-4">👥</div>
+                <h3 className="text-xl font-bold text-[#023047] mb-2">Team Builder</h3>
+                <p className="text-sm text-[#023047]/60">Create your dream lineup</p>
+                <div className="mt-4 text-xs text-[#023047]/50">Community Goal: 5,000</div>
+              </div>
+
+              {/* Coming Soon Card 3 */}
+              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-[#023047] mb-2">Achievement Hub</h3>
+                <p className="text-sm text-[#023047]/60">Track your hockey journey</p>
+                <div className="mt-4 text-xs text-[#023047]/50">Unlock: Share 10 factoids</div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

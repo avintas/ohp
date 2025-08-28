@@ -110,7 +110,7 @@ export default function ContentPage() {
               <InfoCard 
                 title="Meet Your Coach"
                 subtitle="Expert guidance for your team"
-                content="Your dedicated coach is here to help maximize your team&apos;s potential. With years of experience and proven strategies, they&apos;ll guide your lineup to victory."
+                content="Your dedicated coach is here to help maximize your team's potential. With years of experience and proven strategies, they'll guide your lineup to victory."
                 image={coachAvatar}
                 background="gradient"
                 padding="spacious"
