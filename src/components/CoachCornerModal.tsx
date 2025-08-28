@@ -35,19 +35,19 @@ export function CoachCornerModal({ isOpen, onClose, playerName, playerIndex }: C
       coach: "Coach Maria",
       quote: "Preparation meets opportunity",
       wisdom: "Focus on progress, not perfection",
-      message: "Welcome to Coach's Corner, where Coach Maria shares her strategic insights and motivational guidance to help you excel both on and off the ice."
+      message: "Welcome to Coach&apos;s Corner, where Coach Maria shares her strategic insights and motivational guidance to help you excel both on and off the ice."
     },
     {
       coach: "Coach Thunder",
       quote: "Champions are made in practice",
       wisdom: "Every mistake is a lesson learned",
-      message: "Intensity and dedication separate good players from great ones. Push through the tough moments - that's where champions are forged."
+      message: "Intensity and dedication separate good players from great ones. Push through the tough moments - that&apos;s where champions are forged."
     },
     {
       coach: "Coach Wisdom",
       quote: "The team that works together, wins together",
       wisdom: "Trust your teammates, trust the process",
-      message: "Hockey is the ultimate team sport. Individual talent shines brightest when it elevates the entire team's performance."
+      message: "Hockey is the ultimate team sport. Individual talent shines brightest when it elevates the entire team&apos;s performance."
     },
     {
       coach: "Coach Steel",
@@ -65,7 +65,7 @@ export function CoachCornerModal({ isOpen, onClose, playerName, playerIndex }: C
       coach: "Coach Vision",
       quote: "See the play before it happens",
       wisdom: "Anticipation beats speed every time",
-      message: "Great players don't just react - they anticipate. Train your mind to see two moves ahead of everyone else."
+      message: "Great players don&apos;t just react - they anticipate. Train your mind to see two moves ahead of everyone else."
     }
   ];
 
@@ -119,7 +119,7 @@ export function CoachCornerModal({ isOpen, onClose, playerName, playerIndex }: C
                   transition={{ delay: 0.2 }}
                   className="mb-4"
                 >
-                  <h1 className="text-2xl font-bold text-gray-800 mb-1">Coach's Corner</h1>
+                  <h1 className="text-2xl font-bold text-gray-800 mb-1">Coach&apos;s Corner</h1>
                   <p className="text-sm text-gray-600">Wisdom from {currentWisdom.coach}</p>
                 </motion.div>
 

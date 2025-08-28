@@ -71,7 +71,7 @@ export function LineupCard({
     const dummyContents = [
       "The Architect - Master of strategy and team building. Known for creating winning formations and tactical plays that leave opponents guessing.",
       "The Bull - Power player with incredible strength and determination. Never backs down from a challenge and leads by example on the ice.",
-      "The Bulldog - Tenacious defender with an unbreakable spirit. Fights for every puck and protects the team's goal with fierce loyalty.",
+      "The Bulldog - Tenacious defender with an unbreakable spirit. Fights for every puck and protects the team&apos;s goal with fierce loyalty.",
       "Eagle Eye - Sharp shooter with incredible accuracy and vision. Can spot opportunities that others miss and delivers when it matters most.",
       "Iron Mike - Veteran leader with years of experience. Brings wisdom, toughness, and an unshakeable work ethic to every game.",
       "The Strategist - Tactical genius who reads the game like a chess master. Always three moves ahead and knows exactly when to strike.",
