@@ -337,7 +337,7 @@ export function HockeyRadio({ content }: HockeyRadioProps) {
               {Object.entries(channels).map(([key, channel]) => (
                 <button
                   key={key}
-                  onClick={() => handleStationChange(key as any)}
+                  onClick={() => handleStationChange(key as 'hugs' | 'quiz' | 'pump' | 'stories')}
                   className={`p-3 rounded-lg transition-all duration-200 ${
                     currentStation === key
                       ? 'bg-white/20 border-2 scale-105'
