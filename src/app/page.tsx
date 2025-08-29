@@ -97,7 +97,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0a0e1a]">
       {/* Structured Data for SEO */}
       <Script
         id="structured-data"
@@ -114,30 +114,65 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             {/* Main Hero Content */}
             <div className="mb-8">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#023047] mb-6 leading-tight">
-                <span className="block bg-gradient-to-r from-[#219EBC] to-[#FB8500] bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+                <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
                   There&apos;s Only Hockey!
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-[#023047]/70 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Where your love for the game is all you need. Start by sharing hockey factoids, 
-                connect with fellow fans, and discover what makes this community special.
+              <p className="text-xl md:text-2xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
+                Where your love for the game is all you need. Find cool hockey facts, share the good stuff, and hang with fans who get it. Discover what makes hockey community special.
               </p>
             </div>
 
-            {/* Community Stats */}
+
+
+
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="text-sm text-[#718096] mb-1">
+                Choose your starting point below
+              </div>
+              <div className="text-2xl text-[#718096]">
+                👇
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cinematic Card Layout - Smart Responsive: 4-in-row or mobile stack */}
+        <div className="flex flex-col items-center 2xl:flex-row 2xl:justify-center gap-6 2xl:gap-8 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
+          {/* Auto-switch: if 4×320px cards don't fit → mobile view */}
+          {cards.map((card, index) => (
+            <DisplayCard
+              key={index}
+              id={card.id}
+              title={card.title}
+              subtitle={card.subtitle}
+              image={card.image}
+              delay={card.delay}
+              isFirst={card.isFirst}
+            />
+          ))}
+        </div>
+
+
+
+        {/* Community Stats */}
+        <section className="py-16 px-4 md:px-6 2xl:px-8 max-w-6xl mx-auto">
+          <div className="text-center">
             <div className="flex flex-wrap justify-center gap-8 mb-8">
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">84</div>
-                <div className="text-sm text-[#023047]/60">Hockey Federations (IIHF) Worldwide</div>
+              <div className="bg-[#1a1a2e]/80 backdrop-blur-sm rounded-2xl px-6 py-4 border border-[#2d3748] shadow-sm">
+                <div className="text-2xl font-bold text-[#4cc9f0]">84</div>
+                <div className="text-sm text-[#a0aec0]">Hockey Federations (IIHF) Worldwide</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">1.8M+</div>
-                <div className="text-sm text-[#023047]/60">Registered Players in North America</div>
+              <div className="bg-[#1a1a2e]/80 backdrop-blur-sm rounded-2xl px-6 py-4 border border-[#2d3748] shadow-sm">
+                <div className="text-2xl font-bold text-[#4cc9f0]">1.8M+</div>
+                <div className="text-sm text-[#a0aec0]">Registered Players in North America</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 border border-gray-200/50 shadow-sm">
-                <div className="text-2xl font-bold text-[#023047]">2,500+</div>
-                <div className="text-sm text-[#023047]/60">NCAA Division 1 Players</div>
+              <div className="bg-[#1a1a2e]/80 backdrop-blur-sm rounded-2xl px-6 py-4 border border-[#2d3748] shadow-sm">
+                <div className="text-2xl font-bold text-[#4cc9f0]">2,500+</div>
+                <div className="text-sm text-[#a0aec0]">NCAA Division 1 Players</div>
               </div>
             </div>
 
@@ -205,80 +240,118 @@ export default function Home() {
               </div>
 
               {/* Finger pointing up to the icons */}
-              <div className="text-2xl text-[#023047]/60">
+              <div className="text-2xl text-[#718096]">
                 👆
               </div>
-              <div className="text-sm text-[#023047]/60 -mt-1">
+              <div className="text-sm text-[#718096] -mt-1">
                 Share These Stats
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <div className="text-sm text-[#023047]/60 mb-1">
-                Choose your starting point below
-              </div>
-              <div className="text-2xl text-[#023047]/60">
-                👇
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Cinematic Card Layout - Smart Responsive: 4-in-row or mobile stack */}
-        <div className="flex flex-col items-center 2xl:flex-row 2xl:justify-center gap-6 2xl:gap-8 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
-          {/* Auto-switch: if 4×320px cards don't fit → mobile view */}
-          {cards.map((card, index) => (
-            <DisplayCard
-              key={index}
-              id={card.id}
-              title={card.title}
-              subtitle={card.subtitle}
-              image={card.image}
-              delay={card.delay}
-              isFirst={card.isFirst}
-            />
-          ))}
-        </div>
-
-        {/* Below Cards Section - Easily Replaceable */}
-        <section className="py-16 px-4 md:px-6 2xl:px-8 max-w-6xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-[#023047] mb-4">
-              The Journey Continues...
-            </h2>
-            <p className="text-lg text-[#023047]/70 mb-12 max-w-2xl mx-auto">
-              Share factoids, connect with fellow fans, and unlock new ways to celebrate hockey.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Coming Soon Card 1 */}
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
-                <div className="text-4xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold text-[#023047] mb-2">Expert Challenges</h3>
-                <p className="text-sm text-[#023047]/60">Advanced hockey knowledge awaits</p>
-                <div className="mt-4 text-xs text-[#023047]/50">Coming Soon</div>
-              </div>
-
-              {/* Coming Soon Card 2 */}
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
-                <div className="text-4xl mb-4">👥</div>
-                <h3 className="text-xl font-bold text-[#023047] mb-2">Team Builder</h3>
-                <p className="text-sm text-[#023047]/60">Create your dream lineup</p>
-                <div className="mt-4 text-xs text-[#023047]/50">Community Goal: 5,000</div>
-              </div>
-
-              {/* Coming Soon Card 3 */}
-              <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 shadow-sm">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl font-bold text-[#023047] mb-2">Achievement Hub</h3>
-                <p className="text-sm text-[#023047]/60">Track your hockey journey</p>
-                <div className="mt-4 text-xs text-[#023047]/50">Unlock: Share 10 factoids</div>
               </div>
             </div>
           </div>
         </section>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-[#16213e] border-t border-[#2d3748] py-12 px-4 md:px-6 2xl:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Footer Links */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left justify-items-center">
+            
+            {/* Caster Section */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Caster</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Have Fun
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Send Hugs
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Brain Power
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Motivate
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* About Us Section */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">About Us</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Press
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Product Section */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Product</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
+                    Devices
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright and Legal */}
+          <div className="border-t border-[#2d3748] pt-8">
+            <div className="flex flex-col items-center gap-4 text-center">
+              
+              {/* Copyright */}
+              <div className="text-sm text-[#718096]">
+                © 2025 OnlyHockey, LLC. All rights reserved.
+              </div>
+
+              {/* Legal Links */}
+              <div className="flex items-center gap-6 text-sm flex-wrap justify-center">
+                <a href="#" className="text-[#718096] hover:text-[#4cc9f0] transition-colors duration-200">
+                  Privacy
+                </a>
+                <a href="#" className="text-[#718096] hover:text-[#4cc9f0] transition-colors duration-200">
+                  Terms
+                </a>
+                <a href="#" className="text-[#718096] hover:text-[#4cc9f0] transition-colors duration-200">
+                  Sitemap
+                </a>
+                <a href="#" className="text-[#718096] hover:text-[#4cc9f0] transition-colors duration-200">
+                  Your Privacy Choices
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

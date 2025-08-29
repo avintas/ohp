@@ -52,11 +52,11 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
           transition={{ delay: 0 }}
           className="text-center mb-3 flex-shrink-0"
         >
-          <h2 className="text-lg lg:text-xl font-extrabold text-[#023047] tracking-tight mb-1 leading-tight">
+          <h2 className="text-lg lg:text-xl font-extrabold text-white tracking-tight mb-1 leading-tight drop-shadow-sm">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-xs lg:text-sm text-[#023047] leading-relaxed max-w-full mx-auto">
+            <p className="text-xs lg:text-sm text-white/90 leading-relaxed max-w-full mx-auto drop-shadow-sm">
               {subtitle}
             </p>
           )}
