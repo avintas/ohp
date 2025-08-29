@@ -1,64 +1,82 @@
 'use client';
 
 import { StickyNavbar } from '@/components/StickyNavbar';
-import { BulletinBoard } from '@/components/BulletinBoard';
-import { useState } from 'react';
+import { ContentCarousel } from '@/components/ContentCarousel';
 
 export default function ContentPage() {
-  // Bulletin Board Cards Data
-  const bulletinCards = [
+  // Carousel Cards Data - 12 cards for the main content carousel
+  const carouselCards = [
     {
-      id: 'daily-factoid',
-      type: 'text' as const,
-      title: "Today's Featured Factoid",
-      content: "Wayne Gretzky holds 61 NHL records - more than any other player in history!",
-      expert: {
-        name: "The Historian",
-        avatar: "/pims/a-strategist.webp",
-        title: "Hockey History Expert"
-      },
-      category: "Legends",
-      shareCount: 47
+      id: 'gretzky-records',
+      title: "The Great One's Unbreakable Records",
+      content: "Wayne Gretzky holds 61 NHL records, including most career goals (894), assists (1,963), and points (2,857). His dominance was so complete that he'd still hold the points record with goals alone!",
+      category: 'Legends'
     },
     {
-      id: 'expert-spotlight',
-      type: 'text' as const,
-      title: "Expert Spotlight",
-      content: "Meet Travel Director - your guide to the best hockey arenas and road trips worldwide!",
-      expert: {
-        name: "Travel Director",
-        avatar: "/pims/a-architect.webp", 
-        title: "Hockey Travel Expert"
-      },
-      category: "Experts"
+      id: 'soviet-hockey-secrets',
+      title: 'Soviet Hockey Training Secrets',
+      content: 'The Soviet Union revolutionized hockey with their systematic approach to skill development, emphasizing creativity, passing, and team play over individual heroics.',
+      category: 'Legends'
     },
     {
-      id: 'community-milestone',
-      type: 'text' as const,
-      title: "Community Milestone",
-      content: "Amazing! Our hockey family has shared over 1,000 factoids this month. Keep the hockey love flowing!",
-      category: "Community",
-      shareCount: 23
+      id: 'miracle-on-ice',
+      title: 'The Miracle on Ice Legacy',
+      content: 'The 1980 US Olympic hockey victory over the Soviet Union remains one of the greatest upsets in sports history, inspiring generations of American hockey players.',
+      category: 'Legends'
     },
     {
-      id: 'feature-highlight',
-      type: 'text' as const,
-      title: "Feature Highlight",
-      content: "New Hockey Brain Challenges are here! Test your knowledge against our toughest quizzes yet.",
-      expert: {
-        name: "Numbers Guy",
-        avatar: "/pims/a-numbers.webp",
-        title: "Statistics Expert"
-      },
-      category: "Features"
+      id: 'hockey-fights-purpose',
+      title: 'The Science Behind Hockey Fights',
+      content: 'Hockey fights serve multiple purposes: momentum shifts, player protection, and emotional release. Modern analytics show teams often perform better after strategic fights.',
+      category: 'Features'
     },
     {
-      id: 'special-content',
-      type: 'text' as const,
-      title: "Special Content",
-      content: "Winter Classic approaching! Share your predictions and favorite outdoor game memories.",
-      category: "Events",
-      shareCount: 156
+      id: 'goalie-evolution',
+      title: 'Goaltending Through the Ages',
+      content: 'From stand-up styles to butterfly techniques, goaltending has evolved dramatically. Modern goalies are athletes trained in flexibility, reflexes, and mental toughness.',
+      category: 'Features'
+    },
+    {
+      id: 'hockey-superstitions',
+      title: 'Hockey\'s Wildest Superstitions',
+      content: 'From playoff beards to pre-game rituals, hockey players are among the most superstitious athletes. Some won\'t step on the logo, others have elaborate stick-taping ceremonies.',
+      category: 'Community'
+    },
+    {
+      id: 'international-ice-sizes',
+      title: 'Ice Rinks Around the World',
+      content: 'NHL rinks are 200x85 feet, but international ice is 200x100 feet. This difference significantly impacts playing styles and strategies between North American and European hockey.',
+      category: 'Features'
+    },
+    {
+      id: 'hockey-hall-of-fame',
+      title: 'Hockey Hall of Fame Stories',
+      content: 'Located in Toronto, the Hockey Hall of Fame houses the most comprehensive collection of hockey artifacts, including every Stanley Cup ring and legendary player memorabilia.',
+      category: 'Legends'
+    },
+    {
+      id: 'women-hockey-growth',
+      title: 'Women\'s Hockey Rising',
+      content: 'Women\'s hockey participation has grown 400% since 1990. The sport showcases incredible skill, speed, and strategy without body checking, emphasizing pure hockey talent.',
+      category: 'Community'
+    },
+    {
+      id: 'hockey-analytics',
+      title: 'Hockey\'s Analytics Revolution',
+      content: 'Advanced stats like Corsi, Fenwick, and expected goals have transformed how teams evaluate players and develop strategies, making hockey more scientific than ever.',
+      category: 'Features'
+    },
+    {
+      id: 'outdoor-hockey-magic',
+      title: 'The Magic of Outdoor Hockey',
+      content: 'Winter Classics and outdoor games capture hockey\'s pure essence. Playing under open skies connects modern players to the sport\'s pond hockey origins.',
+      category: 'Events'
+    },
+    {
+      id: 'hockey-community-impact',
+      title: 'Hockey\'s Community Impact',
+      content: 'Hockey builds character, teamwork, and lifelong friendships. Local rinks serve as community centers where families gather and young players learn life lessons.',
+      category: 'Community'
     }
   ];
 
@@ -74,9 +92,7 @@ export default function ContentPage() {
         <section className="py-12 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#023047] mb-4">
-              <span className="bg-gradient-to-r from-[#219EBC] to-[#FB8500] bg-clip-text text-transparent">
                 OnlyHockey Shareables
-              </span>
             </h1>
             <p className="text-lg md:text-xl text-[#023047]/70 mb-8">
               Your daily dose of hockey awesome • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
@@ -84,8 +100,14 @@ export default function ContentPage() {
           </div>
         </section>
 
-        {/* Bulletin Board */}
-        <BulletinBoard cards={bulletinCards} />
+        {/* Content Carousel */}
+        <section className="py-4 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-7xl mx-auto">
+            <ContentCarousel cards={carouselCards} />
+          </div>
+        </section>
+
+
 
         {/* Quick Actions */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
