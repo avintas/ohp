@@ -108,7 +108,7 @@ export default function Home() {
       <StickyNavbar />
       
       {/* Main Content */}
-      <main className="pt-0">
+      <main className="pt-4">
         {/* Hero Section - Sets the Stage */}
         <section className="mt-20 py-16 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">

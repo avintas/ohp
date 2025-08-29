@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
-
 import { useRouter } from 'next/navigation';
 
 interface DisplayCardProps {
@@ -14,66 +12,38 @@ interface DisplayCardProps {
 }
 
 export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: DisplayCardProps) {
-  const [isFront, setIsFront] = useState(false);
   const router = useRouter();
 
-
-
-  const handleImageClick = () => {
+  const handleCardClick = () => {
     router.push('/content');
   };
 
-  const handleCardClick = () => {
-    setIsFront(!isFront);
-  };
-
-  const handleOutsideClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setIsFront(false);
-    }
-  };
-
   return (
-    <>
-      {/* Backdrop overlay when card is in front */}
-      {isFront && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-          onClick={handleOutsideClick}
-        />
-      )}
-      
-            <motion.div 
-        className={`
-          w-[320px] h-[400px]
-          min-w-[320px] max-w-[320px]
-          min-h-[400px] max-h-[400px]
-          flex-shrink-0 flex-grow-0
-          rounded-xl p-6 
-          shadow-sm border border-gray-200 
-          overflow-hidden relative 
-          flex flex-col cursor-pointer 
-          transition-all duration-300 
-          box-border
-          ${isFront ? 'z-50' : 'z-10'}
-        `}
-        style={{
-          backgroundColor: id === 'greetings' ? '#8ecae6' :
-                         id === 'heart' ? '#EF476F' :
-                         id === 'challenge' ? '#FB8500' :
-                         id === 'motivate' ? '#FFB703' :
-                         id === 'experts' ? '#ffffff' : 'transparent',
-          transform: isFront ? 'scale(1.05)' : 'scale(1)',
-          zIndex: isFront ? 50 : 10,
-          boxSizing: 'border-box'
-        }}
-        onClick={handleCardClick}
-        whileHover={{ scale: isFront ? 1.05 : 1.02 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+    <motion.div 
+      className="
+        w-[320px] h-[400px]
+        min-w-[320px] max-w-[320px]
+        min-h-[400px] max-h-[400px]
+        flex-shrink-0 flex-grow-0
+        rounded-xl p-6 
+        shadow-sm border border-gray-200 
+        overflow-hidden relative 
+        flex flex-col cursor-pointer 
+        transition-all duration-300 
+        box-border
+      "
+      style={{
+        backgroundColor: id === 'greetings' ? '#8ecae6' :
+                       id === 'heart' ? '#EF476F' :
+                       id === 'challenge' ? '#FB8500' :
+                       id === 'motivate' ? '#FFB703' :
+                       id === 'experts' ? '#ffffff' : 'transparent',
+        boxSizing: 'border-box'
+      }}
+      onClick={handleCardClick}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
                 {/* Title Section - Fixed proportions */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -103,8 +73,7 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
           <div className="h-[260px] w-full relative">
             {id === 'greetings' ? (
               <motion.div 
-                onClick={handleImageClick}
-                className="cursor-pointer relative w-full h-full"
+                className="relative w-full h-full"
                 animate={{ 
                   y: [0, -8, 0],
                   scale: [1, 1.02, 1]
@@ -126,12 +95,7 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
                 />
               </motion.div>
             ) : (
-              <motion.div 
-                onClick={handleImageClick}
-                className="cursor-pointer relative w-full h-full"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div className="relative w-full h-full">
                 <Image
                   src={image}
                   alt={title}
@@ -141,7 +105,7 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
                   priority={isFirst}
                   quality={85}
                 />
-              </motion.div>
+              </div>
             )}
             
           </div>
@@ -152,7 +116,6 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
 
 
 
-      </motion.div>
-    </>
+    </motion.div>
   );
 }
