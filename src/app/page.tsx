@@ -2,9 +2,17 @@
 
 import { StickyNavbar } from '../components/StickyNavbar';
 import { DisplayCard } from '../components/DisplayCard';
+import { useHugExplainer } from '../components/HugExplainerModal';
+import { usePowerBrainExplainer } from '../components/PowerBrainModal';
+import { usePumpExplainer } from '../components/PumpModal';
+import { useStoriesExplainer } from '../components/StoriesModal';
 import Script from 'next/script';
 
 export default function Home() {
+  const { isModalOpen, openModal, closeModal, HugModal } = useHugExplainer();
+  const { isModalOpen: isPowerBrainModalOpen, openModal: openPowerBrainModal, closeModal: closePowerBrainModal, PowerBrainModal } = usePowerBrainExplainer();
+  const { isModalOpen: isPumpModalOpen, openModal: openPumpModal, closeModal: closePumpModal, PumpModal } = usePumpExplainer();
+  const { isModalOpen: isStoriesModalOpen, openModal: openStoriesModal, closeModal: closeStoriesModal, StoriesModal } = useStoriesExplainer();
   const cards = [
     {
       id: 'greetings',
@@ -113,7 +121,7 @@ export default function Home() {
         <section className="mt-20 py-16 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main Hero Content */}
-            <div className="mb-8">
+            <div className="mb-12">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
                 <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
                   There&apos;s Only Hockey!
@@ -122,6 +130,124 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
                 Where your love for the game is all you need. Find cool hockey facts, share the good stuff, and hang with fans who get it. Discover what makes hockey community special.
               </p>
+
+              {/* Quick Actions */}
+              <div className="max-w-2xl mx-auto mb-12">
+                <div className="flex justify-center items-center gap-8 md:gap-12">
+                  {/* Send Hockey Hug */}
+                  <div 
+                    onClick={openModal}
+                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
+                    title="Learn about Hockey Universal Greeting"
+                  >
+                    <div className="text-5xl mb-2">💝</div>
+                    <div className="text-sm font-semibold text-[#a0aec0]">Send a "H.U.G."</div>
+                  </div>
+                  
+                  {/* Brain Challenge */}
+                  <div 
+                    onClick={openPowerBrainModal}
+                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
+                    title="Learn about Power Brain challenges"
+                  >
+                    <div className="text-5xl mb-2">🧠</div>
+                    <div className="text-sm font-semibold text-[#a0aec0]">"Power Brain"</div>
+                  </div>
+                  
+                  {/* Get Pumped */}
+                  <div 
+                    onClick={openPumpModal}
+                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
+                    title="Learn about Pump Up The Volume"
+                  >
+                    <div className="text-5xl mb-2">💪</div>
+                    <div className="text-sm font-semibold text-[#a0aec0]">"Power Up"</div>
+                  </div>
+                  
+                  {/* Discover Stories */}
+                  <div 
+                    onClick={openStoriesModal}
+                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
+                    title="Learn about hockey stories"
+                  >
+                    <div className="text-5xl mb-2">📰</div>
+                    <div className="text-sm font-semibold text-[#a0aec0]">Stories</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* OH-Cast Introduction */}
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+                <span className="block bg-gradient-to-r from-[#219EBC] to-[#EF476F] bg-clip-text text-transparent">
+                  Experience the OH-Cast Machine
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
+                Meet The Professor, The Coach, The Heart, and The Storyteller - your personal hockey broadcasting team who deliver the good stuff daily.
+              </p>
+              
+              {/* OH-Cast Preview/Screenshot Area */}
+              <div className="mb-8 max-w-2xl mx-auto">
+                {/* Finger pointing down */}
+                <div className="text-center mb-4">
+                  <div className="text-5xl text-[#a0aec0]">👇</div>
+                </div>
+                <div className="bg-gradient-to-b from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 shadow-2xl border border-[#2d3748]">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="text-2xl">📻</div>
+                    <span className="text-lg font-bold text-white">OH-Cast Player</span>
+                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-xl p-4 mb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <img 
+                        src="/pims/a-strategist.webp" 
+                        alt="The Storyteller"
+                        className="w-12 h-12 rounded-full border-2 border-white/20"
+                      />
+                      <div>
+                        <div className="text-white font-bold text-sm">The Storyteller</div>
+                        <div className="text-xs text-gray-400">Story Channel Host</div>
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-sm italic">
+                      "Gather &apos;round folks, here&apos;s a Gretzky story that&apos;ll blow your mind..."
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-2">
+                    <div className="bg-[#EF476F]/20 rounded p-2 text-center">
+                      <div className="text-sm">💝</div>
+                      <div className="text-xs text-white">SHARE</div>
+                    </div>
+                    <div className="bg-[#4361ee]/20 rounded p-2 text-center">
+                      <div className="text-sm">🧠</div>
+                      <div className="text-xs text-white">BRAIN</div>
+                    </div>
+                    <div className="bg-[#FFB703]/20 rounded p-2 text-center">
+                      <div className="text-sm">💪</div>
+                      <div className="text-xs text-white">MOTIVATE</div>
+                    </div>
+                    <div className="bg-[#219EBC]/30 rounded p-2 text-center border-2 border-[#219EBC]">
+                      <div className="text-sm">📰</div>
+                      <div className="text-xs text-white">STORY</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main CTA */}
+              <div className="mb-8">
+                <a 
+                  href="/content"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] hover:from-[#4cc9f0]/90 hover:to-[#219EBC]/90 text-white font-bold text-lg rounded-2xl transition-all duration-200 hover:scale-105 shadow-lg"
+                >
+                  🎙️ Give it a TRY
+                </a>
+              </div>
             </div>
 
 
@@ -130,10 +256,10 @@ export default function Home() {
 
             {/* Call to Action */}
             <div className="text-center">
-              <div className="text-sm text-[#718096] mb-1">
-                Choose your starting point below
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#718096] mb-1">
+                Load Your Lineup
               </div>
-              <div className="text-2xl text-[#718096]">
+              <div className="text-5xl text-[#718096]">
                 👇
               </div>
             </div>
@@ -352,6 +478,18 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* H.U.G. Explainer Modal */}
+      <HugModal />
+      
+      {/* Power Brain Explainer Modal */}
+      <PowerBrainModal />
+      
+      {/* Pump Explainer Modal */}
+      <PumpModal />
+      
+      {/* Stories Explainer Modal */}
+      <StoriesModal />
     </div>
   );
 }
