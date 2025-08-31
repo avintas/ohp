@@ -245,7 +245,7 @@ export default function Home() {
                   href="/content"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] hover:from-[#4cc9f0]/90 hover:to-[#219EBC]/90 text-white font-bold text-lg rounded-2xl transition-all duration-200 hover:scale-105 shadow-lg"
                 >
-                  🎙️ Give it a TRY
+                  🎙️ Launch OH-Cast Machine
                 </a>
               </div>
             </div>

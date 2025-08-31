@@ -230,7 +230,19 @@ export function HockeyRadio({ content }: HockeyRadioProps) {
                 
                 {/* Progress Bar */}
                 <div className="mb-4">
-                  <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div 
+                    className="w-full h-2 bg-gray-700 rounded-full overflow-hidden cursor-pointer hover:h-3 transition-all duration-200"
+                    onClick={(e) => {
+                      if (currentContent) {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        const clickX = e.clientX - rect.left;
+                        const seekPercentage = clickX / rect.width;
+                        const newTime = Math.floor(currentContent.duration * seekPercentage);
+                        setCurrentTime(newTime);
+                      }
+                    }}
+                    title="Click to seek"
+                  >
                     <div 
                       className="h-full bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] transition-all duration-1000"
                       style={{ width: `${progressPercentage}%` }}

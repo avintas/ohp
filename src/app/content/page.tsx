@@ -1,7 +1,7 @@
 'use client';
 
 import { StickyNavbar } from '@/components/StickyNavbar';
-import { HockeyRadio } from '@/components/HockeyRadio';
+import { CastMachine } from '@/components/CastMachine';
 
 export default function ContentPage() {
   // Radio Content Data - organized by station categories
@@ -104,10 +104,10 @@ export default function ContentPage() {
         <section className="py-12 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
-                OnlyHockey Shareables
+                OH-Cast Machine
             </h1>
             <p className="text-lg md:text-xl text-[#a0aec0] mb-8">
-              Your daily dose of hockey awesome • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+              Your personal hockey broadcasting experience • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </p>
 
             {/* Quick Actions */}
@@ -142,10 +142,10 @@ export default function ContentPage() {
           </div>
         </section>
 
-        {/* Hockey Radio */}
+        {/* Cast Machine */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
-          <div className="max-w-7xl mx-auto">
-            <HockeyRadio content={radioContent} />
+          <div className="max-w-7xl mx-auto flex justify-center">
+            <CastMachine content={radioContent} />
           </div>
         </section>
 
