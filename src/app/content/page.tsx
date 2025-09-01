@@ -102,7 +102,7 @@ export default function ContentPage() {
       {/* Main Content */}
       <main className="pt-4">
         {/* Hero Section */}
-        <section className="py-8 px-4 md:px-6 2xl:px-8">
+        <section className="mt-16 py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
                 Cast Player

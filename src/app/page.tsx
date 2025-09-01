@@ -19,9 +19,7 @@ export default function Home() {
       id: 'havefun',
       title: "Ready to Have Some Fun?",
       subtitle: "Press play on your hockey journey - share stories and connect with fans!",
-
       image: "/gims/gim-00026.webp", // FUN button - arcade game energy!
-
       delay: 0,
       isFirst: true
     },
@@ -29,28 +27,22 @@ export default function Home() {
       id: 'sendhugs',
       title: "Send Hockey Hugs",
       subtitle: "Share greeting cards and spread joy to fellow fans",
-
-      image: "/gims/gim-00013.webp", // Send Hugs group image
-
-      delay: 0.1
+      image: "/gims/gim-00013.webp", // Send Hugs Group image
+      delay: 0
     },
     {
       id: 'challenge',
       title: "Hockey Brain Challenge",
       subtitle: "Test your knowledge and climb the leaderboard",
-
-      image: "/gims/gim-00004.webp", // ChallengeGroup image
-
-      delay: 0.2
+      image: "/gims/gim-00004.webp", // Hockey Brain Group image
+      delay: 0
     },
     {
       id: 'motivate',
       title: "Pump Up Your Team!",
       subtitle: "Share fierce motivation and get everyone fired up",
-
-      image: "/gims/gim-00012.webp", // MotivateGroup image
-
-      delay: 0.3
+      image: "/gims/gim-00012.webp", // Motivate Group image
+      delay: 0
     }
   ];
 
@@ -117,12 +109,10 @@ export default function Home() {
       <StickyNavbar />
       
       {/* Main Content */}
-      <main className="pt-2">
-        {/* Hero Section - Sets the Stage */}
-        <section className="mt-8 py-8 px-4 md:px-6 2xl:px-8">
+      <main className="pt-4">
+        {/* Hero Section - Main Introduction */}
+        <section className="mt-16 py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Main Hero Content */}
-            <div className="mb-12">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
                 <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
                   There&apos;s Only Hockey!
@@ -131,13 +121,18 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
                 Where your love for the game is all you need. Find cool hockey facts, share the good stuff, and hang with fans who get it. Discover what makes hockey community special.
               </p>
+          </div>
+        </section>
 
-              {/* Transition to Actions */}
-              <div className="mb-8">
-                <p className="text-lg md:text-xl text-[#718096] font-medium">
-                  Ready to dive in? Pick your hockey vibe:
-                </p>
-              </div>
+        {/* Hockey Vibe Section - Interactive Emojis */}
+        <section className="py-8 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Transition to Actions */}
+            <div className="mb-8">
+              <p className="text-lg md:text-xl text-[#718096] font-medium">
+                Ready to pick your hockey vibe?
+              </p>
+            </div>
 
               {/* Quick Actions */}
               <div className="max-w-2xl mx-auto mb-12">
@@ -183,10 +178,12 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+          </div>
+        </section>
 
-            {/* OH-Cast Introduction */}
-            <div className="mb-8">
+        {/* Cast Player Section - OH-Cast Introduction */}
+        <section className="py-8 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
                 <span className="block bg-gradient-to-r from-[#219EBC] to-[#EF476F] bg-clip-text text-transparent">
                   Check Out Cast Player
@@ -196,7 +193,6 @@ export default function Home() {
                 Meet The Cast: Professor, The Coach, The Heart, and The Storyteller - your personal hockey broadcasting team who deliver the good stuff daily.
               </p>
 
-              
               {/* OH-Cast Preview/Screenshot Area */}
               <div className="mb-8 max-w-2xl mx-auto">
                 {/* Finger pointing down */}
@@ -248,29 +244,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Main CTA */}
-              <div className="mb-8">
-                <a 
-                  href="/content"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] hover:from-[#4cc9f0]/90 hover:to-[#219EBC]/90 text-white font-bold text-lg rounded-2xl transition-all duration-200 hover:scale-105 shadow-lg"
-                >
-                  🎙️ Tune In Now
-                </a>
-              </div>
-            </div>
-
-
-
-
-
-            {/* Call to Action */}
+            {/* CTA Button */}
             <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#718096] mb-1">
-                Load Your Lineup
-              </div>
-              <div className="text-5xl text-[#718096]">
-                👇
-              </div>
+              <a
+                href="/content"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] hover:from-[#4cc9f0]/90 hover:to-[#219EBC]/90 text-white font-bold text-lg rounded-2xl transition-all duration-200 hover:scale-105 shadow-lg"
+              >
+                🎙️ Tune In Now
+              </a>
             </div>
           </div>
         </section>
@@ -290,8 +271,6 @@ export default function Home() {
             />
           ))}
         </div>
-
-
       </main>
 
       {/* Footer */}
