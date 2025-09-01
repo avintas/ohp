@@ -40,18 +40,10 @@ export function HugExplainerModal({ isOpen, onClose }: HugExplainerModalProps) {
               Hockey Universal Greeting
             </h3>
             <p className="text-[#a0aec0] leading-relaxed">
-              A H.U.G. is how hockey fans connect across the globe. Whether you're celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - a H.U.G. is your way to reach out to the hockey family.
+              A H.U.G. is how hockey fans connect across the globe. Whether you're celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - a H.U.G. <img src="/pims/x12.webp" alt="The Heart" className="inline-block w-12 h-12 rounded-full mx-1" /> is your way to reach out to the hockey family.
             </p>
           </div>
 
-
-
-          {/* Community Stats */}
-          <div className="bg-[#16213e] rounded-xl p-4 mb-6 text-center">
-            <div className="text-2xl font-bold text-[#4cc9f0] mb-1">2,847</div>
-            <div className="text-sm text-[#a0aec0]">H.U.G.s sent this month</div>
-            <div className="text-xs text-[#718096] mt-1">Join the hockey family!</div>
-          </div>
 
           {/* Action Buttons */}
           <div className="flex gap-3">

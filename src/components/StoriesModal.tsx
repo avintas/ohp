@@ -40,16 +40,11 @@ export function StoriesModal({ isOpen, onClose }: StoriesModalProps) {
               The Human Side of Hockey
             </h3>
             <p className="text-[#a0aec0] leading-relaxed">
-              Stories brings you the heart of hockey - real moments, personal journeys, and the human connections that make this game special. From childhood dreams to championship victories, discover the stories behind the stats with The Storyteller.
+              Stories brings you the heart of hockey - real moments, personal journeys, and the human connections that make this game special. From childhood dreams to championship victories, discover the stories behind the stats with <img src="/gims/gim-00021.webp" alt="The Professor" className="inline-block w-12 h-12 rounded-full mx-1" /> The Historian.
             </p>
           </div>
 
-          {/* Community Stats */}
-          <div className="bg-[#16213e] rounded-xl p-4 mb-6 text-center">
-            <div className="text-2xl font-bold text-[#219EBC] mb-1">7</div>
-            <div className="text-sm text-[#a0aec0]">Stories shared this month</div>
-            <div className="text-xs text-[#718096] mt-1">Discover the human side!</div>
-          </div>
+
 
           {/* Action Buttons */}
           <div className="flex gap-3">

@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { StickyNavbar } from '../../components/StickyNavbar';
+import { Footer } from '../../components/Footer';
 
-export default function ChallengePage() {
+export default function PowerBrainPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0f0f23]">
       {/* Sticky Navbar */}
       <StickyNavbar />
 
@@ -18,11 +19,14 @@ export default function ChallengePage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center"
         >
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-black tracking-tight mb-8">
-            Challenge System
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-white tracking-tight mb-8">
+            Power Brain System
           </h1>
         </motion.div>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
 
-export default function MotivatePage() {
+export default function SendHugsPage() {
   return (
     <div className="min-h-screen bg-[#0f0f23]">
       {/* Sticky Navbar */}
@@ -20,7 +20,7 @@ export default function MotivatePage() {
           className="text-center"
         >
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-white tracking-tight mb-8">
-            Motivate System
+            Send Hugs System
           </h1>
         </motion.div>
       </main>

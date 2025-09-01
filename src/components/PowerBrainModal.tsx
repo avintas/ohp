@@ -40,15 +40,8 @@ export function PowerBrainModal({ isOpen, onClose }: PowerBrainModalProps) {
               Hockey Knowledge Challenges
             </h3>
             <p className="text-[#a0aec0] leading-relaxed">
-              Power Brain is your hockey IQ training ground. Test your knowledge with The Professor, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
+              Power Brain is your hockey IQ training ground. Test your knowledge with <img src="/pims/hs28.webp" alt="The Professor" className="inline-block w-10 h-10 rounded-full mx-1" /> The Professor, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
             </p>
-          </div>
-
-          {/* Community Stats */}
-          <div className="bg-[#16213e] rounded-xl p-4 mb-6 text-center">
-            <div className="text-2xl font-bold text-[#4361ee] mb-1">1,247</div>
-            <div className="text-sm text-[#a0aec0]">Brain challenges completed this month</div>
-            <div className="text-xs text-[#718096] mt-1">Join the knowledge quest!</div>
           </div>
 
           {/* Action Buttons */}

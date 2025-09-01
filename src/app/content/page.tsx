@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '@/components/StickyNavbar';
 import { CastMachine } from '@/components/CastMachine';
+import { Footer } from '@/components/Footer';
 
 export default function ContentPage() {
   // Radio Content Data - organized by station categories
@@ -156,6 +157,9 @@ export default function ContentPage() {
           </div>
         </section>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

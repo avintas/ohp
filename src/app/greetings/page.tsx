@@ -18,7 +18,7 @@ export default function GreetingsPage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center"
         >
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-black tracking-tight mb-8">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-white tracking-tight mb-8">
             Overview
           </h1>
         </motion.div>

@@ -26,15 +26,15 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
         min-h-[400px] max-h-[400px]
         flex-shrink-0 flex-grow-0
         rounded-xl p-6 
-        shadow-sm border border-gray-200 
+        shadow-sm 
         overflow-hidden relative 
         flex flex-col cursor-pointer 
         transition-all duration-300 
         box-border
       "
       style={{
-        backgroundColor: id === 'greetings' ? '#8ecae6' :
-                       id === 'heart' ? '#EF476F' :
+        backgroundColor: id === 'havefun' ? '#8ecae6' :
+                       id === 'sendhugs' ? '#EF476F' :
                        id === 'challenge' ? '#FB8500' :
                        id === 'motivate' ? '#FFB703' :
                        id === 'experts' ? '#ffffff' : 'transparent',
@@ -71,7 +71,7 @@ export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: Disp
           className="relative w-full mb-3 overflow-hidden rounded-xl flex-shrink-0"
         >
           <div className="h-[260px] w-full relative">
-            {id === 'greetings' ? (
+            {id === 'havefun' ? (
               <motion.div 
                 className="relative w-full h-full"
                 animate={{ 

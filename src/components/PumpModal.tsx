@@ -40,16 +40,11 @@ export function PumpModal({ isOpen, onClose }: PumpModalProps) {
               Power Up
             </h3>
             <p className="text-[#a0aec0] leading-relaxed">
-              Get motivated with The Coach! Power Up delivers hockey wisdom, inspirational stories, and the mindset boost you need. Whether you're facing challenges on or off the ice, power up the volume on your hockey spirit and motivation.
+              Get motivated with Power Up content! Power Up delivers hockey wisdom, inspirational stories, and the mindset boost you need. Whether you're facing challenges on or off the ice, power up the volume on your hockey spirit and motivation.
             </p>
           </div>
 
-          {/* Community Stats */}
-          <div className="bg-[#16213e] rounded-xl p-4 mb-6 text-center">
-            <div className="text-2xl font-bold text-[#FFB703] mb-1">892</div>
-            <div className="text-sm text-[#a0aec0]">Motivation boosts delivered this month</div>
-            <div className="text-xs text-[#718096] mt-1">Turn up your hockey energy!</div>
-          </div>
+
 
           {/* Action Buttons */}
           <div className="flex gap-3">
