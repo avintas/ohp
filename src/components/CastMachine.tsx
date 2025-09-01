@@ -210,7 +210,7 @@ export function CastMachine({ content }: CastMachineProps) {
   }, []);
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-md mx-auto md:max-w-lg lg:max-w-xl xl:max-w-2xl">
       <div className="bg-slate-800 text-white rounded-2xl shadow-2xl p-6 border border-slate-700">
         {/* Header */}
         <header className="text-center py-3">

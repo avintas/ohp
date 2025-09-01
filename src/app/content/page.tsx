@@ -101,50 +101,22 @@ export default function ContentPage() {
       {/* Main Content */}
       <main className="pt-4">
         {/* Hero Section */}
-        <section className="py-12 px-4 md:px-6 2xl:px-8">
+        <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
-                OH-Cast Machine
+                Cast Player
             </h1>
             <p className="text-lg md:text-xl text-[#a0aec0] mb-8">
               Your personal hockey broadcasting experience • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </p>
 
-            {/* Quick Actions */}
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-white text-center mb-8">Quick Actions</h2>
-              <div className="flex justify-center items-center gap-8 md:gap-12">
-                {/* Send Hockey Hug */}
-                <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Send hockey hug to fellow fans">
-                  <div className="text-5xl mb-2">💝</div>
-                  <div className="text-sm font-semibold text-[#a0aec0]">Hug</div>
-                </div>
-                
-                {/* Brain Challenge */}
-                <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Test your hockey knowledge">
-                  <div className="text-5xl mb-2">🧠</div>
-                  <div className="text-sm font-semibold text-[#a0aec0]">Quiz</div>
-                </div>
-                
-                {/* Get Pumped */}
-                <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Get motivational boost">
-                  <div className="text-5xl mb-2">💪</div>
-                  <div className="text-sm font-semibold text-[#a0aec0]">Pump</div>
-                </div>
-                
-                {/* Discover Stories */}
-                <div className="text-center cursor-pointer hover:scale-110 transition-all duration-200" title="Discover hockey stories">
-                  <div className="text-5xl mb-2">📰</div>
-                  <div className="text-sm font-semibold text-[#a0aec0]">Story</div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </section>
 
         {/* Cast Machine */}
-        <section className="py-8 px-4 md:px-6 2xl:px-8">
-          <div className="max-w-7xl mx-auto flex justify-center">
+        <section className="pt-0 pb-2 px-4 md:px-6 2xl:px-8">
+          <div className="w-full max-w-md mx-auto md:max-w-2xl lg:max-w-4xl xl:max-w-6xl flex justify-center">
             <CastMachine content={radioContent} />
           </div>
         </section>
