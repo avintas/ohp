@@ -133,7 +133,6 @@ export default function Home() {
                 Ready to pick your hockey vibe?
               </p>
             </div>
-
               {/* Quick Actions */}
               <div className="max-w-2xl mx-auto mb-12">
                 <div className="flex justify-center items-center gap-8 md:gap-12">
@@ -157,7 +156,7 @@ export default function Home() {
                     <div className="text-sm font-semibold text-[#a0aec0]">"Power Brain"</div>
                   </div>
                   
-                  {/* Get Pumped */}
+                  {/* Get Motivated */}
                   <div 
                     onClick={openPumpModal}
                     className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
@@ -176,6 +175,67 @@ export default function Home() {
                     <div className="text-5xl mb-2">📰</div>
                     <div className="text-sm font-semibold text-[#a0aec0]">Stories</div>
                   </div>
+                  
+                </div>
+              </div>
+              
+              {/* H.U.G. Explanation */}
+              <div className="mt-8 max-w-2xl mx-auto">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                  What&apos;s a H.U.G.?
+                </h3>
+                <div className="bg-gradient-to-r from-[#EF476F]/10 to-[#EF476F]/5 rounded-xl p-6 border border-[#EF476F]/20">
+                  <h4 className="text-lg font-semibold text-[#EF476F] mb-3">
+                    Hockey Universal Greeting
+                  </h4>
+                  <p className="text-[#a0aec0] leading-relaxed">
+                    A H.U.G. is how hockey fans connect across the globe. Whether you&apos;re celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - a H.U.G. The Heart is your way to reach out to the hockey family.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Power Brain Explanation */}
+              <div className="mt-8 max-w-2xl mx-auto">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                  What&apos;s "Power Brain"?
+                </h3>
+                <div className="bg-gradient-to-r from-[#4361ee]/10 to-[#4361ee]/5 rounded-xl p-6 border border-[#4361ee]/20">
+                  <h4 className="text-lg font-semibold text-[#4361ee] mb-3">
+                    Hockey Knowledge Challenges
+                  </h4>
+                  <p className="text-[#a0aec0] leading-relaxed">
+                    Power Brain is your hockey IQ training ground. Test your knowledge with The Professor, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
+                  </p>
+                </div>
+              </div>
+              
+              {/* Power Up Explanation */}
+              <div className="mt-8 max-w-2xl mx-auto">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                  What&apos;s "Power Up"?
+                </h3>
+                <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20">
+                  <h4 className="text-lg font-semibold text-[#FFB703] mb-3">
+                    Power Up
+                  </h4>
+                  <p className="text-[#a0aec0] leading-relaxed">
+                    Get motivated with Power Up content! Power Up delivers hockey wisdom, inspirational stories, and the mindset boost you need. Whether you&apos;re facing challenges on or off the ice, power up the volume on your hockey spirit and motivation.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Stories Explanation */}
+              <div className="mt-8 max-w-2xl mx-auto">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                  What&apos;s "Stories"?
+                </h3>
+                <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20">
+                  <h4 className="text-lg font-semibold text-[#219EBC] mb-3">
+                    The Human Side of Hockey
+                  </h4>
+                  <p className="text-[#a0aec0] leading-relaxed">
+                    Stories brings you the heart of hockey - real moments, personal journeys, and the human connections that make this game special. From childhood dreams to championship victories, discover the stories behind the stats with The Professor The Historian.
+                  </p>
                 </div>
               </div>
           </div>
