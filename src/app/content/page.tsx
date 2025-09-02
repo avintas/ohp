@@ -122,10 +122,6 @@ export default function ContentPage() {
           </div>
         </section>
 
-
-
-
-
         {/* Community Pulse */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto">

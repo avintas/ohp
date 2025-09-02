@@ -2,18 +2,10 @@
 
 import { StickyNavbar } from '../components/StickyNavbar';
 import { DisplayCard } from '../components/DisplayCard';
-import { useHugExplainer } from '../components/HugExplainerModal';
-import { usePowerBrainExplainer } from '../components/PowerBrainModal';
-import { usePumpExplainer } from '../components/PumpModal';
-import { useStoriesExplainer } from '../components/StoriesModal';
 import { Footer } from '../components/Footer';
 import Script from 'next/script';
 
 export default function Home() {
-  const { isModalOpen, openModal, closeModal, HugModal } = useHugExplainer();
-  const { isModalOpen: isPowerBrainModalOpen, openModal: openPowerBrainModal, closeModal: closePowerBrainModal, PowerBrainModal } = usePowerBrainExplainer();
-  const { isModalOpen: isPumpModalOpen, openModal: openPumpModal, closeModal: closePumpModal, PumpModal } = usePumpExplainer();
-  const { isModalOpen: isStoriesModalOpen, openModal: openStoriesModal, closeModal: closeStoriesModal, StoriesModal } = useStoriesExplainer();
   const cards = [
     {
       id: 'havefun',
@@ -137,41 +129,25 @@ export default function Home() {
               <div className="max-w-2xl mx-auto mb-12">
                 <div className="flex justify-center items-center gap-8 md:gap-12">
                   {/* Send Hockey Hug */}
-                  <div 
-                    onClick={openModal}
-                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
-                    title="Learn about Hockey Universal Greeting"
-                  >
+                  <div className="text-center">
                     <div className="text-5xl mb-2">💝</div>
                     <div className="text-sm font-semibold text-[#a0aec0]">Send a "H.U.G."</div>
                   </div>
                   
                   {/* Brain Challenge */}
-                  <div 
-                    onClick={openPowerBrainModal}
-                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
-                    title="Learn about Power Brain challenges"
-                  >
+                  <div className="text-center">
                     <div className="text-5xl mb-2">🧠</div>
                     <div className="text-sm font-semibold text-[#a0aec0]">"Power Brain"</div>
                   </div>
                   
                   {/* Get Motivated */}
-                  <div 
-                    onClick={openPumpModal}
-                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
-                    title="Learn about Pump Up The Volume"
-                  >
+                  <div className="text-center">
                     <div className="text-5xl mb-2">💪</div>
                     <div className="text-sm font-semibold text-[#a0aec0]">"Power Up"</div>
                   </div>
                   
                   {/* Discover Stories */}
-                  <div 
-                    onClick={openStoriesModal}
-                    className="text-center cursor-pointer hover:scale-110 transition-all duration-200" 
-                    title="Learn about hockey stories"
-                  >
+                  <div className="text-center">
                     <div className="text-5xl mb-2">📰</div>
                     <div className="text-sm font-semibold text-[#a0aec0]">Stories</div>
                   </div>
@@ -185,57 +161,70 @@ export default function Home() {
                   What&apos;s a H.U.G.?
                 </h3>
                 <div className="bg-gradient-to-r from-[#EF476F]/10 to-[#EF476F]/5 rounded-xl p-6 border border-[#EF476F]/20">
-                  <h4 className="text-lg font-semibold text-[#EF476F] mb-3">
-                    Hockey Universal Greeting
-                  </h4>
-                  <p className="text-[#a0aec0] leading-relaxed">
+
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
                     A H.U.G. is how hockey fans connect across the globe. Whether you&apos;re celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - a H.U.G. The Heart is your way to reach out to the hockey family.
                   </p>
+                  <a
+                    href="/sendhugs"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#EF476F] hover:bg-[#EF476F]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
                 </div>
               </div>
-              
+          
               {/* Power Brain Explanation */}
               <div className="mt-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Power Brain"?
                 </h3>
                 <div className="bg-gradient-to-r from-[#4361ee]/10 to-[#4361ee]/5 rounded-xl p-6 border border-[#4361ee]/20">
-                  <h4 className="text-lg font-semibold text-[#4361ee] mb-3">
-                    Hockey Knowledge Challenges
-                  </h4>
-                  <p className="text-[#a0aec0] leading-relaxed">
+
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
                     Power Brain is your hockey IQ training ground. Test your knowledge with The Professor, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
                   </p>
+                  <a
+                    href="/powerbrain"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#4361ee] hover:bg-[#4361ee]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
                 </div>
               </div>
-              
               {/* Power Up Explanation */}
               <div className="mt-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Power Up"?
                 </h3>
                 <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20">
-                  <h4 className="text-lg font-semibold text-[#FFB703] mb-3">
-                    Power Up
-                  </h4>
-                  <p className="text-[#a0aec0] leading-relaxed">
+
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
                     Get motivated with Power Up content! Power Up delivers hockey wisdom, inspirational stories, and the mindset boost you need. Whether you&apos;re facing challenges on or off the ice, power up the volume on your hockey spirit and motivation.
                   </p>
+                  <a
+                    href="/motivate"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFB703] hover:bg-[#FFB703]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
                 </div>
               </div>
-              
               {/* Stories Explanation */}
               <div className="mt-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Stories"?
                 </h3>
                 <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20">
-                  <h4 className="text-lg font-semibold text-[#219EBC] mb-3">
-                    The Human Side of Hockey
-                  </h4>
-                  <p className="text-[#a0aec0] leading-relaxed">
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
                     Stories brings you the heart of hockey - real moments, personal journeys, and the human connections that make this game special. From childhood dreams to championship victories, discover the stories behind the stats with The Professor The Historian.
                   </p>
+                  <a
+                    href="/stories"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#219EBC] hover:bg-[#219EBC]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
                 </div>
               </div>
           </div>
@@ -246,7 +235,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
                 <span className="block bg-gradient-to-r from-[#219EBC] to-[#EF476F] bg-clip-text text-transparent">
-                  Check Out Cast Player
+                  Meet the Cast
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-[#a0aec0] mb-6 max-w-3xl mx-auto leading-relaxed">
@@ -335,18 +324,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {/* H.U.G. Explainer Modal */}
-      <HugModal />
-      
-      {/* Power Brain Explainer Modal */}
-      <PowerBrainModal />
-      
-      {/* Pump Explainer Modal */}
-      <PumpModal />
-      
-      {/* Stories Explainer Modal */}
-      <StoriesModal />
     </div>
   );
 }
