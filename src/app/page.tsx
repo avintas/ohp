@@ -282,14 +282,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               Ready to Have Some Fun?
             </h2>
-            <h2 className="text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
-              Do Not Press the Button!
+            <h2 className="text-lg text-gray-300 mb-2 max-w-2xl mx-auto font-semibold animate-pulse hover:text-red-400 transition-colors duration-300">
+              Do Not Press the FUN Button!
             </h2>
             <div className="text-4xl mb-2">😏</div>
-
             <div className="relative inline-block">
               <img 
                 src="/gims/gim-00026.webp" 
