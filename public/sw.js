@@ -1,6 +1,6 @@
 // Service Worker for OHP - Cache Management
-const CACHE_NAME = 'ohp-v1';
-const STATIC_CACHE = 'ohp-static-v1';
+const CACHE_NAME = 'ohp-v2';
+const STATIC_CACHE = 'ohp-static-v2';
 
 // Files to cache immediately
 const STATIC_FILES = [
@@ -54,7 +54,11 @@ self.addEventListener('fetch', (event) => {
       .then((cachedResponse) => {
         // For HTML pages, always try network first, then cache
         if (request.headers.get('accept')?.includes('text/html')) {
-          return fetch(request)
+          // Add cache-busting parameter to force fresh content
+          const url = new URL(request.url);
+          url.searchParams.set('_cb', Date.now().toString());
+          
+          return fetch(url.toString())
             .then((networkResponse) => {
               // If network succeeds, update cache and return response
               if (networkResponse.ok) {

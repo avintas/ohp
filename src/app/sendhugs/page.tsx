@@ -303,9 +303,6 @@ export default function SendHugsPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <h3 className="text-white font-bold text-lg">OnlyHockey</h3>
-                      <span className="text-gray-400 text-sm">@onlyhockey</span>
-                      <span className="text-gray-500 text-sm">•</span>
-                      <span className="text-gray-500 text-sm">2h</span>
                     </div>
 
                   </div>
