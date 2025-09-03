@@ -4,8 +4,29 @@ import { motion } from 'framer-motion';
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
 import { PowerBrain } from '../../components/PowerBrain';
+import { useEffect } from 'react';
 
 export default function PowerBrainPage() {
+  // Prevent caching for this page
+  useEffect(() => {
+    // Add meta tags to prevent caching
+    const metaTags = [
+      { name: 'Cache-Control', content: 'no-cache, no-store, must-revalidate' },
+      { name: 'Pragma', content: 'no-cache' },
+      { name: 'Expires', content: '0' }
+    ];
+    
+    metaTags.forEach(tag => {
+      let meta = document.querySelector(`meta[name="${tag.name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', tag.name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', tag.content);
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0f0f23]">
       {/* Sticky Navbar */}
@@ -14,6 +35,7 @@ export default function PowerBrainPage() {
       {/* Main Content */}
       <main className="py-20 px-4">
         <motion.div
+          key="powerbrain-main"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -27,23 +49,6 @@ export default function PowerBrainPage() {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
               Your hockey IQ training ground. Test your knowledge, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
             </p>
-            
-            {/* Custom Hero Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="max-w-xs mx-auto mb-8"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#4361ee]/20">
-                <img 
-                  src="/gims/gim-00009.webp" 
-                  alt="Hockey Power Brain" 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-            </motion.div>
           </div>
 
           {/* Power Brain Component */}

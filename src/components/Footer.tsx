@@ -1,14 +1,14 @@
 export function Footer() {
   return (
-    <footer className="bg-[#16213e] border-t border-[#2d3748] py-12 px-4 md:px-6 2xl:px-8">
+    <footer className="bg-[#16213e] border-t border-[#2d3748] py-6 md:py-12 px-4 md:px-6 2xl:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-4 md:mb-8 text-center md:text-left justify-items-center">
           
           {/* Content Section */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Content</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-bold text-white mb-2 md:mb-4">Content</h3>
+            <ul className="space-y-2 md:space-y-3">
               <li>
                 <a href="/havefun" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
                   Have Fun
@@ -34,8 +34,8 @@ export function Footer() {
 
           {/* Project */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Project</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-bold text-white mb-2 md:mb-4">Project</h3>
+            <ul className="space-y-2 md:space-y-3">
             <li>
                 <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
                   About Us
@@ -61,8 +61,8 @@ export function Footer() {
 
           {/* Product Section */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Product</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-bold text-white mb-2 md:mb-4">Product</h3>
+            <ul className="space-y-2 md:space-y-3">
               <li>
                 <a href="#" className="text-[#a0aec0] hover:text-[#4cc9f0] transition-colors duration-200">
                   Support
@@ -78,8 +78,8 @@ export function Footer() {
         </div>
 
         {/* Copyright and Legal */}
-        <div className="border-t border-[#2d3748] pt-8">
-          <div className="flex flex-col items-center gap-4 text-center">
+        <div className="border-t border-[#2d3748] pt-4 md:pt-8">
+          <div className="flex flex-col items-center gap-2 md:gap-4 text-center">
             
             {/* Copyright */}
             <div className="text-sm text-[#718096]">

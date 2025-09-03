@@ -24,6 +24,7 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
   const [cardState, setCardState] = useState<'front' | 'quiz' | 'answer'>('front');
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   const [sharedQuizzes, setSharedQuizzes] = useState<Set<string>>(new Set());
 
@@ -61,6 +62,7 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
   }, []);
 
   useEffect(() => {
+    setIsMounted(true);
     loadQuizData();
   }, [loadQuizData]);
 
@@ -223,6 +225,23 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
 
   const currentQuiz = quizData[currentCardIndex];
   const isCorrect = selectedAnswer === currentQuiz.correctAnswer;
+
+  if (!isMounted) {
+    return (
+      <div className={`w-full max-w-4xl mx-auto ${className}`}>
+        <div className="relative">
+          <div className="relative w-full h-[600px] mx-auto">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 h-full flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-4xl mb-4">🧠</div>
+                <div className="text-white text-lg">Loading Power Brain...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`w-full max-w-4xl mx-auto ${className}`}>
