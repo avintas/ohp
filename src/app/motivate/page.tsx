@@ -242,10 +242,7 @@ export default function MotivatePage() {
     });
   };
 
-  const handleSaveMotivation = (motivation: Motivation) => {
-    // This would be the "bookmark" functionality
-    handleShare(motivation);
-  };
+
 
   if (loading) {
     return (
@@ -307,7 +304,11 @@ export default function MotivatePage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-[#F59E0B]/30 transition-all duration-300 hover:bg-gray-800/70"
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(245, 158, 11, 0.15)"
+                }}
+                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-[#F59E0B]/30 transition-all duration-300 hover:bg-gray-800/70 cursor-pointer"
               >
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
@@ -327,6 +328,83 @@ export default function MotivatePage() {
                       </span>
                     </div>
                   </div>
+                  
+                  {/* Top Right Actions */}
+                  <div className="flex items-center gap-3">
+                    {/* Fire Button */}
+                    <motion.button 
+                      onClick={() => handleLike(motivation.id)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`flex flex-col items-center gap-1 transition-colors duration-300 group ${
+                        likedMotivations.has(motivation.id) 
+                          ? 'text-[#F59E0B]' 
+                          : 'text-gray-400 hover:text-[#F59E0B]'
+                      }`}
+                    >
+                      <motion.div 
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                          likedMotivations.has(motivation.id) 
+                            ? 'bg-[#F59E0B]/20' 
+                            : 'group-hover:bg-[#F59E0B]/10'
+                        }`}
+                        whileTap={{ 
+                          scale: [1, 1.2, 1],
+                          rotate: [0, 10, -10, 0]
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <motion.span 
+                          className="text-lg"
+                          animate={likedMotivations.has(motivation.id) ? {
+                            scale: [1, 1.3, 1],
+                            rotate: [0, 5, -5, 0]
+                          } : {}}
+                          transition={{ duration: 0.4 }}
+                        >
+                          🔥
+                        </motion.span>
+                      </motion.div>
+                      <span className="text-xs font-medium">Fire</span>
+                    </motion.button>
+
+                    {/* Share Button */}
+                    <motion.button 
+                      onClick={() => handleShare(motivation)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`flex flex-col items-center gap-1 transition-colors duration-300 group ${
+                        sharedMotivations.has(motivation.id) 
+                          ? 'text-[#F59E0B]' 
+                          : 'text-gray-400 hover:text-[#F59E0B]'
+                      }`}
+                    >
+                      <motion.div 
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                          sharedMotivations.has(motivation.id) 
+                            ? 'bg-[#F59E0B]/20' 
+                            : 'group-hover:bg-[#F59E0B]/10'
+                        }`}
+                        whileTap={{ 
+                          scale: [1, 1.2, 1],
+                          rotate: [0, -15, 15, 0]
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <motion.span 
+                          className="text-lg"
+                          animate={sharedMotivations.has(motivation.id) ? {
+                            scale: [1, 1.2, 1],
+                            y: [0, -2, 0]
+                          } : {}}
+                          transition={{ duration: 0.4 }}
+                        >
+                          📤
+                        </motion.span>
+                      </motion.div>
+                      <span className="text-xs font-medium">Share</span>
+                    </motion.button>
+                  </div>
                 </div>
 
                 {/* Content */}
@@ -339,64 +417,7 @@ export default function MotivatePage() {
                   </p>
                 </div>
 
-                {/* Engagement Bar */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-700/50">
-                  <div className="flex items-center gap-6">
-                    {/* Like Button */}
-                    <button 
-                      onClick={() => handleLike(motivation.id)}
-                      className={`flex items-center gap-2 transition-colors duration-200 group ${
-                        likedMotivations.has(motivation.id) 
-                          ? 'text-[#F59E0B]' 
-                          : 'text-gray-400 hover:text-[#F59E0B]'
-                      }`}
-                    >
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                        likedMotivations.has(motivation.id) 
-                          ? 'bg-[#F59E0B]/20' 
-                          : 'group-hover:bg-[#F59E0B]/10'
-                      }`}>
-                        <span className="text-lg">🔥</span>
-                      </div>
-                      <span className="text-sm font-medium">Fire</span>
-                    </button>
 
-                    {/* Share Button */}
-                    <button 
-                      onClick={() => handleShare(motivation)}
-                      className={`flex items-center gap-2 transition-colors duration-200 group ${
-                        sharedMotivations.has(motivation.id) 
-                          ? 'text-[#F59E0B]' 
-                          : 'text-gray-400 hover:text-[#F59E0B]'
-                      }`}
-                    >
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                        sharedMotivations.has(motivation.id) 
-                          ? 'bg-[#F59E0B]/20' 
-                          : 'group-hover:bg-[#F59E0B]/10'
-                      }`}>
-                        <span className="text-lg">📤</span>
-                      </div>
-                      <span className="text-sm font-medium">Share</span>
-                    </button>
-
-                    {/* Save Button */}
-                    <button 
-                      onClick={() => handleSaveMotivation(motivation)}
-                      className="flex items-center gap-2 text-gray-400 hover:text-[#F59E0B] transition-colors duration-200 group"
-                    >
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-[#F59E0B]/10 transition-colors duration-200">
-                        <span className="text-lg">💪</span>
-                      </div>
-                      <span className="text-sm font-medium">Pump Up</span>
-                    </button>
-                  </div>
-
-                  {/* More Options */}
-                  <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                    <span className="text-lg">⋯</span>
-                  </button>
-                </div>
               </motion.div>
             ))}
           </div>
