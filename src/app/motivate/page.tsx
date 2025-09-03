@@ -322,89 +322,84 @@ export default function MotivatePage() {
                       <span className="text-gray-500 text-sm">•</span>
                       <span className="text-gray-500 text-sm">Now</span>
                     </div>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs text-[#F59E0B] font-medium bg-[#F59E0B]/10 px-2 py-1 rounded-full">
-                        {motivation.category}
-                      </span>
-                    </div>
                   </div>
-                  
-                  {/* Top Right Actions */}
-                  <div className="flex items-center gap-3">
-                    {/* Fire Button */}
-                    <motion.button 
-                      onClick={() => handleLike(motivation.id)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex flex-col items-center gap-1 transition-colors duration-300 group ${
-                        likedMotivations.has(motivation.id) 
-                          ? 'text-[#F59E0B]' 
-                          : 'text-gray-400 hover:text-[#F59E0B]'
-                      }`}
-                    >
-                      <motion.div 
-                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                          likedMotivations.has(motivation.id) 
-                            ? 'bg-[#F59E0B]/20' 
-                            : 'group-hover:bg-[#F59E0B]/10'
-                        }`}
-                        whileTap={{ 
-                          scale: [1, 1.2, 1],
-                          rotate: [0, 10, -10, 0]
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <motion.span 
-                          className="text-lg"
-                          animate={likedMotivations.has(motivation.id) ? {
-                            scale: [1, 1.3, 1],
-                            rotate: [0, 5, -5, 0]
-                          } : {}}
-                          transition={{ duration: 0.4 }}
-                        >
-                          🔥
-                        </motion.span>
-                      </motion.div>
-                      <span className="text-xs font-medium">Fire</span>
-                    </motion.button>
+                </div>
 
-                    {/* Share Button */}
-                    <motion.button 
-                      onClick={() => handleShare(motivation)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex flex-col items-center gap-1 transition-colors duration-300 group ${
-                        sharedMotivations.has(motivation.id) 
-                          ? 'text-[#F59E0B]' 
-                          : 'text-gray-400 hover:text-[#F59E0B]'
+                {/* Actions Below Header - All Viewports */}
+                <div className="flex items-center justify-end gap-4 mb-4">
+                  {/* Fire Button */}
+                  <motion.button 
+                    onClick={() => handleLike(motivation.id)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 transition-colors duration-300 group ${
+                      likedMotivations.has(motivation.id) 
+                        ? 'text-[#F59E0B]' 
+                        : 'text-gray-400 hover:text-[#F59E0B]'
+                    }`}
+                  >
+                    <motion.div 
+                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                        likedMotivations.has(motivation.id) 
+                          ? 'bg-[#F59E0B]/20' 
+                          : 'group-hover:bg-[#F59E0B]/10'
                       }`}
+                      whileTap={{ 
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 10, -10, 0]
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <motion.div 
-                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                          sharedMotivations.has(motivation.id) 
-                            ? 'bg-[#F59E0B]/20' 
-                            : 'group-hover:bg-[#F59E0B]/10'
-                        }`}
-                        whileTap={{ 
-                          scale: [1, 1.2, 1],
-                          rotate: [0, -15, 15, 0]
-                        }}
-                        transition={{ duration: 0.3 }}
+                      <motion.span 
+                        className="text-lg"
+                        animate={likedMotivations.has(motivation.id) ? {
+                          scale: [1, 1.3, 1],
+                          rotate: [0, 5, -5, 0]
+                        } : {}}
+                        transition={{ duration: 0.4 }}
                       >
-                        <motion.span 
-                          className="text-lg"
-                          animate={sharedMotivations.has(motivation.id) ? {
-                            scale: [1, 1.2, 1],
-                            y: [0, -2, 0]
-                          } : {}}
-                          transition={{ duration: 0.4 }}
-                        >
-                          📤
-                        </motion.span>
-                      </motion.div>
-                      <span className="text-xs font-medium">Share</span>
-                    </motion.button>
-                  </div>
+                        🔥
+                      </motion.span>
+                    </motion.div>
+                    <span className="text-sm font-medium">Fire</span>
+                  </motion.button>
+
+                  {/* Share Button */}
+                  <motion.button 
+                    onClick={() => handleShare(motivation)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 transition-colors duration-300 group ${
+                      sharedMotivations.has(motivation.id) 
+                        ? 'text-[#F59E0B]' 
+                        : 'text-gray-400 hover:text-[#F59E0B]'
+                    }`}
+                  >
+                    <motion.div 
+                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                        sharedMotivations.has(motivation.id) 
+                          ? 'bg-[#F59E0B]/20' 
+                          : 'group-hover:bg-[#F59E0B]/10'
+                      }`}
+                      whileTap={{ 
+                        scale: [1, 1.2, 1],
+                        rotate: [0, -15, 15, 0]
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.span 
+                        className="text-lg"
+                        animate={sharedMotivations.has(motivation.id) ? {
+                          scale: [1, 1.2, 1],
+                          y: [0, -2, 0]
+                        } : {}}
+                        transition={{ duration: 0.4 }}
+                      >
+                        📤
+                      </motion.span>
+                    </motion.div>
+                    <span className="text-sm font-medium">Share</span>
+                  </motion.button>
                 </div>
 
                 {/* Content */}
