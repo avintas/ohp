@@ -236,7 +236,7 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="perspective-1000"
         >
-          <div className="relative w-full h-[500px] mx-auto">
+          <div className="relative w-full h-[600px] mx-auto">
             {/* Front of Card - Did You Know? */}
             <AnimatePresence mode="wait">
               {cardState === 'front' && (
