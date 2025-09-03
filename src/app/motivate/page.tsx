@@ -274,9 +274,26 @@ export default function MotivatePage() {
           <p className="text-xl text-gray-300 mb-8">
             <span className="text-[#F59E0B] font-semibold">M</span>indset • <span className="text-[#F59E0B] font-semibold">O</span>vercome • <span className="text-[#F59E0B] font-semibold">T</span>riumph
           </p>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
             Get fired up with hockey motivation that hits different. From pre-game pump-ups to championship mindset, these messages will fuel your fire on and off the ice.
           </p>
+          
+          {/* Custom Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="max-w-xs mx-auto mb-8"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#F59E0B]/20">
+              <img 
+                src="/gims/gim-00012.webp" 
+                alt="Hockey Motivation" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 

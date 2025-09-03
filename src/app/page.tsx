@@ -1,42 +1,11 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { StickyNavbar } from '../components/StickyNavbar';
-import { DisplayCard } from '../components/DisplayCard';
 import { Footer } from '../components/Footer';
 import Script from 'next/script';
 
 export default function Home() {
-  const cards = [
-    {
-      id: 'havefun',
-      title: "Ready to Have Some Fun?",
-      subtitle: "Press play on your hockey journey - share stories and connect with fans!",
-      image: "/gims/gim-00026.webp", // FUN button - arcade game energy!
-      delay: 0,
-      isFirst: true
-    },
-    {
-      id: 'sendhugs',
-      title: "Send Hockey Hugs",
-      subtitle: "Share greeting cards and spread joy to fellow fans",
-      image: "/gims/gim-00013.webp", // Send Hugs Group image
-      delay: 0
-    },
-    {
-      id: 'challenge',
-      title: "Hockey Brain Challenge",
-      subtitle: "Test your knowledge and climb the leaderboard",
-      image: "/gims/gim-00004.webp", // Hockey Brain Group image
-      delay: 0
-    },
-    {
-      id: 'motivate',
-      title: "Pump Up Your Team!",
-      subtitle: "Share fierce motivation and get everyone fired up",
-      image: "/gims/gim-00012.webp", // Motivate Group image
-      delay: 0
-    }
-  ];
 
   // Structured data for SEO
   const structuredData = {
@@ -305,20 +274,29 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Cinematic Card Layout - Smart Responsive: 4-in-row or mobile stack */}
-        <div className="flex flex-col items-center 2xl:flex-row 2xl:justify-center gap-6 2xl:gap-8 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
-          {/* Auto-switch: if 4×320px cards don't fit → mobile view */}
-          {cards.map((card, index) => (
-            <DisplayCard
-              key={index}
-              id={card.id}
-              title={card.title}
-              subtitle={card.subtitle}
-              image={card.image}
-              delay={card.delay}
-              isFirst={card.isFirst}
-            />
-          ))}
+        {/* FUN Arcade Button - Standalone */}
+        <div className="flex flex-col items-center justify-center gap-6 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready to Have Some Fun?
+            </h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Press play on your hockey journey - share stories and connect with fans!
+            </p>
+            <div className="relative inline-block">
+              <img 
+                src="/gims/gim-00026.webp" 
+                alt="FUN Arcade Button" 
+                className="w-64 h-64 md:w-80 md:h-80 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              />
+            </div>
+          </motion.div>
         </div>
       </main>
 

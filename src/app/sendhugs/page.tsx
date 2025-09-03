@@ -274,9 +274,26 @@ export default function SendHugsPage() {
           <p className="text-xl text-gray-300 mb-8">
             <span className="text-[#EF476F] font-semibold">H</span>ockey • <span className="text-[#EF476F] font-semibold">U</span>niversal  • <span className="text-[#EF476F] font-semibold">G</span>reeting
           </p>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
             Connect with hockey fans across the globe. Whether you're celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - send a H.U.G.
           </p>
+          
+          {/* Custom Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="max-w-xs mx-auto mb-8"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#EF476F]/20">
+              <img 
+                src="/gims/gim-00013.webp" 
+                alt="Hockey H.U.G." 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
