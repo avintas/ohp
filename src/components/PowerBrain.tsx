@@ -24,7 +24,7 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
   const [cardState, setCardState] = useState<'front' | 'quiz' | 'answer'>('front');
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [likedQuizzes, setLikedQuizzes] = useState<Set<string>>(new Set());
+
   const [sharedQuizzes, setSharedQuizzes] = useState<Set<string>>(new Set());
 
   const loadQuizData = useCallback(async () => {
@@ -203,22 +203,7 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
     }
   };
 
-  const handleLike = (quizId: string) => {
-    setLikedQuizzes(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(quizId)) {
-        newSet.delete(quizId);
-      } else {
-        newSet.add(quizId);
-      }
-      return newSet;
-    });
-  };
 
-  const handleChallenge = (quiz: QuizData) => {
-    // This would be the "challenge" functionality - similar to "Send H.U.G." or "Pump Up"
-    handleShare(quiz);
-  };
 
   if (isLoading) {
     return (
@@ -273,63 +258,44 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
                     </div>
                   </div>
                   
-                                     {/* Engagement Bar */}
-                   <div className="flex items-center justify-between pt-4 border-t border-gray-700/50 mt-6">
-                     <div className="flex items-center gap-6">
-                       {/* Like Button */}
-                       <button 
-                         onClick={(e) => { e.stopPropagation(); handleLike(currentQuiz.category); }}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'bg-[#3B82F6]/20' 
-                             : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">🧠</span>
-                         </div>
-                         <span className="text-sm font-medium">Like</span>
-                       </button>
-
-                       {/* Share Button */}
-                       <button 
-                         onClick={(e) => { e.stopPropagation(); handleShare(currentQuiz); }}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           sharedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
+                                     {/* Actions Below Content - All Viewports */}
+                   <div className="flex items-center justify-start gap-4 mt-6">
+                     {/* Share Button */}
+                     <motion.button 
+                       onClick={(e) => { e.stopPropagation(); handleShare(currentQuiz); }}
+                       whileHover={{ scale: 1.1 }}
+                       whileTap={{ scale: 0.95 }}
+                       className={`flex items-center gap-2 transition-colors duration-300 group ${
+                         sharedQuizzes.has(currentQuiz.category) 
+                           ? 'text-[#3B82F6]' 
+                           : 'text-gray-400 hover:text-[#3B82F6]'
+                       }`}
+                     >
+                       <motion.div 
+                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
                            sharedQuizzes.has(currentQuiz.category) 
                              ? 'bg-[#3B82F6]/20' 
                              : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">📤</span>
-                         </div>
-                         <span className="text-sm font-medium">Share</span>
-                       </button>
-
-                       {/* Challenge Button */}
-                       <button 
-                         onClick={(e) => { e.stopPropagation(); handleChallenge(currentQuiz); }}
-                         className="flex items-center gap-2 text-gray-400 hover:text-[#3B82F6] transition-colors duration-200 group"
+                         }`}
+                         whileTap={{ 
+                           scale: [1, 1.2, 1],
+                           rotate: [0, -15, 15, 0]
+                         }}
+                         transition={{ duration: 0.3 }}
                        >
-                         <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-[#3B82F6]/10 transition-colors duration-200">
-                           <span className="text-lg">⚡</span>
-                         </div>
-                         <span className="text-sm font-medium">Challenge</span>
-                       </button>
-                     </div>
-
-                     {/* More Options */}
-                     <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                       <span className="text-lg">⋯</span>
-                     </button>
+                         <motion.span 
+                           className="text-lg"
+                           animate={sharedQuizzes.has(currentQuiz.category) ? {
+                             scale: [1, 1.2, 1],
+                             y: [0, -2, 0]
+                           } : {}}
+                           transition={{ duration: 0.4 }}
+                         >
+                           📤
+                         </motion.span>
+                       </motion.div>
+                       <span className="text-sm font-medium">Share</span>
+                     </motion.button>
                    </div>
                 </motion.div>
               )}
@@ -386,63 +352,44 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
                     </button>
                   </div>
                   
-                                     {/* Engagement Bar */}
-                   <div className="flex items-center justify-between pt-4 border-t border-gray-700/50 mt-6">
-                     <div className="flex items-center gap-6">
-                       {/* Like Button */}
-                       <button 
-                         onClick={() => handleLike(currentQuiz.category)}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'bg-[#3B82F6]/20' 
-                             : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">🧠</span>
-                         </div>
-                         <span className="text-sm font-medium">Like</span>
-                       </button>
-
-                       {/* Share Button */}
-                       <button 
-                         onClick={() => handleShare(currentQuiz)}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           sharedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
+                                     {/* Actions Below Content - All Viewports */}
+                   <div className="flex items-center justify-start gap-4 mt-6">
+                     {/* Share Button */}
+                     <motion.button 
+                       onClick={() => handleShare(currentQuiz)}
+                       whileHover={{ scale: 1.1 }}
+                       whileTap={{ scale: 0.95 }}
+                       className={`flex items-center gap-2 transition-colors duration-300 group ${
+                         sharedQuizzes.has(currentQuiz.category) 
+                           ? 'text-[#3B82F6]' 
+                           : 'text-gray-400 hover:text-[#3B82F6]'
+                       }`}
+                     >
+                       <motion.div 
+                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
                            sharedQuizzes.has(currentQuiz.category) 
                              ? 'bg-[#3B82F6]/20' 
                              : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">📤</span>
-                         </div>
-                         <span className="text-sm font-medium">Share</span>
-                       </button>
-
-                       {/* Challenge Button */}
-                       <button 
-                         onClick={() => handleChallenge(currentQuiz)}
-                         className="flex items-center gap-2 text-gray-400 hover:text-[#3B82F6] transition-colors duration-200 group"
+                         }`}
+                         whileTap={{ 
+                           scale: [1, 1.2, 1],
+                           rotate: [0, -15, 15, 0]
+                         }}
+                         transition={{ duration: 0.3 }}
                        >
-                         <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-[#3B82F6]/10 transition-colors duration-200">
-                           <span className="text-lg">⚡</span>
-                         </div>
-                         <span className="text-sm font-medium">Challenge</span>
-                       </button>
-                     </div>
-
-                     {/* More Options */}
-                     <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                       <span className="text-lg">⋯</span>
-                     </button>
+                         <motion.span 
+                           className="text-lg"
+                           animate={sharedQuizzes.has(currentQuiz.category) ? {
+                             scale: [1, 1.2, 1],
+                             y: [0, -2, 0]
+                           } : {}}
+                           transition={{ duration: 0.4 }}
+                         >
+                           📤
+                         </motion.span>
+                       </motion.div>
+                       <span className="text-sm font-medium">Share</span>
+                     </motion.button>
                    </div>
                 </motion.div>
               )}
@@ -491,63 +438,44 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
                     </button>
                   </div>
                   
-                                     {/* Engagement Bar */}
-                   <div className="flex items-center justify-between pt-4 border-t border-gray-700/50 mt-6">
-                     <div className="flex items-center gap-6">
-                       {/* Like Button */}
-                       <button 
-                         onClick={() => handleLike(currentQuiz.category)}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                           likedQuizzes.has(currentQuiz.category) 
-                             ? 'bg-[#3B82F6]/20' 
-                             : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">🧠</span>
-                         </div>
-                         <span className="text-sm font-medium">Like</span>
-                       </button>
-
-                       {/* Share Button */}
-                       <button 
-                         onClick={() => handleShare(currentQuiz)}
-                         className={`flex items-center gap-2 transition-colors duration-200 group ${
-                           sharedQuizzes.has(currentQuiz.category) 
-                             ? 'text-[#3B82F6]' 
-                             : 'text-gray-400 hover:text-[#3B82F6]'
-                         }`}
-                       >
-                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
+                                     {/* Actions Below Content - All Viewports */}
+                   <div className="flex items-center justify-start gap-4 mt-6">
+                     {/* Share Button */}
+                     <motion.button 
+                       onClick={() => handleShare(currentQuiz)}
+                       whileHover={{ scale: 1.1 }}
+                       whileTap={{ scale: 0.95 }}
+                       className={`flex items-center gap-2 transition-colors duration-300 group ${
+                         sharedQuizzes.has(currentQuiz.category) 
+                           ? 'text-[#3B82F6]' 
+                           : 'text-gray-400 hover:text-[#3B82F6]'
+                       }`}
+                     >
+                       <motion.div 
+                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
                            sharedQuizzes.has(currentQuiz.category) 
                              ? 'bg-[#3B82F6]/20' 
                              : 'group-hover:bg-[#3B82F6]/10'
-                         }`}>
-                           <span className="text-lg">📤</span>
-                         </div>
-                         <span className="text-sm font-medium">Share</span>
-                       </button>
-
-                       {/* Challenge Button */}
-                       <button 
-                         onClick={() => handleChallenge(currentQuiz)}
-                         className="flex items-center gap-2 text-gray-400 hover:text-[#3B82F6] transition-colors duration-200 group"
+                         }`}
+                         whileTap={{ 
+                           scale: [1, 1.2, 1],
+                           rotate: [0, -15, 15, 0]
+                         }}
+                         transition={{ duration: 0.3 }}
                        >
-                         <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-[#3B82F6]/10 transition-colors duration-200">
-                           <span className="text-lg">⚡</span>
-                         </div>
-                         <span className="text-sm font-medium">Challenge</span>
-                       </button>
-                     </div>
-
-                     {/* More Options */}
-                     <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                       <span className="text-lg">⋯</span>
-                     </button>
+                         <motion.span 
+                           className="text-lg"
+                           animate={sharedQuizzes.has(currentQuiz.category) ? {
+                             scale: [1, 1.2, 1],
+                             y: [0, -2, 0]
+                           } : {}}
+                           transition={{ duration: 0.4 }}
+                         >
+                           📤
+                         </motion.span>
+                       </motion.div>
+                       <span className="text-sm font-medium">Share</span>
+                     </motion.button>
                    </div>
                 </motion.div>
               )}

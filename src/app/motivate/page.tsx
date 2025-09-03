@@ -17,7 +17,7 @@ interface Motivation {
 export default function MotivatePage() {
   const [motivations, setMotivations] = useState<Motivation[]>([]);
   const [loading, setLoading] = useState(true);
-  const [likedMotivations, setLikedMotivations] = useState<Set<string>>(new Set());
+
   const [sharedMotivations, setSharedMotivations] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -230,17 +230,7 @@ export default function MotivatePage() {
     }
   };
 
-  const handleLike = (motivationId: string) => {
-    setLikedMotivations(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(motivationId)) {
-        newSet.delete(motivationId);
-      } else {
-        newSet.add(motivationId);
-      }
-      return newSet;
-    });
-  };
+
 
 
 
@@ -301,9 +291,6 @@ export default function MotivatePage() {
             {motivations.map((motivation, index) => (
               <motion.div
                 key={motivation.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
                 whileHover={{ 
                   scale: 1.02,
                   boxShadow: "0 20px 40px rgba(245, 158, 11, 0.15)"
@@ -326,44 +313,7 @@ export default function MotivatePage() {
                 </div>
 
                 {/* Actions Below Header - All Viewports */}
-                <div className="flex items-center justify-end gap-4 mb-4">
-                  {/* Fire Button */}
-                  <motion.button 
-                    onClick={() => handleLike(motivation.id)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex items-center gap-2 transition-colors duration-300 group ${
-                      likedMotivations.has(motivation.id) 
-                        ? 'text-[#F59E0B]' 
-                        : 'text-gray-400 hover:text-[#F59E0B]'
-                    }`}
-                  >
-                    <motion.div 
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                        likedMotivations.has(motivation.id) 
-                          ? 'bg-[#F59E0B]/20' 
-                          : 'group-hover:bg-[#F59E0B]/10'
-                      }`}
-                      whileTap={{ 
-                        scale: [1, 1.2, 1],
-                        rotate: [0, 10, -10, 0]
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <motion.span 
-                        className="text-lg"
-                        animate={likedMotivations.has(motivation.id) ? {
-                          scale: [1, 1.3, 1],
-                          rotate: [0, 5, -5, 0]
-                        } : {}}
-                        transition={{ duration: 0.4 }}
-                      >
-                        🔥
-                      </motion.span>
-                    </motion.div>
-                    <span className="text-sm font-medium">Fire</span>
-                  </motion.button>
-
+                <div className="flex items-center justify-start gap-4 mb-4">
                   {/* Share Button */}
                   <motion.button 
                     onClick={() => handleShare(motivation)}

@@ -18,7 +18,7 @@ interface Story {
 export default function StoriesPage() {
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
-  const [likedStories, setLikedStories] = useState<Set<string>>(new Set());
+
   const [sharedStories, setSharedStories] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -144,22 +144,7 @@ export default function StoriesPage() {
     }
   };
 
-  const handleLike = (storyId: string) => {
-    setLikedStories(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(storyId)) {
-        newSet.delete(storyId);
-      } else {
-        newSet.add(storyId);
-      }
-      return newSet;
-    });
-  };
 
-  const handleSaveStory = (story: Story) => {
-    // This would be the "bookmark" functionality
-    handleShare(story);
-  };
 
   if (loading) {
     return (
@@ -201,10 +186,11 @@ export default function StoriesPage() {
             {stories.map((story, index) => (
               <motion.div
                 key={story.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-[#14B8A6]/30 transition-all duration-300 hover:bg-gray-800/70"
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(20, 184, 166, 0.15)"
+                }}
+                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-[#14B8A6]/30 transition-all duration-300 hover:bg-gray-800/70 cursor-pointer"
               >
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
@@ -218,11 +204,7 @@ export default function StoriesPage() {
                       <span className="text-gray-500 text-sm">•</span>
                       <span className="text-gray-500 text-sm">{story.date}</span>
                     </div>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs text-[#14B8A6] font-medium bg-[#14B8A6]/10 px-2 py-1 rounded-full">
-                        {story.category}
-                      </span>
-                    </div>
+
                   </div>
                 </div>
 
@@ -236,63 +218,44 @@ export default function StoriesPage() {
                   </p>
                 </div>
 
-                {/* Engagement Bar */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-700/50">
-                  <div className="flex items-center gap-6">
-                    {/* Like Button */}
-                    <button 
-                      onClick={() => handleLike(story.id)}
-                      className={`flex items-center gap-2 transition-colors duration-200 group ${
-                        likedStories.has(story.id) 
-                          ? 'text-[#14B8A6]' 
-                          : 'text-gray-400 hover:text-[#14B8A6]'
-                      }`}
-                    >
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                        likedStories.has(story.id) 
-                          ? 'bg-[#14B8A6]/20' 
-                          : 'group-hover:bg-[#14B8A6]/10'
-                      }`}>
-                        <span className="text-lg">❤️</span>
-                      </div>
-                      <span className="text-sm font-medium">Like</span>
-                    </button>
-
-                    {/* Share Button */}
-                    <button 
-                      onClick={() => handleShare(story)}
-                      className={`flex items-center gap-2 transition-colors duration-200 group ${
-                        sharedStories.has(story.id) 
-                          ? 'text-[#14B8A6]' 
-                          : 'text-gray-400 hover:text-[#14B8A6]'
-                      }`}
-                    >
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
+                {/* Actions Below Header - All Viewports */}
+                <div className="flex items-center justify-start gap-4 mb-4">
+                  {/* Share Button */}
+                  <motion.button 
+                    onClick={() => handleShare(story)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 transition-colors duration-300 group ${
+                      sharedStories.has(story.id) 
+                        ? 'text-[#14B8A6]' 
+                        : 'text-gray-400 hover:text-[#14B8A6]'
+                    }`}
+                  >
+                    <motion.div 
+                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
                         sharedStories.has(story.id) 
                           ? 'bg-[#14B8A6]/20' 
                           : 'group-hover:bg-[#14B8A6]/10'
-                      }`}>
-                        <span className="text-lg">📤</span>
-                      </div>
-                      <span className="text-sm font-medium">Share</span>
-                    </button>
-
-                    {/* Save Button */}
-                    <button 
-                      onClick={() => handleSaveStory(story)}
-                      className="flex items-center gap-2 text-gray-400 hover:text-[#14B8A6] transition-colors duration-200 group"
+                      }`}
+                      whileTap={{ 
+                        scale: [1, 1.2, 1],
+                        rotate: [0, -15, 15, 0]
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-[#14B8A6]/10 transition-colors duration-200">
-                        <span className="text-lg">🔖</span>
-                      </div>
-                      <span className="text-sm font-medium">Save</span>
-                    </button>
-                  </div>
-
-                  {/* More Options */}
-                  <button className="text-gray-400 hover:text-white transition-colors duration-200">
-                    <span className="text-lg">⋯</span>
-                  </button>
+                      <motion.span 
+                        className="text-lg"
+                        animate={sharedStories.has(story.id) ? {
+                          scale: [1, 1.2, 1],
+                          y: [0, -2, 0]
+                        } : {}}
+                        transition={{ duration: 0.4 }}
+                      >
+                        📤
+                      </motion.span>
+                    </motion.div>
+                    <span className="text-sm font-medium">Share</span>
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
