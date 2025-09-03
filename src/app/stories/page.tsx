@@ -174,7 +174,7 @@ export default function StoriesPage() {
             <span className="text-[#14B8A6] font-semibold">H</span>istory • <span className="text-[#14B8A6] font-semibold">I</span>nspiration • <span className="text-[#14B8A6] font-semibold">L</span>egends
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Discover the untold stories, legendary moments, and timeless wisdom that shaped hockey. From defections to dynasties, these stories connect us to the game's rich heritage.
+            Discover the untold stories, legendary moments, and timeless wisdom that shaped hockey. These stories connect us to the game's rich heritage.
           </p>
         </motion.div>
       </section>
