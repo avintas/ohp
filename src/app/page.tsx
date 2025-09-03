@@ -132,7 +132,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-[#EF476F]/10 to-[#EF476F]/5 rounded-xl p-6 border border-[#EF476F]/20">
 
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                    A H.U.G. is how hockey fans connect across the globe. Whether you&apos;re celebrating a great play, showing support after a tough loss, or just saying "hey fellow fan" - a H.U.G. The Heart is your way to reach out to the hockey family.
+                  Connect with the global hockey family through a H.U.G. Whether you're celebrating a great play, offering support, or just saying hello, it's a way to reach out to fellow fans.
                   </p>
                   <a
                     href="/sendhugs"
@@ -151,7 +151,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-[#4361ee]/10 to-[#4361ee]/5 rounded-xl p-6 border border-[#4361ee]/20">
 
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                    Power Brain is your hockey IQ training ground. Test your knowledge with The Professor, challenge friends, and discover amazing hockey facts you never knew. From basic rules to legendary trivia - power up your hockey brain!
+                  Sharpen your hockey IQ with Power Brain. This is your training ground to test your knowledge, challenge friends, and uncover amazing hockey facts you never knew.
                   </p>
                   <a
                     href="/powerbrain"
@@ -169,7 +169,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20">
 
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                    Get motivated with Power Up content! Power Up delivers hockey wisdom, inspirational stories, and the mindset boost you need. Whether you&apos;re facing challenges on or off the ice, power up the volume on your hockey spirit and motivation.
+                  Motivate delivers the inspirational stories, wisdom, and mindset boosts you need to face challenges on and off the ice.
                   </p>
                   <a
                     href="/motivate"
@@ -186,7 +186,7 @@ export default function Home() {
                 </h3>
                 <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20">
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                    Stories brings you the heart of hockey - real moments, personal journeys, and the human connections that make this game special. From childhood dreams to championship victories, discover the stories behind the stats with The Professor The Historian.
+                  Stories captures the heart of hockey: the personal journeys, human connections, and moments that go beyond the stats, from childhood dreams to championship victories.
                   </p>
                   <a
                     href="/stories"
