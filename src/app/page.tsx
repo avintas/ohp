@@ -129,28 +129,28 @@ export default function Home() {
               <div className="max-w-2xl mx-auto mb-12">
                 <div className="flex justify-center items-center gap-8 md:gap-12">
                   {/* Send Hockey Hug */}
-                  <div className="text-center">
+                  <a href="/sendhugs" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
                     <div className="text-5xl mb-2">💝</div>
-                    <div className="text-sm font-semibold text-[#a0aec0]">Send a "H.U.G."</div>
-                  </div>
+                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Send a "H.U.G."</div>
+                  </a>
                   
                   {/* Brain Challenge */}
-                  <div className="text-center">
+                  <a href="/powerbrain" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
                     <div className="text-5xl mb-2">🧠</div>
-                    <div className="text-sm font-semibold text-[#a0aec0]">"Power Brain"</div>
-                  </div>
+                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Power Your Brain</div>
+                  </a>
                   
                   {/* Get Motivated */}
-                  <div className="text-center">
+                  <a href="/motivate" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
                     <div className="text-5xl mb-2">💪</div>
-                    <div className="text-sm font-semibold text-[#a0aec0]">"Power Up"</div>
-                  </div>
+                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Motivate</div>
+                  </a>
                   
                   {/* Discover Stories */}
-                  <div className="text-center">
+                  <a href="/stories" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
                     <div className="text-5xl mb-2">📰</div>
-                    <div className="text-sm font-semibold text-[#a0aec0]">Stories</div>
-                  </div>
+                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Human Stories</div>
+                  </a>
                   
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function Home() {
               {/* Power Up Explanation */}
               <div className="mt-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  What&apos;s "Power Up"?
+                  What&apos;s "Motivate"?
                 </h3>
                 <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20">
 
