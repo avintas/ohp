@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '../components/StickyNavbar';
 import { Footer } from '../components/Footer';
+import Image from 'next/image';
 import Script from 'next/script';
 
 export default function Home() {
@@ -225,9 +226,11 @@ export default function Home() {
                   <div className="grid grid-cols-4 gap-6 items-center">
                     {/* Avatar - Left Column */}
                     <div className="col-span-1 flex justify-center">
-                      <img 
+                      <Image 
                         src="/avatars/broadcaster.webp" 
                         alt="The Broadcaster"
+                        width={96}
+                        height={96}
                         className="w-24 h-24 rounded-full object-cover border-2 border-[#219EBC]/50"
                       />
                     </div>
@@ -252,9 +255,11 @@ export default function Home() {
                   <div className="grid grid-cols-4 gap-6 items-center">
                     {/* Avatar - Left Column */}
                     <div className="col-span-1 flex justify-center">
-                      <img 
+                      <Image 
                         src="/avatars/fan.webp" 
                         alt="The Fan"
+                        width={96}
+                        height={96}
                         className="w-24 h-24 rounded-full object-cover border-2 border-[#EF476F]/50"
                       />
                     </div>
@@ -279,9 +284,11 @@ export default function Home() {
                   <div className="grid grid-cols-4 gap-6 items-center">
                     {/* Avatar - Left Column */}
                     <div className="col-span-1 flex justify-center">
-                      <img 
+                      <Image 
                         src="/avatars/coach.webp" 
                         alt="The Coach"
+                        width={96}
+                        height={96}
                         className="w-24 h-24 rounded-full object-cover border-2 border-[#FFB703]/50"
                       />
                     </div>
@@ -306,9 +313,11 @@ export default function Home() {
                   <div className="grid grid-cols-4 gap-6 items-center">
                     {/* Avatar - Left Column */}
                     <div className="col-span-1 flex justify-center">
-                      <img 
+                      <Image 
                         src="/avatars/mind-coach.webp" 
                         alt="The Mind Coach"
+                        width={96}
+                        height={96}
                         className="w-24 h-24 rounded-full object-cover border-2 border-[#8B5CF6]/50"
                       />
                     </div>
@@ -355,9 +364,11 @@ export default function Home() {
             </h2>
             <div className="text-4xl mb-2">😏</div>
             <div className="relative inline-block">
-              <img 
+              <Image 
                 src="/gims/gim-00026.webp" 
                 alt="FUN Arcade Button" 
+                width={320}
+                height={320}
                 className="w-64 h-64 md:w-80 md:h-80 object-contain"
               />
             </div>

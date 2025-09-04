@@ -215,7 +215,7 @@ export default function SendHugsPage() {
           url: window.location.href
         });
         setSharedHugs(prev => new Set([...prev, hug.id]));
-      } catch (error) {
+      } catch {
         console.log('Share cancelled');
       }
     } else {

@@ -215,7 +215,7 @@ export default function MotivatePage() {
           url: window.location.href
         });
         setSharedMotivations(prev => new Set([...prev, motivation.id]));
-      } catch (error) {
+      } catch {
         console.log('Share cancelled');
       }
     } else {
@@ -273,7 +273,7 @@ export default function MotivatePage() {
       <section className="pb-20 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="space-y-4">
-            {motivations.map((motivation, index) => (
+            {motivations.map((motivation) => (
               <motion.div
                 key={motivation.id}
                 whileHover={{ 

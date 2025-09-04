@@ -2,6 +2,8 @@
 
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BroadcasterPage() {
   return (
@@ -15,9 +17,11 @@ export default function BroadcasterPage() {
           {/* Character Header */}
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
-              <img 
+              <Image 
                 src="/avatars/broadcaster.webp" 
                 alt="The Broadcaster"
+                width={128}
+                height={128}
                 className="w-32 h-32 rounded-full object-cover border-4 border-[#219EBC]/50"
               />
             </div>
@@ -113,12 +117,12 @@ export default function BroadcasterPage() {
               The Broadcaster is working on bringing you daily historical highlights, statistical deep-dives, 
               and analysis of current events. Stay tuned for regular updates!
             </p>
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#219EBC] hover:bg-[#219EBC]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105"
             >
               ← Back to Meet the Cast
-            </a>
+            </Link>
           </div>
 
         </div>

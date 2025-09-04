@@ -121,7 +121,7 @@ export default function StoriesPage() {
           url: window.location.href
         });
         setSharedStories(prev => new Set([...prev, story.id]));
-      } catch (error) {
+      } catch {
         console.log('Share cancelled');
       }
     } else {
@@ -175,7 +175,7 @@ export default function StoriesPage() {
       <section className="pb-20 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="space-y-6">
-            {stories.map((story, index) => (
+            {stories.map((story) => (
               <motion.div
                 key={story.id}
                 whileHover={{ 

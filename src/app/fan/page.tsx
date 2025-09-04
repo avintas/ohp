@@ -2,6 +2,8 @@
 
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function FanPage() {
   return (
@@ -15,9 +17,11 @@ export default function FanPage() {
           {/* Character Header */}
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
-              <img 
+              <Image 
                 src="/avatars/fan.webp" 
                 alt="The Fan"
+                width={128}
+                height={128}
                 className="w-32 h-32 rounded-full object-cover border-4 border-[#EF476F]/50"
               />
             </div>
@@ -108,12 +112,12 @@ export default function FanPage() {
               The Fan is collecting amazing stories from hockey fans around the world. 
               Share your passion, your memories, and your love for the game!
             </p>
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF476F] hover:bg-[#EF476F]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105"
             >
               ← Back to Meet the Cast
-            </a>
+            </Link>
           </div>
 
         </div>

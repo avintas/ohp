@@ -7,11 +7,10 @@ interface DisplayCardProps {
   title: string;
   subtitle?: string;
   image: string;
-  delay: number;
   isFirst?: boolean;
 }
 
-export function DisplayCard({ id, title, subtitle, image, delay, isFirst }: DisplayCardProps) {
+export function DisplayCard({ id, title, subtitle, image, isFirst }: DisplayCardProps) {
   const router = useRouter();
 
   const handleCardClick = () => {

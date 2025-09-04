@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { StickyNavbar } from '../../components/StickyNavbar';
 
 export default function ExpertsPage() {
