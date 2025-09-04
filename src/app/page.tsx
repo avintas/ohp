@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { StickyNavbar } from '../components/StickyNavbar';
 import { Footer } from '../components/Footer';
 import Script from 'next/script';
@@ -88,15 +87,12 @@ export default function Home() {
         {/* Hockey Vibe Section - Interactive Emojis */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Transition to Actions */}
-            <div className="mb-8">
-              <p className="text-lg md:text-xl text-[#718096] font-medium">
+              {/* Quick Actions */}
+              <div className="max-w-2xl mx-auto mb-8">
+              <p className="text-lg md:text-xl text-[#718096] font-medium mb-6">
                 Ready to pick your hockey vibe?
               </p>
-            </div>
-              {/* Quick Actions */}
-              <div className="max-w-2xl mx-auto mb-12">
-                <div className="flex justify-center items-center gap-8 md:gap-12">
+                <div className="flex justify-center items-center gap-8 md:gap-12 mb-8">
                   {/* Send Hockey Hug */}
                   <a href="/sendhugs" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
                     <div className="text-5xl mb-2">💝</div>
@@ -120,12 +116,10 @@ export default function Home() {
                     <div className="text-5xl mb-2">📰</div>
                     <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Human Stories</div>
                   </a>
-                  
                 </div>
               </div>
-              
               {/* H.U.G. Explanation */}
-              <div className="mt-8 max-w-2xl mx-auto">
+              <div className="mt-8 mb-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s a H.U.G.?
                 </h3>
@@ -142,9 +136,8 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-          
-              {/* Power Brain Explanation */}
-              <div className="mt-8 max-w-2xl mx-auto">
+               {/* Power Brain Explanation */}
+              <div className="mt-8 mb-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Power Brain"?
                 </h3>
@@ -162,7 +155,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Power Up Explanation */}
-              <div className="mt-8 max-w-2xl mx-auto">
+              <div className="mt-8 mb-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Motivate"?
                 </h3>
@@ -180,7 +173,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Stories Explanation */}
-              <div className="mt-8 max-w-2xl mx-auto">
+              <div className="mt-8 mb-8 max-w-2xl mx-auto">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   What&apos;s "Stories"?
                 </h3>
@@ -199,7 +192,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Cast Player Section - OH-Cast Introduction */}
+        {/* Visual Break/Transition */}
+        <div className="py-8 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="border-t border-[#2d3748] relative">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="bg-[#0a0e1a] px-6">
+                  <div className="text-2xl">🎭</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Meet the Cast Section - Character Introduction */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
@@ -207,81 +213,140 @@ export default function Home() {
                   Meet the Cast
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-[#a0aec0] mb-6 max-w-3xl mx-auto leading-relaxed">
-                Meet The Cast: Professor, The Coach, The Heart, and The Storyteller - your personal hockey broadcasting team who deliver the good stuff daily.
+              <p className="text-lg md:text-xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
+                Your personal hockey team of experts, storytellers, and enthusiasts. Each bringing their unique perspective and passion to the game we all love.
               </p>
 
-              {/* OH-Cast Preview/Screenshot Area */}
-              <div className="mb-8 max-w-2xl mx-auto">
-                {/* Finger pointing down */}
-                <div className="text-center mb-4">
-                  <div className="text-5xl text-[#a0aec0]">👇</div>
-                </div>
-                <div className="bg-gradient-to-b from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 shadow-2xl border border-[#2d3748]">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="text-2xl">📻</div>
-                    <span className="text-lg font-bold text-white">OH-Cast Player</span>
-                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  </div>
-                  
-                  <div className="bg-gray-800/50 rounded-xl p-4 mb-4">
-                    <div className="flex items-center gap-3 mb-3">
+              {/* Character Grid - Avatar Left, Text Right */}
+              <div className="space-y-6 max-w-4xl mx-auto mb-8">
+                
+                {/* The Broadcaster */}
+                <a href="/broadcaster" className="block bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 border border-[#2d3748] hover:border-[#219EBC]/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="grid grid-cols-4 gap-6 items-center">
+                    {/* Avatar - Left Column */}
+                    <div className="col-span-1 flex justify-center">
                       <img 
-                        src="/pims/a-strategist.webp" 
-                        alt="The Storyteller"
-                        className="w-12 h-12 rounded-full border-2 border-white/20"
+                        src="/avatars/broadcaster.webp" 
+                        alt="The Broadcaster"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-[#219EBC]/50"
                       />
-                      <div>
-                        <div className="text-white font-bold text-sm">The Storyteller</div>
-                        <div className="text-xs text-gray-400">Story Channel Host</div>
+                    </div>
+                    {/* Content - Right Column */}
+                    <div className="col-span-3 text-left">
+                      <h3 className="text-2xl font-bold text-white mb-3">The Broadcaster</h3>
+                      <p className="text-[#a0aec0] mb-4 leading-relaxed">
+                        Your go-to source for hockey history, statistics, and the stories behind the game. 
+                        Bringing you the facts, figures, and legendary moments that define hockey.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-[#219EBC]/20 text-[#4cc9f0] text-sm rounded-full">History</span>
+                        <span className="px-3 py-1 bg-[#219EBC]/20 text-[#4cc9f0] text-sm rounded-full">Stats</span>
+                        <span className="px-3 py-1 bg-[#219EBC]/20 text-[#4cc9f0] text-sm rounded-full">Analysis</span>
                       </div>
                     </div>
-                    <p className="text-gray-300 text-sm italic">
-                      "Gather &apos;round folks, here&apos;s a Gretzky story that&apos;ll blow your mind..."
-                    </p>
                   </div>
-                  
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="bg-[#EF476F]/20 rounded p-2 text-center">
-                      <div className="text-sm">💝</div>
-                      <div className="text-xs text-white">SHARE</div>
+                </a>
+
+                {/* The Fan */}
+                <a href="/fan" className="block bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 border border-[#2d3748] hover:border-[#EF476F]/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="grid grid-cols-4 gap-6 items-center">
+                    {/* Avatar - Left Column */}
+                    <div className="col-span-1 flex justify-center">
+                      <img 
+                        src="/avatars/fan.webp" 
+                        alt="The Fan"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-[#EF476F]/50"
+                      />
                     </div>
-                    <div className="bg-[#4361ee]/20 rounded p-2 text-center">
-                      <div className="text-sm">🧠</div>
-                      <div className="text-xs text-white">BRAIN</div>
-                    </div>
-                    <div className="bg-[#FFB703]/20 rounded p-2 text-center">
-                      <div className="text-sm">💪</div>
-                      <div className="text-xs text-white">MOTIVATE</div>
-                    </div>
-                    <div className="bg-[#219EBC]/30 rounded p-2 text-center border-2 border-[#219EBC]">
-                      <div className="text-sm">📰</div>
-                      <div className="text-xs text-white">STORY</div>
+                    {/* Content - Right Column */}
+                    <div className="col-span-3 text-left">
+                      <h3 className="text-2xl font-bold text-white mb-3">The Fan</h3>
+                      <p className="text-[#a0aec0] mb-4 leading-relaxed">
+                        The voice of the hockey community. Sharing the passion, excitement, and 
+                        personal stories that make hockey more than just a game.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-[#EF476F]/20 text-[#FF6B9D] text-sm rounded-full">Community</span>
+                        <span className="px-3 py-1 bg-[#EF476F]/20 text-[#FF6B9D] text-sm rounded-full">Stories</span>
+                        <span className="px-3 py-1 bg-[#EF476F]/20 text-[#FF6B9D] text-sm rounded-full">Passion</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
+
+                {/* The Coach */}
+                <a href="/coach" className="block bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 border border-[#2d3748] hover:border-[#FFB703]/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="grid grid-cols-4 gap-6 items-center">
+                    {/* Avatar - Left Column */}
+                    <div className="col-span-1 flex justify-center">
+                      <img 
+                        src="/avatars/coach.webp" 
+                        alt="The Coach"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-[#FFB703]/50"
+                      />
+                    </div>
+                    {/* Content - Right Column */}
+                    <div className="col-span-3 text-left">
+                      <h3 className="text-2xl font-bold text-white mb-3">The Coach</h3>
+                      <p className="text-[#a0aec0] mb-4 leading-relaxed">
+                        The strategic mind behind the game. Providing tactical insights, training wisdom, 
+                        and the motivational leadership that drives teams to victory.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-[#FFB703]/20 text-[#FFD60A] text-sm rounded-full">Strategy</span>
+                        <span className="px-3 py-1 bg-[#FFB703]/20 text-[#FFD60A] text-sm rounded-full">Training</span>
+                        <span className="px-3 py-1 bg-[#FFB703]/20 text-[#FFD60A] text-sm rounded-full">Leadership</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* The Mind Coach */}
+                <a href="/mindcoach" className="block bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl p-6 border border-[#2d3748] hover:border-[#8B5CF6]/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="grid grid-cols-4 gap-6 items-center">
+                    {/* Avatar - Left Column */}
+                    <div className="col-span-1 flex justify-center">
+                      <img 
+                        src="/avatars/mind-coach.webp" 
+                        alt="The Mind Coach"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-[#8B5CF6]/50"
+                      />
+                    </div>
+                    {/* Content - Right Column */}
+                    <div className="col-span-3 text-left">
+                      <h3 className="text-2xl font-bold text-white mb-3">The Mind Coach</h3>
+                      <p className="text-[#a0aec0] mb-4 leading-relaxed">
+                        The mental game specialist. Focusing on mindset, psychology, and the mental 
+                        toughness that separates good players from great ones.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-[#8B5CF6]/20 text-[#A855F7] text-sm rounded-full">Mindset</span>
+                        <span className="px-3 py-1 bg-[#8B5CF6]/20 text-[#A855F7] text-sm rounded-full">Psychology</span>
+                        <span className="px-3 py-1 bg-[#8B5CF6]/20 text-[#A855F7] text-sm rounded-full">Focus</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
               </div>
 
-            {/* CTA Button */}
+            {/* Coming Soon CTA */}
             <div className="text-center">
+              <p className="text-[#a0aec0] mb-4">Follow your favorite characters for exclusive content</p>
               <a
-                href="/content"
+                href="#"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#4cc9f0] to-[#219EBC] hover:from-[#4cc9f0]/90 hover:to-[#219EBC]/90 text-white font-bold text-lg rounded-2xl transition-all duration-200 hover:scale-105 shadow-lg"
               >
-                🎙️ Tune In Now
+                🎯 Coming Soon
               </a>
             </div>
           </div>
         </section>
 
         {/* FUN Arcade Button - Standalone */}
-        <div className="flex flex-col items-center justify-center gap-6 px-4 md:px-6 2xl:px-8 pb-8 md:pb-12 2xl:pb-16 max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center"
-          >
+        <section className="py-8 px-4 md:px-6 2xl:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+          <div className="text-center animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               Ready to Have Some Fun?
             </h2>
@@ -293,12 +358,12 @@ export default function Home() {
               <img 
                 src="/gims/gim-00026.webp" 
                 alt="FUN Arcade Button" 
-                className="w-64 h-64 md:w-80 md:h-80 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="w-64 h-64 md:w-80 md:h-80 object-contain"
               />
             </div>
-          </motion.div>
-        </div>
+          </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
