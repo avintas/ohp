@@ -54,6 +54,6 @@ function NavbarContent() {
   );
 }
 
-export function StickyNavbar() {
+export function NavBar() {
   return <NavbarContent />;
 }

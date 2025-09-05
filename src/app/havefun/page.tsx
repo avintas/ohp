@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { StickyNavbar } from '../../components/StickyNavbar';
+import { NavBar } from '../../components/NavBar';
 import { Footer } from '../../components/Footer';
 
 export default function HaveFunPage() {
   return (
     <div className="min-h-screen bg-[#0f0f23]">
       {/* Sticky Navbar */}
-      <StickyNavbar />
+      <NavBar />
 
       {/* Main Content */}
       <main className="flex items-center justify-center min-h-[calc(100vh-80px)]">

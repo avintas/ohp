@@ -1,6 +1,6 @@
 'use client';
 
-import { StickyNavbar } from '../components/StickyNavbar';
+import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
 import { ClientOnly } from '../components/ClientOnly';
 import Image from 'next/image';
@@ -68,19 +68,19 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <StickyNavbar />
+      <NavBar />
       
       {/* Main Content */}
       <main className="pt-4">
         {/* Hero Section - Main Introduction */}
-        <section className="mt-16 py-8 px-4 md:px-6 2xl:px-8">
+        <section className="mt-12 py-8 px-4">
           <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
                 <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
                   There&apos;s Only Hockey!
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-[#a0aec0] mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-[#a0aec0] mb-4 max-w-3xl mx-auto leading-relaxed">
                 Where your love for the game is all you need. Find cool hockey facts, share the good stuff, and hang with fans who get it. Discover what makes hockey community special.
               </p>
           </div>
@@ -123,7 +123,7 @@ export default function Home() {
               {/* Row 2: Stories (Reversed layout using CSS order) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Explanation Box - Desktop: appears first, Mobile: appears second */}
-                <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20 md:order-2">
+                <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20 md:order-1">
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
                     Stories captures the heart of hockey: the personal journeys, human connections, and moments that go beyond the stats, from childhood dreams to championship victories.
                   </p>
@@ -171,7 +171,7 @@ export default function Home() {
               {/* Row 4: Motivate (Reversed layout using CSS order) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Explanation Box - Desktop: appears first, Mobile: appears second */}
-                <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20 md:order-2">
+                <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20 md:order-1">
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
                     Motivate delivers the inspirational stories, wisdom, and mindset boosts you need to face challenges on and off the ice.
                   </p>

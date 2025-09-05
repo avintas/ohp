@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { StickyNavbar } from '../../components/StickyNavbar';
+import { NavBar } from '../../components/NavBar';
 import { Footer } from '../../components/Footer';
 import { ClientOnly } from '../../components/ClientOnly';
 
@@ -143,7 +143,7 @@ export default function StoriesPage() {
   return (
     <div className="min-h-screen bg-[#0f0f23]">
       {/* Sticky Navbar */}
-      <StickyNavbar />
+      <NavBar />
 
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4">
