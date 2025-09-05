@@ -87,34 +87,8 @@ export default function Home() {
         </section>
 
         {/* NEW: Alternating Grid Section - Hydration Safe */}
-        <ClientOnly fallback={
-          <section className="py-16 px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="h-8 bg-gray-700 rounded mb-8 w-64 mx-auto animate-pulse"></div>
-                <div className="space-y-16">
-                  {[1,2,3,4].map(i => (
-                    <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-gray-700 rounded-full mx-auto mb-4 animate-pulse"></div>
-                        <div className="h-6 bg-gray-700 rounded mb-2 w-48 mx-auto animate-pulse"></div>
-                        <div className="h-4 bg-gray-700 rounded w-24 mx-auto animate-pulse"></div>
-                      </div>
-                      <div className="bg-gray-800/50 rounded-xl p-6">
-                        <div className="h-4 bg-gray-700 rounded mb-2 animate-pulse"></div>
-                        <div className="h-4 bg-gray-700 rounded mb-2 w-5/6 animate-pulse"></div>
-                        <div className="h-4 bg-gray-700 rounded mb-4 w-4/5 animate-pulse"></div>
-                        <div className="h-8 bg-gray-700 rounded w-20 animate-pulse"></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        }>
-          <section className="py-16 px-4">
-            <div className="max-w-4xl mx-auto">
+        <section className="py-16 px-4">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
               <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
                 Explore Your Hockey Journey
@@ -221,7 +195,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </ClientOnly>
 
         {/* Visual Break/Transition */}
         <div className="py-8 px-4 md:px-6 2xl:px-8">
