@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ClientOnly } from './ClientOnly';
 
 interface DisplayCardProps {
   id: string;
@@ -18,31 +19,82 @@ export function DisplayCard({ id, title, subtitle, image, isFirst }: DisplayCard
   };
 
   return (
-    <motion.div 
-      className="
-        w-[320px] h-[400px]
-        min-w-[320px] max-w-[320px]
-        min-h-[400px] max-h-[400px]
-        flex-shrink-0 flex-grow-0
-        rounded-xl p-6 
-        shadow-sm 
-        overflow-hidden relative 
-        flex flex-col cursor-pointer 
-        transition-all duration-300 
-        box-border
-      "
-      style={{
-        backgroundColor: id === 'havefun' ? '#8ecae6' :
-                       id === 'sendhugs' ? '#EF476F' :
-                       id === 'challenge' ? '#FB8500' :
-                       id === 'motivate' ? '#FFB703' :
-                       id === 'experts' ? '#ffffff' : 'transparent',
-        boxSizing: 'border-box'
-      }}
-      onClick={handleCardClick}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+    <ClientOnly
+      fallback={
+        <div 
+          className="
+            w-[320px] h-[400px]
+            min-w-[320px] max-w-[320px]
+            min-h-[400px] max-h-[400px]
+            flex-shrink-0 flex-grow-0
+            rounded-xl p-6 
+            shadow-sm 
+            overflow-hidden relative 
+            flex flex-col cursor-pointer 
+            transition-all duration-300 
+            box-border
+          "
+          style={{
+            backgroundColor: id === 'havefun' ? '#8ecae6' :
+                           id === 'sendhugs' ? '#EF476F' :
+                           id === 'challenge' ? '#FB8500' :
+                           id === 'motivate' ? '#FFB703' :
+                           id === 'experts' ? '#ffffff' : 'transparent',
+            boxSizing: 'border-box'
+          }}
+          onClick={handleCardClick}
+        >
+          <div className="text-center mb-3 flex-shrink-0">
+            <h2 className="text-lg lg:text-xl font-extrabold text-white tracking-tight mb-1 leading-tight drop-shadow-sm">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="text-xs lg:text-sm text-white/90 leading-relaxed max-w-full mx-auto drop-shadow-sm">
+                {subtitle}
+              </p>
+            )}
+          </div>
+          <div className="relative w-full mb-3 overflow-hidden rounded-xl flex-shrink-0">
+            <div className="h-[260px] w-full relative">
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                priority={isFirst}
+                quality={85}
+              />
+            </div>
+          </div>
+        </div>
+      }
     >
+      <motion.div 
+        className="
+          w-[320px] h-[400px]
+          min-w-[320px] max-w-[320px]
+          min-h-[400px] max-h-[400px]
+          flex-shrink-0 flex-grow-0
+          rounded-xl p-6 
+          shadow-sm 
+          overflow-hidden relative 
+          flex flex-col cursor-pointer 
+          transition-all duration-300 
+          box-border
+        "
+        style={{
+          backgroundColor: id === 'havefun' ? '#8ecae6' :
+                         id === 'sendhugs' ? '#EF476F' :
+                         id === 'challenge' ? '#FB8500' :
+                         id === 'motivate' ? '#FFB703' :
+                         id === 'experts' ? '#ffffff' : 'transparent',
+          boxSizing: 'border-box'
+        }}
+        onClick={handleCardClick}
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
                 {/* Title Section - Fixed proportions */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -116,5 +168,6 @@ export function DisplayCard({ id, title, subtitle, image, isFirst }: DisplayCard
 
 
     </motion.div>
+    </ClientOnly>
   );
 }

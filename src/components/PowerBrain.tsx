@@ -182,26 +182,19 @@ export function PowerBrain({ className = '' }: PowerBrainProps) {
   const handleShare = async (quiz: QuizData) => {
     const shareText = `🧠 Power Brain Challenge: ${quiz.question}\n\nTest your hockey IQ at OnlyHockey!`;
     
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `Power Brain Challenge from OnlyHockey: ${quiz.category}`,
-          text: shareText,
-          url: window.location.href
-        });
-        setSharedQuizzes(prev => new Set([...prev, quiz.category]));
-      } catch {
-        console.log('Share cancelled');
-      }
-    } else {
-      // Fallback: copy to clipboard
-      try {
-        await navigator.clipboard.writeText(shareText);
-        setSharedQuizzes(prev => new Set([...prev, quiz.category]));
-        alert('Quiz challenge copied to clipboard!');
-      } catch (error) {
-        console.error('Failed to copy to clipboard:', error);
-      }
+    // Import dynamically to avoid hydration issues
+    const { safeShare } = await import('../utils/shareUtils');
+    
+    const success = await safeShare(
+      {
+        title: `Power Brain Challenge from OnlyHockey: ${quiz.category}`,
+        text: shareText,
+      },
+      shareText
+    );
+
+    if (success) {
+      setSharedQuizzes(prev => new Set([...prev, quiz.category]));
     }
   };
 

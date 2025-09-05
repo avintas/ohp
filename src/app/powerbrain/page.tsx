@@ -9,22 +9,22 @@ import { useEffect } from 'react';
 export default function PowerBrainPage() {
   // Prevent caching for this page
   useEffect(() => {
-    // Add meta tags to prevent caching
-    const metaTags = [
-      { name: 'Cache-Control', content: 'no-cache, no-store, must-revalidate' },
-      { name: 'Pragma', content: 'no-cache' },
-      { name: 'Expires', content: '0' }
-    ];
-    
-    metaTags.forEach(tag => {
-      let meta = document.querySelector(`meta[name="${tag.name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('name', tag.name);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', tag.content);
-    });
+    // Safely update meta tags only on client
+    const updateMetaTags = async () => {
+      const { safeUpdateMeta } = await import('../../utils/shareUtils');
+      
+      const metaTags = [
+        { name: 'Cache-Control', content: 'no-cache, no-store, must-revalidate' },
+        { name: 'Pragma', content: 'no-cache' },
+        { name: 'Expires', content: '0' }
+      ];
+      
+      metaTags.forEach(tag => {
+        safeUpdateMeta(tag.name, tag.content);
+      });
+    };
+
+    updateMetaTags();
   }, []);
 
   return (

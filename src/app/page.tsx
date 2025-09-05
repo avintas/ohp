@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '../components/StickyNavbar';
 import { Footer } from '../components/Footer';
+import { ClientOnly } from '../components/ClientOnly';
 import Image from 'next/image';
 import Script from 'next/script';
 
@@ -85,67 +86,56 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Hockey Vibe Section - Interactive Emojis */}
-        <section className="py-8 px-4 md:px-6 2xl:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-              {/* Quick Actions */}
-              <div className="max-w-2xl mx-auto mb-8">
-              <p className="text-lg md:text-xl text-[#718096] font-medium mb-6">
-                Ready to pick your hockey vibe?
-              </p>
-                <div className="flex justify-center items-center gap-8 md:gap-12 mb-8">
-                  {/* Send Hockey Hug */}
-                  <a href="/sendhugs" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
-                    <div className="text-5xl mb-2">💝</div>
-                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Send a "H.U.G."</div>
-                  </a>
-                  
-                  {/* Brain Challenge */}
-                  <a href="/powerbrain" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
-                    <div className="text-5xl mb-2">🧠</div>
-                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Power Your Brain</div>
-                  </a>
-                  
-                  {/* Get Motivated */}
-                  <a href="/motivate" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
-                    <div className="text-5xl mb-2">💪</div>
-                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Motivate</div>
-                  </a>
-                  
-                  {/* Discover Stories */}
-                  <a href="/stories" className="text-center hover:scale-110 transition-transform duration-200 cursor-pointer">
-                    <div className="text-5xl mb-2">📰</div>
-                    <div className="text-sm font-semibold text-[#a0aec0] hover:text-white transition-colors duration-200">Human Stories</div>
-                  </a>
+        {/* NEW: Alternating Grid Section - Hydration Safe */}
+        <ClientOnly fallback={
+          <section className="py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="h-8 bg-gray-700 rounded mb-8 w-64 mx-auto animate-pulse"></div>
+                <div className="space-y-16">
+                  {[1,2,3,4].map(i => (
+                    <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                      <div className="text-center">
+                        <div className="w-16 h-16 bg-gray-700 rounded-full mx-auto mb-4 animate-pulse"></div>
+                        <div className="h-6 bg-gray-700 rounded mb-2 w-48 mx-auto animate-pulse"></div>
+                        <div className="h-4 bg-gray-700 rounded w-24 mx-auto animate-pulse"></div>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-xl p-6">
+                        <div className="h-4 bg-gray-700 rounded mb-2 animate-pulse"></div>
+                        <div className="h-4 bg-gray-700 rounded mb-2 w-5/6 animate-pulse"></div>
+                        <div className="h-4 bg-gray-700 rounded mb-4 w-4/5 animate-pulse"></div>
+                        <div className="h-8 bg-gray-700 rounded w-20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              {/* H.U.G. Explanation */}
-              <div className="mt-8 mb-8 max-w-2xl mx-auto">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  What&apos;s a H.U.G.?
-                </h3>
-                <div className="bg-gradient-to-r from-[#EF476F]/10 to-[#EF476F]/5 rounded-xl p-6 border border-[#EF476F]/20">
-
-                  <p className="text-[#a0aec0] leading-relaxed mb-4">
-                  Connect with the global hockey family through a H.U.G. Whether you're celebrating a great play, offering support, or just saying hello, it's a way to reach out to fellow fans.
-                  </p>
-                  <a
-                    href="/sendhugs"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#EF476F] hover:bg-[#EF476F]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
-                  >
-                    Try Now
-                  </a>
+            </div>
+          </section>
+        }>
+          <section className="py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+              <span className="block bg-gradient-to-r from-[#4cc9f0] to-[#FFB703] bg-clip-text text-transparent">
+                Explore Your Hockey Journey
+              </span>
+            </h2>
+            {/* Alternating Grid Layout */}
+            <div className="space-y-16">
+              {/* Row 1: Power Brain (Simple layout, no responsive switching) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                {/* Left Column - Emoji + Title */}
+                <div className="text-center">
+                  <div className="text-6xl md:text-7xl mb-4">🧠</div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    Hockey Trivia Training
+                  </h3>
+                  <p className="text-lg text-[#4cc9f0] font-semibold">Power Brain</p>
                 </div>
-              </div>
-               {/* Power Brain Explanation */}
-              <div className="mt-8 mb-8 max-w-2xl mx-auto">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  What&apos;s "Power Brain"?
-                </h3>
+                {/* Right Column - Explanation */}
                 <div className="bg-gradient-to-r from-[#4361ee]/10 to-[#4361ee]/5 rounded-xl p-6 border border-[#4361ee]/20">
-
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                  Sharpen your hockey IQ with Power Brain. This is your training ground to test your knowledge, challenge friends, and uncover amazing hockey facts you never knew.
+                    Sharpen your hockey IQ with Power Brain. This is your training ground to test your knowledge, challenge friends, and uncover amazing hockey facts you never knew.
                   </p>
                   <a
                     href="/powerbrain"
@@ -155,32 +145,13 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              {/* Power Up Explanation */}
-              <div className="mt-8 mb-8 max-w-2xl mx-auto">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  What&apos;s "Motivate"?
-                </h3>
-                <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20">
 
+              {/* Row 2: Stories (Reversed layout using CSS order) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                {/* Explanation Box - Desktop: appears first, Mobile: appears second */}
+                <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20 md:order-2">
                   <p className="text-[#a0aec0] leading-relaxed mb-4">
-                  Motivate delivers the inspirational stories, wisdom, and mindset boosts you need to face challenges on and off the ice.
-                  </p>
-                  <a
-                    href="/motivate"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFB703] hover:bg-[#FFB703]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
-                  >
-                    Try Now
-                  </a>
-                </div>
-              </div>
-              {/* Stories Explanation */}
-              <div className="mt-8 mb-8 max-w-2xl mx-auto">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  What&apos;s "Stories"?
-                </h3>
-                <div className="bg-gradient-to-r from-[#219EBC]/10 to-[#219EBC]/5 rounded-xl p-6 border border-[#219EBC]/20">
-                  <p className="text-[#a0aec0] leading-relaxed mb-4">
-                  Stories captures the heart of hockey: the personal journeys, human connections, and moments that go beyond the stats, from childhood dreams to championship victories.
+                    Stories captures the heart of hockey: the personal journeys, human connections, and moments that go beyond the stats, from childhood dreams to championship victories.
                   </p>
                   <a
                     href="/stories"
@@ -189,9 +160,68 @@ export default function Home() {
                     Try Now
                   </a>
                 </div>
+                {/* Emoji + Title - Desktop: appears second, Mobile: appears first */}
+                <div className="text-center md:order-1">
+                  <div className="text-6xl md:text-7xl mb-4">📚</div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    Human Stories
+                  </h3>
+                  <p className="text-lg text-[#219EBC] font-semibold">Hockey Stories</p>
+                </div>
               </div>
+
+              {/* Row 3: Send Hugs (Simple layout, no responsive switching) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                {/* Left Column - Emoji + Title */}
+                <div className="text-center">
+                  <div className="text-6xl md:text-7xl mb-4">🤗</div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    Send Hockey Hugs
+                  </h3>
+                  <p className="text-lg text-[#EF476F] font-semibold">H.U.G.</p>
+                </div>
+                {/* Right Column - Explanation */}
+                <div className="bg-gradient-to-r from-[#EF476F]/10 to-[#EF476F]/5 rounded-xl p-6 border border-[#EF476F]/20">
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
+                    Connect with the global hockey family through a H.U.G. Whether you&apos;re celebrating a great play, offering support, or just saying hello, it&apos;s a way to reach out to fellow fans.
+                  </p>
+                  <a
+                    href="/sendhugs"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#EF476F] hover:bg-[#EF476F]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
+                </div>
+              </div>
+
+              {/* Row 4: Motivate (Reversed layout using CSS order) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                {/* Explanation Box - Desktop: appears first, Mobile: appears second */}
+                <div className="bg-gradient-to-r from-[#FFB703]/10 to-[#FFB703]/5 rounded-xl p-6 border border-[#FFB703]/20 md:order-2">
+                  <p className="text-[#a0aec0] leading-relaxed mb-4">
+                    Motivate delivers the inspirational stories, wisdom, and mindset boosts you need to face challenges on and off the ice.
+                  </p>
+                  <a
+                    href="/motivate"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFB703] hover:bg-[#FFB703]/90 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Try Now
+                  </a>
+                </div>
+                {/* Emoji + Title - Desktop: appears second, Mobile: appears first */}
+                <div className="text-center md:order-1">
+                  <div className="text-6xl md:text-7xl mb-4">💪</div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    Pump Up Your Team
+                  </h3>
+                  <p className="text-lg text-[#FFB703] font-semibold">Motivate</p>
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
+        </ClientOnly>
 
         {/* Visual Break/Transition */}
         <div className="py-8 px-4 md:px-6 2xl:px-8">
@@ -355,7 +385,7 @@ export default function Home() {
         {/* FUN Arcade Button - Standalone */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
-          <div className="text-center animate-fade-in">
+          <div className="animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
               Ready to Have Some Fun?
             </h2>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
+import { ClientOnly } from '../../components/ClientOnly';
 
 interface Story {
   id: string;
@@ -113,26 +114,19 @@ export default function StoriesPage() {
   }, []);
 
   const handleShare = async (story: Story) => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `Hockey Story from OnlyHockey: ${story.title}`,
-          text: story.shareText,
-          url: window.location.href
-        });
-        setSharedStories(prev => new Set([...prev, story.id]));
-      } catch {
-        console.log('Share cancelled');
-      }
-    } else {
-      // Fallback: copy to clipboard
-      try {
-        await navigator.clipboard.writeText(story.shareText);
-        setSharedStories(prev => new Set([...prev, story.id]));
-        alert('Story copied to clipboard!');
-      } catch (error) {
-        console.error('Failed to copy to clipboard:', error);
-      }
+    // Import dynamically to avoid hydration issues
+    const { safeShare } = await import('../../utils/shareUtils');
+    
+    const success = await safeShare(
+      {
+        title: `Hockey Story from OnlyHockey: ${story.title}`,
+        text: story.shareText,
+      },
+      story.shareText
+    );
+
+    if (success) {
+      setSharedStories(prev => new Set([...prev, story.id]));
     }
   };
 
@@ -176,7 +170,17 @@ export default function StoriesPage() {
         <div className="max-w-2xl mx-auto">
           <div className="space-y-6">
             {stories.map((story) => (
-              <motion.div
+              <ClientOnly key={story.id} fallback={
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 h-48">
+                  <div className="animate-pulse">
+                    <div className="h-6 bg-gray-700 rounded mb-4 w-3/4"></div>
+                    <div className="h-4 bg-gray-700 rounded mb-2"></div>
+                    <div className="h-4 bg-gray-700 rounded mb-2 w-5/6"></div>
+                    <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+                  </div>
+                </div>
+              }>
+                <motion.div
                 key={story.id}
                 whileHover={{ 
                   scale: 1.02,
@@ -247,6 +251,7 @@ export default function StoriesPage() {
                   </motion.button>
                 </div>
               </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>

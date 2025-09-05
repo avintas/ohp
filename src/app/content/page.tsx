@@ -2,6 +2,7 @@
 
 import { StickyNavbar } from '@/components/StickyNavbar';
 import { CastMachine } from '@/components/CastMachine';
+import { ClientOnly } from '@/components/ClientOnly';
 import { Footer } from '@/components/Footer';
 
 export default function ContentPage() {
@@ -108,7 +109,8 @@ export default function ContentPage() {
                 Cast Player
             </h1>
             <p className="text-lg md:text-xl text-[#a0aec0] mb-8">
-              Your personal hockey broadcasting experience • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+              <span>Your personal hockey broadcasting experience</span>
+              <span suppressHydrationWarning> • {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
             </p>
 
 
@@ -118,7 +120,21 @@ export default function ContentPage() {
         {/* Cast Machine */}
         <section className="pt-0 pb-2 px-4 md:px-6 2xl:px-8">
           <div className="w-full max-w-md mx-auto md:max-w-2xl lg:max-w-4xl xl:max-w-6xl flex justify-center">
-            <CastMachine content={radioContent} />
+            <ClientOnly
+              fallback={
+                <div className="w-full max-w-md mx-auto md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+                  <div className="bg-slate-800 text-white rounded-2xl shadow-2xl p-6 border border-slate-700">
+                    <div className="text-center py-8">
+                      <div className="text-4xl mb-4">🎙️</div>
+                      <div className="text-lg font-bold text-white mb-2">Cast Player Loading...</div>
+                      <div className="text-sm text-slate-400">Preparing your hockey content</div>
+                    </div>
+                  </div>
+                </div>
+              }
+            >
+              <CastMachine content={radioContent} />
+            </ClientOnly>
           </div>
         </section>
 

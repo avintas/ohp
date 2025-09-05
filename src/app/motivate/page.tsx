@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { StickyNavbar } from '../../components/StickyNavbar';
 import { Footer } from '../../components/Footer';
+import { ClientOnly } from '../../components/ClientOnly';
 
 interface Motivation {
   id: string;
@@ -207,26 +208,19 @@ export default function MotivatePage() {
   }, []);
 
   const handleShare = async (motivation: Motivation) => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `Hockey Motivation from OnlyHockey: ${motivation.title}`,
-          text: motivation.shareText,
-          url: window.location.href
-        });
-        setSharedMotivations(prev => new Set([...prev, motivation.id]));
-      } catch {
-        console.log('Share cancelled');
-      }
-    } else {
-      // Fallback: copy to clipboard
-      try {
-        await navigator.clipboard.writeText(motivation.shareText);
-        setSharedMotivations(prev => new Set([...prev, motivation.id]));
-        alert('Motivation copied to clipboard!');
-      } catch (error) {
-        console.error('Failed to copy to clipboard:', error);
-      }
+    // Import dynamically to avoid hydration issues
+    const { safeShare } = await import('../../utils/shareUtils');
+    
+    const success = await safeShare(
+      {
+        title: `Hockey Motivation from OnlyHockey: ${motivation.title}`,
+        text: motivation.shareText,
+      },
+      motivation.shareText
+    );
+
+    if (success) {
+      setSharedMotivations(prev => new Set([...prev, motivation.id]));
     }
   };
 
@@ -274,7 +268,20 @@ export default function MotivatePage() {
         <div className="max-w-2xl mx-auto">
           <div className="space-y-4">
             {motivations.map((motivation) => (
-              <motion.div
+              <ClientOnly key={motivation.id} fallback={
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 h-48">
+                  <div className="animate-pulse">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
+                      <div className="h-4 bg-gray-700 rounded w-24"></div>
+                    </div>
+                    <div className="h-4 bg-gray-700 rounded mb-2"></div>
+                    <div className="h-4 bg-gray-700 rounded mb-2 w-5/6"></div>
+                    <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+                  </div>
+                </div>
+              }>
+                <motion.div
                 key={motivation.id}
                 whileHover={{ 
                   scale: 1.02,
@@ -346,6 +353,7 @@ export default function MotivatePage() {
 
 
               </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>

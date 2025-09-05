@@ -1,56 +1,59 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
-export function StickyNavbar() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show navbar when at top (first 100px) or when scrolling up
-      if (currentScrollY < 100) {
-        setIsVisible(true);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setIsVisible(false);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
+function NavbarContent() {
   return (
-    <nav 
-      className={`fixed left-1/2 -translate-x-1/2 z-50 bg-[#1a1a2e]/90 backdrop-blur-lg rounded-full shadow-lg border border-[#2d3748] transition-all duration-300 ease-in-out ${
-        isVisible 
-          ? 'top-4 opacity-100 translate-y-0' 
-          : '-top-16 opacity-0 -translate-y-4'
-      }`}
-    >
-      <div className="px-6 py-3">
-        {/* Centered Logo/Brand */}
-        <Link href="/">
-          <div className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-transform duration-200">
-            <div className="w-6 h-6 bg-[#4cc9f0] rounded-full flex items-center justify-center">
-              <svg className="w-3 h-3 text-[#0a0e1a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
+    <nav className="w-full bg-[#0a0e1a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Left - OH Puck Logo */}
+          <Link href="/">
+            <div className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-200">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#4cc9f0] to-[#219EBC] rounded-full flex items-center justify-center border-2 border-white/20 shadow-lg">
+                <span className="text-lg font-bold text-[#0a0e1a]">OH</span>
+              </div>
             </div>
-            <span className="text-lg font-bold text-white">ONLYHOCKEY</span>
+          </Link>
+
+          {/* Right - Navigation Menu */}
+          <div className="flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="/powerbrain" 
+                className="text-white hover:text-[#4cc9f0] font-medium transition-colors duration-200"
+              >
+                Hockey Trivia
+              </Link>
+              <Link 
+                href="/motivate" 
+                className="text-white hover:text-[#4cc9f0] font-medium transition-colors duration-200"
+              >
+                Uplift
+              </Link>
+              <Link 
+                href="/experts" 
+                className="text-white hover:text-[#4cc9f0] font-medium transition-colors duration-200"
+              >
+                Cast
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button className="text-white hover:text-[#4cc9f0] transition-colors duration-200">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </Link>
+        </div>
       </div>
     </nav>
   );
+}
+
+export function StickyNavbar() {
+  return <NavbarContent />;
 }
