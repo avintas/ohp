@@ -196,20 +196,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Visual Break/Transition */}
-        <div className="py-8 px-4 md:px-6 2xl:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="border-t border-[#2d3748] relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="bg-[#0a0e1a] px-6">
-                  <div className="text-2xl">🎭</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Meet the Cast Section - Character Introduction */}
+       {/* Meet the Cast Section - Character Introduction */}
         <section className="py-8 px-4 md:px-6 2xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
