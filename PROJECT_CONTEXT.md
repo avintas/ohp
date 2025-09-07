@@ -94,7 +94,7 @@ src/
 ### Framer Motion Patterns
 - **Entrance**: `initial` → `whileInView` with delays
 - **Hover**: Subtle scale and shadow effects
-- **Scroll**: Sticky navbar with backdrop blur
+- **Scroll**: Smooth scroll animations with backdrop blur
 - **Performance**: `viewport={{ once: true }}` for efficiency
 
 ### Animation Timing

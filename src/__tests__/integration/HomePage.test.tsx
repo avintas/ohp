@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Home from '../../app/page'
 
@@ -11,7 +11,7 @@ jest.mock('next/navigation', () => ({
 
 jest.mock('next/script', () => ({
   __esModule: true,
-  default: ({ children, ...props }: any) => <script {...props}>{children}</script>,
+  default: ({ children, ...props }: React.ComponentProps<'script'>) => <script {...props}>{children}</script>,
 }))
 
 describe('HomePage Integration', () => {
@@ -36,13 +36,6 @@ describe('HomePage Integration', () => {
       expect(screen.getByText('Meet Your Hockey Guides')).toBeInTheDocument()
     })
 
-    it('should render navigation bar', () => {
-      render(<Home />)
-      
-      // NavBar should be present (testing its existence, not internal structure)
-      const nav = document.querySelector('nav')
-      expect(nav).toBeInTheDocument()
-    })
 
     it('should render footer', () => {
       render(<Home />)

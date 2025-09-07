@@ -1,13 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { NavBar } from '../../components/NavBar';
 
 export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Navbar */}
-      <NavBar />
 
       {/* Main Content */}
       <main className="flex items-center justify-center min-h-[calc(100vh-80px)]">

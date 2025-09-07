@@ -1,6 +1,5 @@
 'use client';
 
-import { NavBar } from '../../components/NavBar';
 import { Footer } from '../../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,8 +7,6 @@ import Image from 'next/image';
 export default function BroadcasterPage() {
   return (
     <div className="min-h-screen bg-[#0f0f23]">
-      {/* Sticky Navbar */}
-      <NavBar />
 
       {/* Main Content */}
       <main className="py-20 px-4">

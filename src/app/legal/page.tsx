@@ -1,14 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { NavBar } from '../../components/NavBar';
 import { Footer } from '../../components/Footer';
 
 export default function LegalPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Navbar */}
-      <NavBar />
 
       {/* Main Content */}
       <main className="pt-20 px-4 md:px-6 lg:px-8 max-w-4xl mx-auto">

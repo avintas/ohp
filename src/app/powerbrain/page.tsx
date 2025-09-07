@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { NavBar } from '../../components/NavBar';
 import { Footer } from '../../components/Footer';
 import { PowerBrain } from '../../components/PowerBrain';
 import { useEffect } from 'react';
@@ -29,8 +28,6 @@ export default function PowerBrainPage() {
 
   return (
     <div className="min-h-screen bg-[#0f0f23]">
-      {/* Sticky Navbar */}
-      <NavBar />
 
       {/* Main Content */}
       <main className="py-20 px-4">

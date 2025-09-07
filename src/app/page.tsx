@@ -1,8 +1,6 @@
 'use client';
 
-import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
-import { ClientOnly } from '../components/ClientOnly';
 import Image from 'next/image';
 import Script from 'next/script';
 
@@ -68,7 +66,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <NavBar />
       
       {/* Main Content */}
       <main className="pt-4">

@@ -1,6 +1,5 @@
 'use client';
 
-import { NavBar } from '@/components/NavBar';
 import { CastMachine } from '@/components/CastMachine';
 import { ClientOnly } from '@/components/ClientOnly';
 import { Footer } from '@/components/Footer';
@@ -98,7 +97,6 @@ export default function ContentPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a]">
-      <NavBar />
       
       {/* Main Content */}
       <main className="pt-4">
